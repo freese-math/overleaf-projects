@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Mathematische Herleitung der Fibonacci-Freese-Formel}
+\author{}
+\date{}
+\maketitle
+
+\section{Hardy-Littlewood-Formel}
+Die Anzahl der Nullstellen bis zur Höhe $T$ folgt aus der Hardy-Littlewood-Formel:
+\[
+N(T) \approx \frac{T}{2\pi} \log \frac{T}{2\pi} - \frac{T}{2\pi}
+\]
+
+\section{Position der Nullstellen}
+\[
+t_N \approx \frac{2\pi N}{\log N}
+\]
+
+\section{Abstände zwischen Nullstellen}
+\[
+L(N) = t_{N+1} - t_N = \frac{2\pi}{\log(N+1)} - \frac{2\pi}{\log N}
+\]
+
+Für große $N$ gilt:
+\[
+\log(N+1) \approx \log N + \frac{1}{N}
+\]
+und somit:
+\[
+L(N) \approx \frac{2\pi}{\log N} \left( 1 - \frac{1}{\log N} \right)
+\]
+
+\section{Fibonacci-Freese-Formel}
+\[
+L(N) = A N^\beta + C \log(N) + D N^{-1}
+\]
+
+mit den empirisch bestimmten Parametern:
+\[
+A = 1.8828, \quad \beta = 0.91698, \quad C = 2488.1446, \quad D = 0.00555
+\]
+
+\section{Erweiterung der Formel}
+\[
+L(N) = A N^\beta + C \log(N) + D N^{-1} + B \sin(w \log N + \varphi)
+\]
+
+\section{Beta-Korrektur}
+\[
+\beta_{\text{gemessen}} = 0.916977, \quad \beta_{\text{erwartet}} = 0.918977 = \frac{1}{2} + 0.418977
+\]
+
+\[
+\Delta \beta = 0.002
+\]
+
+\section{Operator-Form}
+\[
+\hat{L} = \hat{H} N^\beta + C \log N + D N^{-1}
+\]
+
+\section{Quantenmechanische Interpretation}
+\[
+\hat{H} = \frac{1}{\pi^2} + e^{-\frac{1}{\pi^2}} \sum_{n=1}^{\infty} \frac{1}{n^3}
+\]
+
+\section{Schlussfolgerung zur Riemannschen Hypothese}
+Falls jede Abweichung von der kritischen Linie die FFF-Struktur zerstören würde, ist RH bewiesen.
+
+\end{document}

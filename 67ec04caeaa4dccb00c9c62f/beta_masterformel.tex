@@ -1,0 +1,81 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Erweiterte Strukturformel für die Beta-Skala \\ \large (Masterformel basierend auf der Freese-Struktur)}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Einleitung}
+Die Beta-Funktion $\beta(n)$ stellt eine zentrale Größe im Kontext spektraler Strukturen dar, die in enger Verbindung zur Nullstellenverteilung der Riemannschen Zetafunktion und deren Kohärenzlängen stehen. Die ursprüngliche Freese-Formel wird hier zu einer umfassenderen Masterformel erweitert, welche sowohl asymptotische als auch modulierte Anteile berücksichtigt.
+
+\section*{Erweiterte Masterformel}
+\[
+\beta(n) = A \cdot n^B + C + \sum_{k=1}^{M} \frac{a_k}{n^k} + \frac{a}{\log(n)} + b e^{-\pi}
+\]
+
+\subsection*{Parameter}
+\begin{itemize}
+    \item $A, B$ beschreiben die Hauptskalenstruktur ($B < 1$ suggeriert Wurzelverhalten).
+    \item $C$ ist eine additive Konstante, möglicherweise mit quantenspektraler Bedeutung.
+    \item $a_k$: Koeffizienten der harmonischen Modulationen (für $k = 1,2,\dots,M$).
+    \item $a/\log(n)$: asymptotischer Korrekturterm (wie in klassischen Zahlentheorieansätzen).
+    \item $b e^{-\pi}$: spektral motivierter, konstant schwingender Beitrag.
+\end{itemize}
+
+\section*{Interpretation}
+Die Formel ist geeignet für:
+\begin{itemize}
+    \item Approximation spektraler Eigenschaften der Nullstellenstruktur.
+    \item Modellierung der Kohärenzlängenverteilung entlang der kritischen Linie.
+    \item Analytische Fortsetzung oder Entwicklung spektral definierter Operatoren $H_\beta$.
+\end{itemize}
+
+\section*{Ausblick}
+Diese Strukturformel könnte als Grundlage für eine spektrale Ableitung eines Dirac-Operators $H_\beta$ dienen, dessen Eigenwerte die beobachtete chirale Symmetrie im Beta-Raum erklären.
+
+\section*{Beta-Skala: Frequenzbasierte Struktur}
+
+Die rekonstruktive Formel lautet:
+
+\[
+\beta(n) = \frac{A / n^p}{}     + 1.82e+08 \cdot \sin(2\pi \cdot 9.994743e-06 \cdot n)
+    + 1.91e+08 \cdot \sin(2\pi \cdot 9.495006e-06 \cdot n)
+    + 2.00e+08 \cdot \sin(2\pi \cdot 8.995268e-06 \cdot n)
+    + 2.11e+08 \cdot \sin(2\pi \cdot 8.495531e-06 \cdot n)
+    + 2.23e+08 \cdot \sin(2\pi \cdot 7.995794e-06 \cdot n)
+    + 2.36e+08 \cdot \sin(2\pi \cdot 7.496057e-06 \cdot n)
+    + 2.51e+08 \cdot \sin(2\pi \cdot 6.996320e-06 \cdot n)
+    + 2.68e+08 \cdot \sin(2\pi \cdot 6.496583e-06 \cdot n)
+    + 2.87e+08 \cdot \sin(2\pi \cdot 5.996846e-06 \cdot n)
+    + 3.09e+08 \cdot \sin(2\pi \cdot 5.497109e-06 \cdot n)
+    + 3.35e+08 \cdot \sin(2\pi \cdot 4.997371e-06 \cdot n)
+    + 3.66e+08 \cdot \sin(2\pi \cdot 4.497634e-06 \cdot n)
+    + 4.03e+08 \cdot \sin(2\pi \cdot 3.997897e-06 \cdot n)
+    + 4.47e+08 \cdot \sin(2\pi \cdot 3.498160e-06 \cdot n)
+    + 5.02e+08 \cdot \sin(2\pi \cdot 2.998423e-06 \cdot n)
+    + 5.70e+08 \cdot \sin(2\pi \cdot 2.498686e-06 \cdot n)
+    + 6.54e+08 \cdot \sin(2\pi \cdot 1.998949e-06 \cdot n)
+    + 7.44e+08 \cdot \sin(2\pi \cdot 9.994743e-07 \cdot n)
+    + 7.45e+08 \cdot \sin(2\pi \cdot 1.499211e-06 \cdot n)
+    + 1.30e+09 \cdot \sin(2\pi \cdot 4.997371e-07 \cdot n)
+
+\]
+
+Die kumulierte Struktur nähert die Primzahllogarithmen an:
+
+\[
+\sum_{k=1}^n \beta(k) \approx \log(p_n) + 15.88
+\]
+
+
+\end{document}

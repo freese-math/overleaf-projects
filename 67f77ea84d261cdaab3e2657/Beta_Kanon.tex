@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{physics}
+
+\begin{document}
+
+\section*{Theorem: Kanonische Beta-Skala als Träger harmonischer Spektralstruktur}
+
+Sei  
+\[
+\boxed{\beta(n) := A \cdot n^{\beta}} \quad \text{mit} \quad A = 0.003652, \quad \beta = -1.336085,
+\]  
+die kanonisch-normalisierte Beta-Skala, spektral extrahiert aus den Zeta-Nullstellen \( \rho_k \). Dann gilt:
+
+\begin{enumerate}
+    \item \textbf{Liouville-Rekonstruktion (Zeta Nova Freesiana, ZNF):}
+    \[
+    L(x) = \sum_{k=1}^{\infty} \beta(k) \cdot \frac{x^{2\rho_k}}{\rho_k \cdot \zeta'(\rho_k)} \quad \text{mit} \quad \rho_k = \tfrac{1}{2} + i\gamma_k
+    \]
+
+    \item \textbf{Operatorstruktur:}
+    \[
+    H_\beta \psi(n) := \beta(n) \cdot \psi(n) = A \cdot n^{\beta} \cdot \psi(n)
+    \]
+
+    \item \textbf{Kohärenzlängenstruktur:}
+    \[
+    \Delta \beta(n) = \beta(n+1) - \beta(n) \approx -\alpha \cdot n^{\beta - 1}
+    \quad \Rightarrow \quad \Delta \beta(n) \in \mathcal{O}(n^{-2.336})
+    \]
+
+    \item \textbf{Euler--Freese-Spektralidentität:}
+    \[
+    \boxed{
+    \lim_{n \to \infty} e^{i\pi \beta(n)} + 1 = 0
+    }
+    \quad \Rightarrow \quad \beta(n) \to \tfrac{2k+1}{2}
+    \]
+
+    \item \textbf{ZNF-Kohärenzbedingung:}
+    \[
+    \boxed{
+    \psi(x) \sim \sum_{k=1}^n \beta(k) \cdot \frac{x^{2\rho_k}}{\rho_k \cdot \zeta'(\rho_k)} \to \psi(x)
+    }
+    \quad \text{für } n \to \infty
+    \]
+\end{enumerate}
+
+\end{document}

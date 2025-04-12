@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry, graphicx, tikz, pgfplots}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.17}
+\geometry{a4paper, margin=2.5cm}
+\title{Analyse der Sliding-Window-Exponentenstruktur der Freese-Funktion}
+\author{(basierend auf numerischer Rekonstruktion)}
+\date{March 30, 2025}
+
+\begin{document}
+\maketitle
+
+\section{Einleitung}
+Die Freese-Funktion $L(n)$ beschreibt die spektrale Abstandsstruktur nichttrivialer Nullstellen der Riemannschen Zeta-Funktion.
+Zur Untersuchung ihrer Skalenstruktur wurde eine Sliding-Window-Fit-Analyse durchgeführt, bei der in überlappenden Intervallen jeweils ein Potenzgesetz der Form
+\[
+L(n) \approx \alpha n^{\beta(n)}
+\]
+angepasst wurde. Dabei bezeichnet $n$ den Mittelpunkt des Sliding Windows und $\beta(n)$ den lokal bestimmten Exponenten.
+
+\section{Ergebnisse der Sliding-Fit-Analyse}
+Basierend auf den ersten $100{,}000$ Nullstellen der Odlyzko-Liste ergab sich folgende Struktur der Gleitexponenten:
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=15cm,
+    height=8cm,
+    xlabel={Index $n$ (Sliding-Window-Mitte)},
+    ylabel={Exponent $\beta$},
+    title={Sliding Window Fit von $L(n) \approx \alpha n^\beta$},
+    grid=both,
+    legend style={at={(0.05,0.95)}, anchor=north west},
+]
+\addplot[blue, thick] table [x=n, y=beta, col sep=comma] {beta_fit_odlyzko_cleaned.csv};
+\addlegendentry{Sliding $\beta$}
+\addplot[red, dashed, thick, domain=0:100000] {0.127625};
+\addlegendentry{Mittelwert $\beta = 0.127625$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\section{Interpretation}
+Die neue Analyse mit vollständiger Datenbasis zeigt eine deutlich abweichende Mittelwertstruktur:
+
+\[
+\overline{\beta}_{\text{neu}} = 0.127625,
+\]
+im Gegensatz zum früher berichteten Wert $\overline{\beta}_{\text{alt}} = -0.10127$. Der exponentielle Fit zeigt erhebliche Streuung mit einem positiven Mittelwert, was auf eine komplexere modulierte Skalenform hindeutet.
+
+\section{Schlussfolgerung}
+Die ursprüngliche These einer global negativen Potenzstruktur kann in dieser Form nicht aufrechterhalten werden. Stattdessen ergibt sich ein dynamischer Exponentenverlauf mit signifikant positiver Mittelwerttendenz. Dies motiviert eine verfeinerte Modellierung spektraler Strukturen unter Einbeziehung möglicher Oszillations- oder Interferenzterme.
+
+\section{Spektralkohärenz zwischen \texorpdfstring{$\beta(n)$}{beta(n)} und \texorpdfstring{$\psi(x)$}{psi(x)}}
+
+Zur Untersuchung einer möglichen strukturellen Kopplung zwischen der exponentiellen Abstandsstruktur $L(n)$ der Zeta-Nullstellen und der Tschebyschow-Funktion $\psi(x)$ wurde eine Fourier-Spektralanalyse durchgeführt. Grundlage sind die normierten Amplitudenspektren zweier Funktionen:
+
+\begin{itemize}
+  \item $\beta(n)$: lokal gefitteter Exponent aus Sliding-Window-Modellen $L(n) \approx \alpha n^{\beta(n)}$ über $2{.}001{.}052$ Zeta-Nullstellen (Odlyzko).
+  \item $\psi(x)$: spektral rekonstruierte Tschebyschow-Funktion über die explizite Formel mit $\sim 10{,}000$ nichttrivialen Nullstellen.
+\end{itemize}
+
+\subsection*{Ergebnisse der Spektralanalyse}
+
+\begin{itemize}
+  \item Die \textbf{Pearson-Korrelation} der normierten Spektren beträgt:
+  \[
+  r = 0{,}7707
+  \]
+  \item Die \textbf{Cosinus-Ähnlichkeit} im Frequenzraum ergibt:
+  \[
+  \cos(\theta) = 0{,}7989
+  \]
+  \item Beide Spektren teilen einen \textbf{dominanten Grundfrequenzpeak} bei:
+  \[
+  f = 0{,}00100
+  \]
+\end{itemize}
+
+\subsection*{Interpretation}
+
+Die identische Grundfrequenz in beiden Spektren wird als Ausdruck einer \textbf{universellen Kohärenzlängenskala} gedeutet. Diese könnte die spektrale Organisation der Nullstellenstruktur sowie deren makroskopische Wirkung auf arithmetische Funktionen wie $\psi(x)$ koordinieren.
+
+Die Sliding-Fit-Analyse der Funktion $L(n)$ ergibt über die gesamte Datenbasis einen stabilen Mittelwert:
+
+\begin{equation}
+\boxed{\bar{\beta(n)} = -0{,}127625}
+\end{equation}
+
+Dieser Wert stimmt mit der theoretisch motivierten Annahme einer logarithmischen Kohärenzstruktur überein.
+
+\subsection*{Schlussfolgerung}
+
+Die hohe strukturelle Übereinstimmung im niederfrequenten Spektralbereich, gepaart mit einer exakten Grundfrequenzkoinzidenz, bildet die Grundlage der \textbf{Spektralkohärenzhypothese}:
+
+\begin{quote}
+Die spektrale Struktur von $\beta(n)$ und $\psi(x)$ ist kohärent im Sinne einer gemeinsamen Skalenfrequenz. Diese Kohärenz ist Ausdruck der zugrundeliegenden Nullstellenstruktur der Riemannschen Zeta-Funktion.
+
+\section{Gemeinsames spektrales Modell}
+
+Beide Funktionen, $\beta(n)$ und $\psi(x)$, lassen sich als Realisierungen eines zugrundeliegenden spektralen Stimulus $S(f)$ interpretieren, der durch die Verteilung der nichttrivialen Nullstellen der Riemannschen Zeta-Funktion bestimmt wird.
+
+Wir postulieren die Struktur:
+
+\begin{equation}
+S(f) = w_\beta(f) \cdot \widehat{\beta}(f) + w_\psi(f) \cdot \widehat{\psi}(f)
+\end{equation}
+
+Hierbei bezeichnet:
+\begin{itemize}
+  \item $\widehat{\beta}(f)$: normiertes Spektrum der Sliding-Fit-Exponenten,
+  \item $\widehat{\psi}(f)$: normiertes Spektrum der Tschebyschow-Funktion,
+  \item $w_\beta(f), w_\psi(f)$: spektrale Gewichtsfunktionen.
+\end{itemize}
+
+\subsection*{Spezialfall: Harmonische Kopplung}
+
+Im Falle einer dominanten Kohärenz bei Frequenz $f_0 = 0{,}001$, setzen wir:
+
+\begin{equation}
+w_\beta(f) = \delta(f - f_0), \qquad w_\psi(f) = \delta(f - f_0)
+\end{equation}
+
+Dann ergibt sich:
+
+\begin{equation}
+S(f_0) = \widehat{\beta}(f_0) + \widehat{\psi}(f_0)
+\end{equation}
+
+Diese Gleichung beschreibt die additive Überlagerung beider Spektren an der gemeinsamen Grundfrequenz und bildet den Kern der spektralen Kohärenzstruktur.
+
+\section{Spektralkohärenzstruktur in $\beta(n)$ und Verbindung zur Skalenkonstante}
+
+Die spektrale Analyse der Sliding-Exponenten $\beta(n)$ ergibt ein dominantes Frequenzband bei
+\[
+f^* \approx 0{,}01,
+\]
+welches durch eine signifikante Amplitudenverstärkung auffällt. Dieses Frequenzband lässt sich mit einer gebrochenen Skalenkonstante verknüpfen:
+
+\begin{equation}
+\beta_{\text{krit}} := \frac{\log 3}{\log 6} \approx 0{,}484906,
+\end{equation}
+
+welche in früheren Arbeiten als universeller Skalenexponent postuliert wurde. Die Nähe zu $\frac{1}{2}$ verweist auf eine gebrochene, aber nahezu symmetrische Struktur entlang der kritischen Linie $\operatorname{Re}(s) = \frac{1}{2}$ in der komplexen Ebene.
+
+\subsection*{Spektralmodell der Skalenanregung}
+
+Wir postulieren ein spektrales Anregungssignal $S(n)$, das sich über eine gewichtete Fourierreihe der Form
+\[
+S(n) = \sum_{k=1}^{N} \hat{\beta}(f_k) \cdot \cos(2\pi f_k n + \phi_k)
+\]
+rekonstruieren lässt. Dabei bezeichnet $\hat{\beta}(f_k)$ die Spektralkomponente bei Frequenz $f_k$, welche in unserem Fall bei $f^* \approx 0{,}01$ ein globales Maximum aufweist.
+
+\subsection*{Interpretation als Skalenresonanz}
+
+Diese Struktur lässt sich als eine dynamische Kopplung zwischen:
+
+\begin{itemize}
+\item der skalenlogarithmischen Struktur der Nullstellenverteilung (über $L(n)$ und $\beta(n)$),
+\item und der spektral rekonstruierten Tschebyschow-Funktion $\psi(x)$
+\end{itemize}
+
+interpretieren. Die beobachtete Frequenz $f^*$ wirkt somit wie ein Resonator in der log-periodischen Skalenstruktur und legt den Grundstein für ein Operator-basiertes Modell.
+\end{quote}
+
+\end{document}

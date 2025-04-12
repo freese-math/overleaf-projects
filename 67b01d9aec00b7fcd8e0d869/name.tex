@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Spektrale Rekonstruktion der Tschebyschow-Funktion mittels Beta-Gewichtung}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Ziel und Erwartung}
+
+Ziel ist es, eine spektrale Rekonstruktion der Tschebyschow-Funktion $\psi(x)$ auf Basis einer gewichteten Zeta-Summenformel zu realisieren:
+
+\[
+L(x) = 1 + \sum_{k=1}^{N} \frac{x^{\rho_k} \cdot \beta(k) \cdot \zeta(2\rho_k)}{\rho_k \cdot \zeta'(\rho_k)}
+\]
+
+Die Funktion $\psi(x)$ ist definiert als:
+
+\[
+\psi(x) := \sum_{n \le x} \Lambda(n) = \sum_{p^m \le x} \log(p)
+\]
+
+Die Annäherung $L(x) \approx \psi(x)$ wird erwartet, wenn die $\beta(k)$-Skala korrekt konstruiert ist und mit der spektralen Struktur der Riemannschen Zeta-Funktion harmoniert.
+
+\section*{2. Beobachtung im Plot}
+
+\begin{itemize}
+    \item Die \textbf{schwarze Kurve} zeigt $\psi(x)$ als Referenz.
+    \item Die \textbf{blaue Kurve} zeigt $L(x)$ mit $\beta(k)$ aus Frequenzextraktion.
+\end{itemize}
+
+\textbf{Beobachtung:} Bei geeigneter Wahl von $\beta(k)$ nähern sich beide Kurven sichtbar an. Die Oszillationen sind vergleichbar, jedoch nicht identisch. Dies lässt Rückschlüsse auf die spektrale Plausibilität der Konstruktion zu.
+
+\section*{3. Konvergenztest}
+
+Ein Konvergenzindikator der Reihe ist:
+
+\[
+S(n) = \sum_{k=1}^{n} \frac{|\beta(k)|}{\gamma_k}
+\]
+
+Dabei ist $\rho_k = \frac{1}{2} + i\gamma_k$ eine Nullstelle der Zeta-Funktion.
+
+\textbf{Interpretation:} Wenn $S(n)$ sublinear wächst (z.\,B. logarithmisch), ist die Reihe konvergent. Im numerischen Experiment ist dies gegeben, was auf eine robuste Struktur der $\beta(k)$-Skala hinweist.
+
+\section*{4. Begriffsklärung und Interpretation}
+
+In der Herleitung wurden Begriffe aus der Physik übernommen. Für mathematische Strenge müssen diese präzise gefasst werden:
+
+\begin{itemize}
+    \item \textbf{Frequenz:} $\gamma_k = \operatorname{Im}(\rho_k)$, interpretiert als Spektralanteil.
+    \item \textbf{Amplitude:} Betrag der spektralen Gewichtung $\beta(k)$.
+    \item \textbf{Spektrum:} Eigenwertspektrum eines Operators, z.\,B. der Hamilton-Operator im quantenspektralen Ansatz.
+\end{itemize}
+
+\section*{5. Fazit}
+
+Die Formel (76) mit rekonstruierter $\beta(k)$-Skala bildet $\psi(x)$ sichtbar annähernd nach. Konvergenz, spektrale Struktur und Visualisierung sprechen für die Validität des Ansatzes. Eine rigorose analytische Einbettung der $\beta$-Konstruktion in klassische Theorien (Guinand-Weil, Explicit Formula) ist ein folgender Schritt.
+
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+
+\title{Theta-Modulierte Spurformel zur Zeta-Funktion}
+\author{Prime Zeta Pro Framework}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Definition der modulierten Theta-Funktion}
+Wir definieren die modulierte Theta-Funktion durch:
+\[
+\Theta_\beta(t) := \sum_{n=1}^{\infty} e^{-\pi n^2 t} \cdot e^{i \beta \log n} = \sum_{n=1}^{\infty} \frac{e^{-\pi n^2 t}}{n^{-i\beta}}
+\]
+Dabei erzeugt die Modulation mit \(\beta\) eine spektrale Verschiebung entlang des Frequenzraums.
+
+\section*{2. Spurformel-Integration}
+Die zugehörige Spurformel ergibt sich durch Mellin-Transformation:
+\[
+\zeta_F(s) := \int_0^\infty \Theta_\beta(t) \cdot t^{\frac{s}{2} - 1} \, dt
+\]
+Mit Austausch von Summation und Integration:
+\[
+\zeta_F(s) = \sum_{n=1}^{\infty} \frac{1}{n^{i\beta}} \int_0^\infty e^{-\pi n^2 t} t^{\frac{s}{2} - 1} \, dt
+\]
+Die innere Integral ist die Gamma-Funktion mit Substitution \(u = \pi n^2 t\):
+\[
+\int_0^\infty e^{-\pi n^2 t} t^{\frac{s}{2} - 1} dt = \frac{1}{(\pi n^2)^{s/2}} \Gamma\left( \frac{s}{2} \right)
+\]
+Somit folgt:
+\[
+\zeta_F(s) = \Gamma\left( \frac{s}{2} \right) \cdot \pi^{-s/2} \sum_{n=1}^{\infty} \frac{1}{n^{s - i\beta}} = \Gamma\left( \frac{s}{2} \right) \cdot \pi^{-s/2} \cdot \zeta(s - i\beta)
+\]
+
+\section*{3. Interpretation}
+Diese Form erlaubt eine modulierte Fortsetzung der Riemannschen Zeta-Funktion:
+\[
+\zeta_F(s) \propto \zeta(s - i\beta)
+\]
+Sie zeigt explizit, wie sich die Modulation \(\beta\) auf die analytische Struktur und die Nullstellenverteilung auswirkt.
+
+\section*{4. Anwendung}
+Die Struktur ermöglicht eine Analyse der Nullstellenbewegung unter Variation von \(\beta\), insbesondere:
+\begin{itemize}
+  \item Stabilisierung auf der kritischen Linie \(\Re(s) = \frac{1}{2}\)
+  \item Zusammenhang zur Euler-Freese-Identität \(e^{i \pi \beta} + 1 = 0\)
+  \item Visualisierung des Theta-Spektrums und der Resonanzfrequenzen
+\end{itemize}
+
+\end{document}

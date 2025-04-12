@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Herleitung des Linearterms im Beta-Modell}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Motivation}
+
+In der empirischen Modellierung der Beta-Skala erscheint ein Term der Form
+\[
+\beta(n) \supset c \cdot n,
+\]
+der auf den ersten Blick kontraintuitiv erscheint, da viele klassische spektrale oder analytische Strukturen logarithmische oder oszillierende Abhängigkeiten zeigen. Dennoch lässt sich dieser Term motivieren, wenn man folgende Perspektiven berücksichtigt:
+
+\section*{1. Lineare Drift aus Systeminstabilität}
+
+In quantenmechanischen oder stochastischen Systemen treten lineare Driftterme häufig als Ausdruck nichtkonservativer Prozesse auf. Beispiel: Ein harmonischer Oszillator unter Einfluss eines konstanten externen Feldes erfährt eine spektrale Verschiebung
+\[
+E_n \rightarrow E_n + \gamma \cdot n,
+\]
+wobei \(\gamma\) die Kopplung an das Feld ist. Überträgt man dieses Konzept auf die Spektralskala der Zeta-Nullstellen, könnte \(\beta(n)\) ebenfalls einen linearen Driftmechanismus beschreiben.
+
+\section*{2. Asymptotische Entkopplung der Skalierung}
+
+Betrachtet man die Asymptotik großer \(n\), so dominiert eventuell ein langsamer Anstieg oder ein globales Skalenverhalten, das durch einen linearen Term modelliert wird. Beispielhaft:
+\[
+\lim_{n \to \infty} \left( \beta(n) - \frac{a}{\log n} \right) \approx c \cdot n.
+\]
+Dieser Ausdruck entspricht der Expansion eines restlichen Rausch- oder Systemeffekts.
+
+\section*{3. Regularisierung unstetiger Effekte}
+
+In der Fourier-Synthese unstetiger oder spärlich abgetasteter Funktionen tritt oft ein lineares Korrekturglied auf, um die Phasenverschiebung oder Drift in der Zeitachse zu kompensieren. Im Sinne der Signalverarbeitung kann der Term \(c \cdot n\) ein Artefakt solcher Korrekturprozesse sein.
+
+\section*{4. Physikalische Analogie zur dissipativen Energie}
+
+Falls \(\beta(n)\) als Energieäquivalent in einem quantisierten System interpretiert wird, kann der lineare Term einen dissipativen Beitrag modellieren. Vergleichbar mit
+\[
+E(n) = E_0(n) + \delta \cdot n,
+\]
+wobei \(\delta\) den Energieverlust pro Zustand beschreibt.
+
+\section*{Fazit}
+
+Ein Term der Form \(c \cdot n\) kann sinnvoll in die Struktur von \(\beta(n)\) eingebettet werden, insbesondere als:
+\begin{itemize}
+    \item Driftterm bei externer Störung,
+    \item asymptotischer Rest bei Subtraktion dominanter Terme,
+    \item kompensatorisches Glied bei Fourier-basierten Rekonstruktionen,
+    \item oder lineare Näherung eines langsamen systemischen Trends.
+\end{itemize}
+Empirisch tritt er mit kleinem, negativen Vorzeichen auf, was auf eine kompensierende, dämpfende Wirkung schließen lässt.
+
+\end{document}

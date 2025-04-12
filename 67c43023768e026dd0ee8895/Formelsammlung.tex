@@ -1,0 +1,117 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    pdftitle={Mathematische Formelsammlung der Freese-Formel},
+    pdfpagemode=FullScreen,
+}
+
+\title{Mathematische Formelsammlung der Freese-Formel}
+\author{Zusammenstellung aller bekannten Versionen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Grundlagen der Freese-Formel}
+
+Die Freese-Formel beschreibt die Abstände $\Delta_n$ zwischen aufeinanderfolgenden nichttrivialen Nullstellen der Riemannschen Zeta-Funktion. Sie basiert auf der Asymptotik der Nullstellenverteilung und empirischen Anpassungen an große Nullstellendatensätze.
+
+\subsection{Freese-Formel Standard (FFS)}
+Die Standard-Form der Freese-Formel lautet:
+\begin{equation}
+    \Delta_n = A n^{-1/2} + B n^{-1} + C.
+\end{equation}
+Numerische Fits liefern folgende Werte:
+\begin{align*}
+    A &\approx 25.953416, \\
+    B &\approx -28.796961, \\
+    C &\approx 0.529483.
+\end{align*}
+
+\subsection{Freese-Formel Oszillierend (FFO)}
+Um feinere Schwankungen zu berücksichtigen, wurde ein oszillatorischer Korrekturterm eingeführt:
+\begin{equation}
+    \Delta_n = A n^{-1/2} + B n^{-1} + C + w \cos(n w + \phi).
+\end{equation}
+Mit den angepassten Parametern:
+\begin{align*}
+    A &\approx 25.967831, \\
+    B &\approx -28.808266, \\
+    C &\approx 0.529463, \\
+    w &\approx 0.009999, \\
+    \phi &\approx 1.638759.
+\end{align*}
+
+\section{Ableitungen und Asymptotik}
+
+Die erste Ableitung der Standard-Form lautet:
+\begin{equation}
+    \frac{d}{dn} \Delta_n = -\frac{A}{2 n^{3/2}} - \frac{B}{n^2}.
+\end{equation}
+Die zweite Ableitung:
+\begin{equation}
+    \frac{d^2}{dn^2} \Delta_n = \frac{3A}{4 n^{5/2}} + \frac{2B}{n^3}.
+\end{equation}
+
+\section{Operator-Form der Freese-Formel}
+
+In Operator-Darstellung wird die Freese-Formel als Operator $\hat{F}$ definiert:
+\begin{equation}
+    \hat{F} = A \hat{N}^{-1/2} + B \hat{N}^{-1} + C + w \cos(\hat{N} w + \phi).
+\end{equation}
+Hierbei ist $\hat{N}$ der Zahloperator mit den Eigenwerten:
+\begin{equation}
+    \hat{N} |n\rangle = n |n\rangle.
+\end{equation}
+
+\section{Effektives Potential und Schrödinger-Form}
+
+Das effektive Potential aus der Operator-Form ist gegeben durch:
+\begin{equation}
+    V(x) = A x^{-1/2} + B x^{-1} + C.
+\end{equation}
+Die zugehörige Schrödinger-Gleichung nimmt die Form an:
+\begin{equation}
+    \left[ -\frac{d^2}{dx^2} + V(x) \right] \psi_n(x) = E_n \psi_n(x).
+\end{equation}
+Numerisch bestimmte Eigenwerte ergeben die Frequenzen:
+\begin{equation}
+    E_n \sim \left( n + \frac{1}{2} \right)^\beta.
+\end{equation}
+
+\section{Verbindung zur Riemannschen Hypothese}
+
+Die Freese-Formel und ihr Spektrum könnten Hinweise auf eine tiefere mathematische Struktur liefern. Die Hypothese von Hilbert-Pólya besagt, dass es einen selbstadjungierten Operator $\hat{H}$ gibt, dessen Eigenwerte mit den imaginären Teilen der Nullstellen der Zeta-Funktion übereinstimmen:
+\begin{equation}
+    \hat{H} | \psi_n \rangle = \gamma_n | \psi_n \rangle.
+\end{equation}
+Ein Kandidat für einen solchen Operator könnte in der Form
+\begin{equation}
+    \hat{H} = -\frac{d^2}{dx^2} + V(x)
+\end{equation}
+gegeben sein, wobei $V(x)$ aus der Freese-Formel abgeleitet werden kann.
+
+\section{Numerische Konstanten und offene Fragen}
+
+Eine weitere offene Frage ist, ob die Konstante
+\begin{equation}
+    f = \lim_{n\to\infty} \frac{\text{FFS}(n)}{n^{-1/2}}
+\end{equation}
+eine fundamentale Naturkonstante für die Nullstellenverteilung darstellt.
+
+\section{Zusammenfassung}
+
+Die Freese-Formel bietet eine präzise Annäherung an die Abstände der nichttrivialen Nullstellen der Riemannschen Zeta-Funktion. Die Einführung eines Operators $\hat{F}$ und die Ableitung eines effektiven Potentials $V(x)$ eröffnen neue Wege zur formalen Untersuchung der Nullstellenstruktur. Ein rigoroser Beweis der Riemannschen Vermutung könnte möglicherweise über die Selbstadjungiertheit eines solchen Operators erfolgen.
+
+\end{document}

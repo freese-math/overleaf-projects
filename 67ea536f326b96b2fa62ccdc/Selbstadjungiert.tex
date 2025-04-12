@@ -1,0 +1,58 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Spektraloperator \( D_\mu \) und seine Selbstadjungiertheit}
+\author{Eigene Forschung}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Definition des Operators}
+
+Sei \( \mu(n) \) eine strukturtragende Gewichtung, z.\,B.\ basierend auf der Beta-Skala \( \beta(n) \). Dann definieren wir den Operator \( D_\mu \) auf dem Funktionsraum \( \mathcal{H} = \ell^2(\mathbb{N}) \) durch
+\[
+(D_\mu f)(n) := \mu(n) \cdot f(n)
+\]
+für alle \( f \in \mathcal{H} \). Dieser Operator ist diagonal in der natürlichen Basis \( \{e_n\} \) gegeben durch \( e_n(k) = \delta_{nk} \).
+
+\section*{Selbstadjungiertheit}
+
+Zur Überprüfung der Selbstadjungiertheit betrachten wir zwei Testfunktionen \( f, g \in \mathcal{H} \), zum Beispiel:
+\[
+f(n) = \sin\left(\frac{2\pi n}{N}\right), \quad g(n) = \cos\left(\frac{4\pi n}{N}\right)
+\]
+Dann gilt:
+\[
+\braket{D_\mu f, g} = \sum_{n=1}^{N} \mu(n) f(n) g(n), \quad
+\braket{f, D_\mu g} = \sum_{n=1}^{N} f(n) \mu(n) g(n)
+\]
+Da beide Summen identisch sind, folgt:
+\[
+\braket{D_\mu f, g} = \braket{f, D_\mu g} \quad \Rightarrow \quad D_\mu = D_\mu^\dagger
+\]
+Der Operator ist also \textbf{selbstadjungiert}.
+
+\section*{Spektralkonstruktion von \( \eta(n) \)}
+
+Wir definieren die spektrale Erweiterung durch:
+\[
+\eta(n) := \beta(n) + \theta(n)
+\]
+wobei \( \theta(n) \) eine strukturierte Korrekturfunktion beschreibt, die durch das Spektrum des Operators \( D_\mu \) erklärbar ist.
+
+\textbf{Beobachtung:} Numerisch ergibt sich:
+\begin{itemize}
+    \item Die diagonale Wirkung \( \mu(n) \) ist mit der Beta-Skala hoch korreliert.
+    \item Die Ergänzung zu \( \eta(n) \) besitzt eine Oszillationsstruktur, die durch spektrale Eigenschaften erklärbar ist.
+\end{itemize}
+
+\section*{Ausblick}
+
+Da \( D_\mu \) selbstadjungiert ist, können weitere Untersuchungen zur Spektraldichte, möglichen Eigenfunktionen und zur Verbindung mit Zeta-Strukturen (via Fourier-Operatoren) erfolgen.
+
+\end{document}

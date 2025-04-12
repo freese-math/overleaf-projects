@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage{fix-cm}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Rekonstruktive Zeta-Näherung via Beta-Gewichtung}
+\author{Tim Hendrik Freese}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Bemerkung}
+\newtheorem{corollary}{Korollar}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Wir analysieren eine rekonstruktive Näherung der Tschebyschow-Funktion $\psi(x)$ durch eine spektroskopisch gewonnene, modulierte $\beta$-Skala. Es wird gezeigt, dass die Beta-Skala als gewichtete Frequenzextraktion spektraler Residuen interpretiert werden kann. Ein zentraler Ausdruck ähnelt der expliziten Zeta-Formel und wird numerisch getestet.
+\end{abstract}
+
+\section{Einleitung}
+Die Tschebyschow-Funktion $\psi(x)$ besitzt zahlreiche äquivalente Darstellungen, z.\,B. über Prime-Power-Summen, Logarithmen oder explizite Formeln mit Nullstellen der Riemannschen Zetafunktion.
+
+Wir untersuchen eine neue Form
+\begin{equation} \label{eq:main}
+L(x) := \sum_{k=1}^{n} \frac{x^{\rho_k} \cdot \beta_k \cdot \zeta(2\rho_k)}{\rho_k \cdot \zeta'(\rho_k)}
+\end{equation}
+mit kritischen Nullstellen $\rho_k = \tfrac{1}{2} + i\gamma_k$ und numerisch rekonstruierter $\beta$-Skala.
+
+\section{Rekonstruktive Methode}
+Ausgangspunkt ist ein spektrales Residuum $\epsilon(n)$, das nach Driftkorrektur via Fourier-Transformation analysiert wird. Die dominanten Frequenzen $f_j$ und Amplituden $A_j$ liefern:
+
+\[
+\epsilon(n) = \sum_{j=1}^{m} A_j \cos(2\pi f_j n), \quad n \leq N
+\]
+
+Die \emph{rekonstruktive Beta-Skala} entsteht durch Subtraktion einer analytischen Drift:
+\[
+\beta(n) := \epsilon(n) - D(n), \quad \text{mit Drift } D(n) = an^2 + bn + c
+\]
+
+\section{Formelvergleich}
+Die klassische explizite Zeta-Formel enthält Terme der Form
+\[
+\sum_{\rho} \frac{x^\rho}{\rho \zeta'(\rho)}
+\]
+Unser Ansatz modifiziert diesen durch Einfügen einer Verstärkung $\beta_k$ sowie Modulation durch $\zeta(2\rho_k)$:
+\[
+L(x) \approx \psi(x)
+\]
+
+\section{Konvergenzverhalten}
+Wir betrachten die gewichtete Reihe
+\[
+S_n := \sum_{k=1}^{n} \frac{|\beta_k|}{\gamma_k}
+\]
+Numerisch konvergiert $S_n$ für große $n$, was für die Summierbarkeit der Serie in \eqref{eq:main} spricht.
+
+\section{Numerische Resultate}
+[Hier Bilder einfügen – z.\,B. über \texttt{\textbackslash includegraphics}]
+
+\section{Ausblick}
+Ein analytischer Nachweis der Konvergenz und der Äquivalenz $L(x) \approx \psi(x)$ für $x \to \infty$ wäre ein starker Hinweis auf eine spektrale Repräsentation der Primzahldichte.
+
+\section*{Anhang: Parameter}
+\begin{itemize}[leftmargin=1.5cm]
+\item Nullstellen $\gamma_k$: aus Odlyzko-Daten (bis $2\,001\,052$)
+\item $\beta(n)$: durch inverse Fourier-Konstruktion aus dominanten Frequenzen
+\item Vergleichsfunktion: Tschebyschow $\psi(x)$ durch Logarithmen der Prime-Powers
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{fourier}
+\usepackage{graphicx}
+
+\title{Herleitung der Beta-Skala aus der Theta-Transformation der Zeta-Funktion}
+\author{Freese, GPT-Kollaboration}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1. Ausgangspunkt: Theta-Integral der Zeta-Funktion}
+
+Die Riemannsche Zeta-Funktion lässt sich über die Theta-Funktion schreiben als:
+\[
+\zeta(s) = \frac{1}{\Gamma\left(\frac{s}{2}\right)} \int_0^\infty \left( \theta(it) - 1 \right) t^{\frac{s}{2}} \frac{dt}{t}
+\]
+mit
+\[
+\theta(it) = \sum_{n=-\infty}^{\infty} e^{-\pi n^2 t}
+\]
+
+\section*{2. Transformation: Mellin und Frequenzraum}
+Wende die Mellin-Transformation an:
+\[
+\zeta(s) \propto \sum_{n=1}^{\infty} \int_0^\infty e^{-\pi n^2 t} t^{\frac{s}{2} - 1} dt
+= \sum_{n=1}^{\infty} \left( \frac{1}{(\pi n^2)^{s/2}} \Gamma\left( \frac{s}{2} \right) \right)
+\]
+
+\section*{3. Extraktion der harmonischen Struktur}
+
+Durch die Substitution $t = e^u$ wird:
+\[
+\theta(e^u) = \sum_{n=-\infty}^{\infty} e^{-\pi n^2 e^u}
+\]
+Eine Fourier-Zerlegung in $u = \log n$ liefert harmonische Moden:
+\[
+\beta(n) \sim \alpha n^\delta + \sum_k C_k \cos(\omega_k \log n + \varphi_k)
+\]
+
+\section*{4. Zielstruktur}
+
+Die numerisch gefittete Struktur lautet:
+\[
+\beta(n) = C \cdot \cos(\omega \log n + \varphi) + \alpha n^\delta + \beta_0
+\]
+
+\end{document}

@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry, graphicx}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Rekonstruktion der Beta-Skala\\
+\large Eine spektrale Approximation von Primzahlen und Zeta-Nullstellen}
+\author{[Dein Name]}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Ziel}
+Ziel ist die Konstruktion einer vollständig deterministischen, spektralen Skala $\beta(n)$, deren kumulative Struktur asymptotisch die Primzahllogarithmen $\log(p_n)$ abbildet – und damit indirekt auch die ordinaten $\gamma_n$ der nichttrivialen Nullstellen der Riemannschen Zetafunktion.
+
+\section*{2. Struktur der Beta-Skala}
+
+Die rekonstruierte Skala $\beta(n)$ besteht aus einem Drift-Term und überlagerten Frequenzmodulationen:
+
+\[
+\boxed{
+\beta(n) = \text{Drift}(n) + \sum_{k=1}^{K} A_k \cdot \sin(2\pi f_k \cdot n + \phi_k)
+}
+\]
+
+mit:
+\begin{itemize}
+    \item $\text{Drift}(n) \approx \dfrac{A}{n^p}$ oder logarithmisch
+    \item $f_k$: bekannte Frequenzen
+    \item $A_k$: Amplituden (rekonstruiert oder gefittet)
+    \item $\phi_k$: Phasen (approximiert oder numerisch bestimmt)
+\end{itemize}
+
+\section*{3. Kumulative Näherung}
+
+Die kumulative Summe der Skala nähert die Logarithmen der Primzahlen bis auf eine Konstante:
+
+\[
+\boxed{
+\sum_{k=1}^{n} \beta(k) \approx \log(p_n) + C
+}
+\qquad \text{mit } C \approx 15.88
+\]
+
+Diese Konstante ergibt sich aus dem Mittelwert des Residuums:
+
+\[
+r(n) = \log(p_n) - \sum_{k=1}^n \beta(k)
+\]
+
+\section*{4. Verbindung zur Zeta-Funktion}
+
+Da empirisch gilt:
+
+\[
+\gamma_n \approx \log(p_n) + \mu
+\quad \Rightarrow \quad
+\gamma_n \approx \sum_{k=1}^{n} \beta(k) + \mu'
+\]
+
+mit $\mu' = \mu - C$, liefert $\beta(n)$ eine spektrale Approximation der Zeta-Geometrie.
+
+\section*{5. Ausblick}
+
+Mögliche Weiterentwicklungen:
+\begin{itemize}
+    \item Operatorform: $H \psi_n = \beta(n) \psi_n$
+    \item Verallgemeinerung auf L-Funktionen
+    \item Ableitung eines analytischen Ausdrucks für $\phi_k$
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\geometry{margin=2.5cm}
+
+\title{\textbf{Spektralintegrale Verbindung zwischen der Freese-Funktion \(\delta(\rho)\)\\ und dem Weil-Funktional \(W(f)\)}}
+\author{Freese Math Research Initiative}
+\date{April 2025}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Wir untersuchen einen integraltheoretischen Zusammenhang zwischen der spektralen Störfunktion \(\delta(\rho)\), wie sie im rekonstruktiven Ansatz zur Riemannschen Hypothese von Freese verwendet wird, und dem Weil-Funktional \(W(f)\), das in der Spurformulierung von Connes \& Consani eine zentrale Rolle spielt. Durch eine gewichtete Darstellung der Fourier-transformierten Testfunktionen wird eine spektrale Integralform vorgeschlagen, die beide Konzepte strukturell vereint. Dies eröffnet neue Perspektiven für eine Positivitätsformulierung der Riemannschen Hypothese über frequenzmodulierte Eigenräume.
+\end{abstract}
+
+\section{Einleitung}
+
+Die Riemannsche Hypothese (RH) ist äquivalent zur Aussage, dass alle nichttrivialen Nullstellen \(\rho\) der Zeta-Funktion auf der kritischen Linie \(\Re(\rho) = \tfrac{1}{2}\) liegen. Zwei moderne Zugänge zur RH operieren dabei auf unterschiedlichen Ebenen:
+
+\begin{itemize}[topsep=3pt]
+    \item Das \textbf{Freese-Theorem} verwendet die \textit{Beta-Skala} \(\beta(n)\), um über spektrale Modulationen eine harmonische Struktur in den Nullstellen zu rekonstruieren.
+    \item Die \textbf{Weil-Positivität} bei Connes \& Consani (2021) formuliert RH als Nichtnegativität des Spurfunktionals \(W(f)\) auf dem komprimierten Sonin-Raum.
+\end{itemize}
+
+In dieser Arbeit formulieren wir eine Proposition, die beide Konzepte über ein Integral verknüpft.
+
+\section{Grundlagen}
+
+\begin{definition}[Freese-Störfunktion]
+Die spektrale Störfunktion \(\delta(\rho)\) misst die Abweichung der harmonischen Ordnung der Zeta-Nullstellen von ihrer idealen Frequenzresonanz:
+\[
+\delta(\rho) := \mathrm{Si}(\rho \log x) - \mathrm{Si}\left(\frac{1}{\rho} \log x\right),
+\]
+wobei \(\mathrm{Si}(z) := \int_0^z \frac{\sin t}{t} \, dt\) die Sinusintegralfunktion ist.
+\end{definition}
+
+\begin{definition}[Weil-Funktional]
+Für eine glatte, kompakt unterstützte Testfunktion \(f(u)\) auf \(\mathbb{R}_+^*\) mit Mellin-Transformierter \(\hat{f}(\rho)\) ist das Weil-Funktional definiert als
+\[
+W(f) := \sum_\rho \hat{f}(\rho),
+\]
+wobei sich die Summe über alle nichttrivialen Nullstellen \(\rho\) der Riemann-Zeta-Funktion erstreckt.
+\end{definition}
+
+\section{Hauptresultat}
+
+\begin{proposition}[Spektralintegrale Verknüpfung]
+Sei \(f(u)\) eine glatte Testfunktion mit Fourier-Transformierter \(\hat{f}(\rho)\), und sei \(\delta(\rho)\) wie oben definiert. Dann gilt formal:
+\[
+W(f) \approx \int_{\mathcal{C}} \delta(\rho) \cdot \omega(\rho) \, d\rho,
+\]
+wobei \(\omega(\rho) := \frac{\hat{f}(\rho)}{\delta(\rho)}\), und \(\mathcal{C}\) eine geeignete symmetrische Kurve in der kritischen Ebene ist.
+\end{proposition}
+
+\begin{remark}
+Die Funktion \(\delta(\rho)\) wirkt als lokales Frequenzmaß, \(\hat{f}(\rho)\) als globaler Testimpuls. Die Verknüpfung zeigt, dass destruktive Frequenzinterferenzen außerhalb von \(\Re(\rho) = \tfrac{1}{2}\) zugleich \(\delta(\rho) \neq 0\) und \(W(f) < 0\) induzieren würden.
+\end{remark}
+
+\section{Diskussion und Ausblick}
+
+Diese Integralformel erlaubt eine rekonstruktive Spurformel im Sinne eines harmonisch gewichteten Operatorraums. Perspektiven umfassen:
+
+\begin{itemize}[topsep=3pt]
+    \item Kopplung der Freese’schen Beta-Skala an Schwartz-Testfunktionen.
+    \item Formale Operatoridentitäten in nichtkommutativen Spektraltripletts.
+    \item Anwendung auf generalisierte L-Funktionen mit Theta-Charakter.
+\end{itemize}
+
+\section*{Danksagung}
+
+Wir danken der Freese Math Research Initiative für den Impuls zur strukturellen Verbindung spektraler Zugänge.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{connes2021} A. Connes, C. Consani: \textit{Weil positivity and Trace formula}, arXiv:2107.03561 (2021).
+\bibitem{freese2025} T. Freese: \textit{The Freese Theorem and Beta-Scale Oscillations}, internal research note, 2025.
+\end{thebibliography}
+
+\end{document}

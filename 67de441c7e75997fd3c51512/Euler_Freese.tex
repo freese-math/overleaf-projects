@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{animate}
+\usepackage{csvsimple}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\pgfplotsset{compat=1.17}
+
+\title{Dynamische Visualisierung der Euler-Freese-Identität}
+\author{Prime Zeta Pro}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Animation auf dem Einheitskreis}
+
+Die folgende Animation zeigt den Punkt 
+\[
+H(\beta) = e^{i\pi\beta}
+\]
+auf dem Einheitskreis für Werte $\beta \in [0,2]$. Der Punkt bewegt sich kontinuierlich gegen den Uhrzeigersinn:
+
+\begin{center}
+\begin{animateinline}[poster=first, controls, loop]{10}
+\multiframe{41}{i=0+1}{
+\begin{tikzpicture}[scale=2.5]
+  \draw[->] (-1.2,0) -- (1.2,0) node[right] {$\Re$};
+  \draw[->] (0,-1.2) -- (0,1.2) node[above] {$\Im$};
+  \draw[thick] (0,0) circle(1);
+  \def\b{\i*0.05}
+  \fill[red] ({cos(180*\b)},{sin(180*\b)}) circle(0.03);
+  \draw[dashed,gray] (0,0) -- ({cos(180*\b)},{sin(180*\b)});
+  \node at (1.0,1.0) {$\beta = \b$};
+\end{tikzpicture}
+}
+\end{animateinline}
+\end{center}
+
+\section*{Datenanalyse: Beta-Skala (aus CSV)}
+
+Als nächstes analysieren wir numerische Beta-Werte, wie sie z.B. aus einer Datei `beta_skala_v5.csv` geladen werden könnten. Die Datei muss dabei zwei Zeilen enthalten: erste Zeile = Zeta-Nullstellen, zweite Zeile = Beta-Werte.
+
+\subsection*{CSV-Tabelle (Auszug)}
+
+\begin{center}
+\csvreader[
+    tabular=|c|c|,
+    table head=\hline Zeta-Nullstelle & Beta-Wert \\ \hline,
+    late after line=\\\hline,
+    head to column names,
+    filter test=\ifnumless{\thecsvinputline}{12}
+]{beta_skala_v5.csv}{1=\zeta,2=\beta}
+{\zeta & \beta}
+\end{center}
+
+\section*{Geometrische Interpretation}
+
+Jeder dieser Beta-Werte definiert einen Punkt $H(\beta)$ auf dem Einheitskreis, mit:
+\[
+H(\beta) = \cos(\pi \beta) + i\sin(\pi \beta)
+\]
+Der Betrag ist stets 1, die Phase ist $\theta = \pi \beta$.
+
+\end{document}

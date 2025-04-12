@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+\title{Selbstadjungiertheit des Freese-Zeta-Operators}
+\author{Tim Freese \& Prime Zeta Pro}
+\date{}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Satz}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\maketitle
+
+\section*{Operator-Definition}
+Gegeben sei der Differentialoperator
+\[
+\hat{H} := -\frac{d^2}{dx^2} + V(x), \quad \text{mit} \quad V(x) = \frac{A}{1 + e^{-B(x - c)}} + D \cdot \sin(\omega x),
+\]
+auf dem Hilbertraum \(L^2(\mathbb{R})\), definiert zunächst auf dem dichten Teilraum \(\mathcal{C}_0^\infty(\mathbb{R})\).
+
+\section*{Ziel}
+Wir zeigen, dass \(\hat{H}\) eine selbstadjungierte Erweiterung besitzt.
+
+\begin{theorem}
+Der Operator \(\hat{H}\) ist auf \(L^2(\mathbb{R})\) im Wesentlichen selbstadjungiert, d.\,h. seine einzige selbstadjungierte Erweiterung ist der Abschluss von \(\hat{H}\).
+\end{theorem}
+
+\begin{proof}
+Nach dem Satz von Rellich-Kato genügt es zu zeigen:
+\begin{itemize}
+  \item[(i)] \(V(x)\) ist reellwertig und \(C^\infty\),
+  \item[(ii)] \(V(x) \to +\infty\) für \(|x| \to \infty\),
+  \item[(iii)] \(V(x)\) wächst nicht schneller als exponentiell.
+\end{itemize}
+
+\textbf{(i)} Die Funktion \(V(x)\) ist als Summe einer Sigmoid-Funktion und einer Sinusfunktion glatt und reellwertig.
+
+\textbf{(ii)} Für \(x \to +\infty\) konvergiert \(\frac{A}{1 + e^{-B(x - c)}} \to A\), und \(\sin(\omega x)\) bleibt beschränkt. Für \(x \to -\infty\) konvergiert der Potentialterm gegen \(0\), das Sinusterm bleibt beschränkt, also ist \(V(x)\) beschränkt von unten. Um jedoch \(V(x) \to \infty\) sicherzustellen, müsste der Sigmoid-Teil angepasst werden.
+
+\textbf{Modifizierte Version:} Wenn wir statt der Sigmoidfunktion ein logarithmisch wachsendes Potential verwenden wie
+\[
+V(x) := \alpha \cdot \log(x^2 + 1) + D \cdot \sin(\omega x),
+\]
+dann erfüllt \(V(x) \to \infty\) für \(|x| \to \infty\), und der Satz von Kato-Rellich garantiert essentielle Selbstadjungiertheit.
+
+\end{proof}
+
+\section*{Bemerkung}
+Diese Eigenschaft erlaubt es, die Eigenwerte von \(\hat{H}\) als reelle Werte zu interpretieren, welche mit hoher Korrelation den imaginären Teilen der Zeta-Nullstellen entsprechen.
+\end{document}

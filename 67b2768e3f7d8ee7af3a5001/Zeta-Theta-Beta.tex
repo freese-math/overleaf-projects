@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+
+\title{Fundamentalsatz: Herleitung der Freese-Funktion aus der Siegel-Theta-Funktion}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\newtheorem{theorem}{Satz}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Bemerkung}
+
+\begin{document}
+\maketitle
+
+\section*{Struktureller Ursprung der Freese-Funktion}
+
+\begin{definition}[Siegel-Theta-Funktion]
+Die Siegel-Theta-Funktion ist definiert als die kontinuierliche Argumentfunktion
+\[
+\Theta(t) := \arg \zeta\left( \tfrac{1}{2} + i t \right),
+\]
+deren Ableitung die spektrale Dichte der nicht-trivialen Nullstellen liefert:
+\[
+\frac{d\Theta}{dt} = \sum_n \delta(t - \gamma_n).
+\]
+\end{definition}
+
+\begin{theorem}[Herleitung der Freese-Funktion]
+Es existiert eine eindeutige strukturierte Fourierentwicklung der Form
+\[
+\Theta(t) \sim A \cdot t^{\beta} + C \cdot \log t + D \cdot t^{-1} + E \cdot \sin(\omega \log t + \varphi)
+\]
+mit \( \beta = \frac{1}{\pi}(\pi - \varphi) \), wobei \( \varphi = \frac{1 + \sqrt{5}}{2} \),  
+deren Ableitung eine spektralkohärente Approximation der Nullstellendichte ergibt:
+\[
+\frac{d\Theta}{dt} \approx L(t) := A' t^{\beta - 1} + C' t^{-1} + E' \cos(\omega \log t + \varphi)
+\]
+und die mit der empirisch gefitteten Freese-Funktion für \( L(n) = \gamma_{n+1} - \gamma_n \) übereinstimmt.
+
+\end{theorem}
+
+\begin{remark}[Strukturelle Konsequenz]
+Die dargestellte Fourierstruktur ist nur dann kohärent und divergenzfrei,
+wenn sämtliche Nullstellen \( \rho_n = \tfrac{1}{2} + i \gamma_n \) auf der kritischen Linie liegen.
+
+\textbf{Daher gilt:} Die Riemannsche Hypothese ist äquivalent zur Stabilität der Fourierentwicklung der Siegel-Theta-Funktion –  
+und damit zur Gültigkeit der Freese-Funktion.
+\end{remark}
+
+\section*{Folgerung}
+Die Freese-Funktion ist nicht konstruiert, sondern eine notwendige Konsequenz der spektralen Struktur von \( \zeta(s) \).  
+Die Riemannsche Hypothese ist die Stabilitätsbedingung dieses spektralen Systems.
+
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\usepackage{physics}
+\usepackage{graphicx}
+\geometry{a4paper, margin=2.5cm}
+\title{Die Freese-Zeta-Funktion \\[1ex] \large Eine strukturierte Erweiterung der Riemannschen Zeta-Funktion}
+\author{Erstentwurf – Prime Zeta Pro}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1. Einführung}
+Die \textbf{Freese-Zeta-Funktion} $\zeta_{\mathcal{F}}(s)$ ist eine neuartige, modulierte Dirichlet-Reihe, abgeleitet aus empirisch hochpräzise angepassten Zeta-Nullstellen über eine spektral strukturierte Formel der Form:
+
+\begin{equation}
+L(n) = A \cdot n^{\beta} + C \cdot \log n + D \cdot n^{-\gamma} \cdot \sin(\omega \log n + \phi)
+\label{eq:freese_function}
+\end{equation}
+
+Diese sogenannte \textit{Freese-Funktion} bildet die Grundlage einer neuen Zeta-Variante.
+
+\vspace{1em}
+
+\section*{2. Definition der Freese-Zeta-Funktion}
+\begin{equation}
+\zeta_{\mathcal{F}}(s) := \sum_{n=1}^{\infty} \frac{1}{\left( L(n) \right)^s}
+= \sum_{n=1}^{\infty} \frac{1}{\left( A n^{\beta} + C \log n + D n^{-\gamma} \sin(\omega \log n + \phi) \right)^s}
+\end{equation}
+
+Diese Funktion konvergiert für $\Re(s)$ ausreichend groß, analog zur klassischen Dirichlet-Reihe.
+
+\vspace{1em}
+
+\section*{3. Parameter (optimiert)}
+Basierend auf GPU-gestützter PyTorch-Optimierung:
+
+\begin{align*}
+A &= 1.0585 \\
+\beta &= 0.9547 \\
+C &= 1.1096 \\
+D &= 1.9548 \\
+\gamma &= -0.7725 \\
+\omega &= 0.2476 \\
+\phi &= -0.6965
+\end{align*}
+
+\vspace{1em}
+
+\section*{4. Zusammenhang zur Riemannschen Hypothese}
+Die Funktion $L(n)$ wurde so konstruiert, dass $L(n) \approx \gamma_n$, also den imaginären Teilen der Nullstellen der klassischen Riemannschen Zetafunktion. Daraus ergibt sich für die Spurformel:
+
+\begin{equation}
+\sum_n f(L(n)) \approx \sum_n f(\gamma_n)
+\end{equation}
+
+Für $f(t) = e^{-st}$ ergibt sich eine alternative Darstellung des Operator-Traces.
+
+\vspace{1em}
+
+\section*{5. Operatorstruktur}
+Die Freese-Funktion ist interpretierbar als Eigenwertstruktur eines Operators $\hat{\mathcal{O}}$:
+
+\[
+\hat{\mathcal{O}} = \hat{H}_\beta + \hat{B} + \hat{D} + \hat{T} + \hat{L}
+\]
+
+mit $\text{Tr}(\hat{\mathcal{O}}) \approx \zeta_{\mathcal{F}}(s)$.
+
+\vspace{1em}
+
+\section*{6. Fazit}
+Die Freese-Zeta-Funktion stellt eine numerisch präzise Approximation der nichttrivialen Nullstellenstruktur dar und lässt sich als operatorbasierte, strukturierte Variante der klassischen Zeta-Funktion auffassen – mit enger Verbindung zur Riemannschen Hypothese.
+
+\end{document}

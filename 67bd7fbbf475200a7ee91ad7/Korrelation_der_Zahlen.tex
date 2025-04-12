@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{booktabs} % Für schöne Tabellen
+\usepackage{xcolor} % Für Farben
+
+\begin{document}
+
+\title{DefCon Ampel - Mathematische Stabilitätsbewertung}
+\author{}
+\date{}
+\maketitle
+
+\section*{Tabellarische Übersicht der Fit-Ergebnisse}
+
+\begin{table}[h]
+    \centering
+    \rowcolors{2}{gray!15}{white} % Alternierende Farben
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Modell} & \textbf{α-Wert} & \textbf{β-Wert} & \textbf{Status} \\
+        \midrule
+        Fibonacci & 2.00000 & 2.00000 & \cellcolor{green!25} Stabil \\
+        Primzahlen & 1.57461 & 0.27282 & \cellcolor{yellow!25} Unsicher \\
+        Zeta-Nullstellen & 0.98374 & 0.00288 & \cellcolor{red!25} Kritisch \\
+        \bottomrule
+    \end{tabular}
+    \caption{Fit-Ergebnisse der verschiedenen Modelle mit DefCon-Ampel}
+    \label{tab:defcon}
+\end{table}
+
+\end{document}

@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fftpack import fft
+
+# Simulierte Daten für Zeta-Nullstellen
+n_values = np.arange(1, 5000)
+zeta_nullstellen = 2 * np.pi * n_values / np.log(n_values)
+
+# Fourier-Analyse der Nullstellen-Abstände
+frequenzen = np.fft.rfftfreq(len(zeta_nullstellen))
+spektrum = np.abs(np.fft.rfft(zeta_nullstellen))
+
+plt.figure(figsize=(10, 5))
+plt.plot(frequenzen, spektrum, color='red', label="Zeta-Nullstellen")
+plt.xlabel("Frequenz")
+plt.ylabel("Spektrale Stärke")
+plt.legend()
+plt.title("Fourier-Analyse: Zeta-Nullstellen")
+plt.savefig("fourier_spektrum.png")
+
+# Abstandsverteilung der Primzahlen
+primzahlen = np.loadtxt("primzahlen1mio.txt")[:5000]
+primzahl_abstaende = np.diff(primzahlen)
+
+plt.figure(figsize=(10, 5))
+plt.plot(n_values[:4999], primzahl_abstaende, color='black', label="Echte Primzahlabstände")
+plt.xlabel("Index n")
+plt.ylabel("Abstand zwischen Primzahlen")
+plt.legend()
+plt.title("Vergleich der Primzahlabstände")
+plt.savefig("primzahlabstaende.png")

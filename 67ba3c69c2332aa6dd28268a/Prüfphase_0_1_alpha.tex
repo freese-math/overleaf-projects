@@ -1,0 +1,109 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,graphicx,hyperref,geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xcolor}
+\hypersetup{colorlinks,linkcolor=blue,urlcolor=blue}
+
+\title{\textbf{Mathematische Herleitung der Freese-Formel (FFS \& FFO)} \\ 
+\large Inklusive Operator-Darstellung, Invarianten \& Hypothetische Naturkonstante f}
+\author{Tim Hendrik Freese}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Einleitung}
+Die folgende Herleitung beschreibt die **Freese-Formel Standard (FFS)** sowie ihre **oszillierende Variante (FFO)**. Dabei wird der aktuelle **numerisch optimierte Zustand** detailliert hergeleitet.  
+Besonderes Augenmerk liegt auf möglichen Invarianten, einer möglichen **neuen Naturkonstante $f$**, Operator-Darstellungen und allgemeinen Erweiterungen.
+
+\section{Definition der Freese-Formel (FFS \& FFO)}
+\subsection{Standardform (FFS)}
+Die Standardform der Freese-Formel beschreibt die Nullstellen-Abstände der Riemannschen Zeta-Funktion in geschlossener Form:
+\begin{equation}
+    \text{FFS}(n) = A \cdot n^{-1/2} + B \cdot n^{-1} + C
+\end{equation}
+mit den aktuell numerisch optimierten Parametern:
+\begin{align*}
+    A &= 25.953416, \\
+    B &= -28.796961, \\
+    C &= 0.529483.
+\end{align*}
+Der mittlere Fehler beträgt $0.185513$, was auf eine **sehr gute Approximation** hinweist.
+
+\subsection{Oszillierende Variante (FFO)}
+Die erweiterte Version beinhaltet eine oszillierende Korrektur:
+\begin{equation}
+    \text{FFO}(n) = A \cdot n^{-1/2} + B \cdot n^{-1} + C + w \cos(nw + \phi)
+\end{equation}
+mit den optimierten Parametern:
+\begin{align*}
+    A &= 25.967831, \quad B = -28.808266, \quad C = 0.529463, \\
+    w &= 0.009999, \quad \phi &= 1.638759.
+\end{align*}
+Hier bleibt der Fehler fast identisch bei **$0.185596$**, was darauf hindeutet, dass die Oszillation nur eine marginale Verbesserung bringt.
+
+\section{Ableitungen und Operator-Darstellung}
+\subsection{Ableitungen der FFS}
+\textbf{1. Ableitung} (Geschwindigkeit der Abstandsänderung):
+\begin{equation}
+    \frac{d}{dn} \text{FFS}(n) = -\frac{A}{2 n^{3/2}} - \frac{B}{n^2}
+\end{equation}
+\textbf{2. Ableitung} (Beschleunigung der Abstandsänderung):
+\begin{equation}
+    \frac{d^2}{dn^2} \text{FFS}(n) = \frac{3A}{4 n^{5/2}} + \frac{2B}{n^3}
+\end{equation}
+
+\subsection{Ableitungen der FFO}
+Die Ableitungen der oszillierenden Variante beinhalten zusätzliche Terme:
+\begin{align}
+    \frac{d}{dn} \text{FFO}(n) &= -\frac{A}{2 n^{3/2}} - \frac{B}{n^2} - w^2 \sin(nw + \phi) \\
+    \frac{d^2}{dn^2} \text{FFO}(n) &= \frac{3A}{4 n^{5/2}} + \frac{2B}{n^3} - w^3 \cos(nw + \phi).
+\end{align}
+
+\subsection{Operator-Darstellung}
+Falls eine Operator-Darstellung existiert, könnte sie folgende Form haben:
+\begin{equation}
+    \hat{F} = A \cdot \hat{N}^{-1/2} + B \cdot \hat{N}^{-1} + C + w \cos(\hat{N} w + \phi)
+\end{equation}
+mit dem Operator $\hat{N}$, der die Nullstellen-Indizes beschreibt.
+
+\section{Invarianten und Vermutete Naturkonstante f}
+\subsection{Hypothese zur Naturkonstante f}
+Ein auffälliges Muster in den Optimierungen ist das Auftreten einer universellen **Skalierungsgröße f**, die möglicherweise eine tiefere Verbindung zwischen Primzahlen und Zeta-Nullstellen darstellt.
+
+Wir postulieren:
+\begin{equation}
+    f = \lim_{n \to \infty} \frac{\text{FFS}(n)}{n^{-1/2}}.
+\end{equation}
+Die aktuelle numerische Approximation deutet auf:
+\begin{equation}
+    f \approx 25.95.
+\end{equation}
+
+Falls $f$ tatsächlich eine Invariante ist, wäre sie als eine **fundamentale Konstante** der Nullstellenverteilung der Zeta-Funktion zu betrachten.
+
+\section{Hypothetische Erweiterungen \& Verallgemeinerungen}
+\subsection{Verallgemeinerte Operator-Darstellung}
+Eine noch allgemeinere Form könnte folgende Gestalt annehmen:
+\begin{equation}
+    \hat{F} = A \cdot \hat{N}^{-\alpha} + B \cdot \hat{N}^{-\beta} + C + w \cos(\hat{N} w + \phi).
+\end{equation}
+Hierbei wären $\alpha, \beta$ freie Parameter, die möglicherweise numerisch bestimmt werden könnten.
+
+\subsection{Differentialgleichung für die FFS/FFO}
+Falls eine zugrunde liegende Differentialgleichung existiert, müsste sie die Form besitzen:
+\begin{equation}
+    \frac{d^2F}{dn^2} + P(n) \frac{dF}{dn} + Q(n) F = 0.
+\end{equation}
+Wobei $P(n)$ und $Q(n)$ noch zu bestimmen wären.
+
+\section{Fazit \& Offene Fragen}
+\begin{itemize}
+    \item Ist die Oszillation in der FFO rein numerisch oder fundamental?
+    \item Ist $f$ tatsächlich eine **neue Naturkonstante**?
+    \item Welche Verbindung gibt es zur Riemannschen Vermutung?
+\end{itemize}
+
+\end{document}

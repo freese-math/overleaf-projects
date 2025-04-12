@@ -1,0 +1,40 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=0.0cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+
+\title{Entwicklung der Freese-Theorie: Vom intuitiven Ansatz zum kohärenten Strukturmodell}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\begin{document}
+\maketitle
+
+\section*{Entwicklungsschema (Zeitleiste)}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=0.0cm and 0.1cm,
+  every node/.style={font=\small},
+  milestone/.style={rectangle, draw, fill=gray!10, align=center, minimum width=0.1cm, minimum height=3.0cm},
+  arrow/.style={-{Latex[length=3mm]}, thick}
+  ]
+
+% Nodes
+\node[milestone] (start) {Frühe Phase (2022–2023)\\„Kohärenzlänge“, Skalarwellen\\Intuition, visuelle Struktur};
+\node[milestone, right=of start] (middle) {Strukturphase (2023–2024)\\Freese-Funktion, Beta-Skala\\Numerik, Fourieransatz};
+\node[milestone, right=of middle]
+% \node
+(now) {Analytische Reifung (2024–2025)\\Siegel-Theta-Fourier\\Ableitung, Bias-Prüfung};
+\node[milestone, right=of now] (future) {SOLL-Zustand\\Operator-Integration, RH-Stabilität\\Publikation, ArXiv};
+
+% Arrows
+\draw[arrow] (start) -- (middle);
+\draw[arrow] (middle) -- (now);
+\draw[arrow] (now) -- (future);
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{float}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\title{\textbf{Zeta Nova Freesiana: Spektralstruktur, Beta-Skala und Primzahlwellen}}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Einführung}
+
+Die Zeta Nova Freesiana (ZNF) erweitert die klassische Riemannsche Zeta-Funktion durch spektrale, modulierte und operatorielle Komponenten. Sie verknüpft Primzahlsummen, Wellenfunktionen und analytische Struktur über einen neuen Zugriff:
+
+\[
+\zeta_F(s) := \sum_{n=1}^\infty \frac{1}{(A n^\beta + C \log n + B \sin(\omega n + \varphi))^s}
+\]
+
+Diese Funktion basiert auf der Idee, die harmonische Struktur der Zeta-Nullstellen durch eine Beta-Skala sowie eine modulierte Euler-Wellenfunktion zu rekonstruieren.
+
+\section*{2. Euler-Wellenfunktion und Beta-Skala}
+
+\subsection*{2.1 Definition der Euler-Welle}
+Die modulierte Euler-Wellenfunktion lautet:
+\[
+\psi(x) = \sum_{p \leq p_N} \sin(x \log p)
+\]
+mit \(p\) Primzahlen. Sie zeigt Resonanzen bei ganzzahligen Vielfachen von \(\log p\) und entspricht einer überlagerten Frequenzstruktur.
+
+\subsection*{2.2 Harmonische Parametrisierung:}
+Die Beta-Werte \( \beta = \frac{m}{n} \) werden in eine Kreisbewegung eingebettet:
+\[
+H(\beta) = e^{i \pi \beta}
+\]
+und erzeugen spektrale Identitäten mit hoher Genauigkeit (Fehler \(\Delta < 10^{-4}\)).
+
+\section*{3. Operatoransatz und spektrale Hypothese}
+
+\subsection*{3.1 Der Operator \(\mathcal{D}_\mu\)}
+
+Wir definieren:
+\[
+(\mathcal{D}_\mu f)(n) = \sum_{k=1}^{K} w_k \cdot \exp\left(-\frac{(n - \gamma_k)^2}{2\sigma^2} \right) \cdot f(n) + \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\]
+
+\textbf{Notation:}
+\begin{itemize}
+  \item \(\gamma_k\): Imaginärteile der Zeta-Nullstellen
+  \item \(\mu(d)\): Möbius-Funktion
+  \item \(w_k = \frac{1}{|\zeta'(\rho_k)|}\): spektrales Gewicht
+\end{itemize}
+
+\subsection*{3.2 Hypothese zur Selbstadjungiertheit}
+Die Riemannsche Hypothese ist äquivalent zur Selbstadjungiertheit:
+\[
+\mathcal{D}_\mu = \mathcal{D}_\mu^\dagger \quad \text{in } \ell^2(\mathbb{N})
+\]
+
+\section*{4. Beta-Skala v5 und Fehleranalyse}
+
+Die Beta-Skala ist eine geordnete Liste rationaler \(\beta\)-Werte, bei denen der Fehler in der Euler-Freese-Identität
+\[
+H(\beta) = e^{i\pi\beta} \overset{?}{=} \text{spektral gemessener Wert}
+\]
+minimiert wird.
+
+Beispiel:
+\begin{align*}
+\beta &= \frac{7}{33300}, & \Delta &= 8.9 \times 10^{-5} \\
+\beta &= \frac{1}{66600}, & \Delta &= 1.1 \times 10^{-4}
+\end{align*}
+
+\section*{5. Frequenzanalyse der Zeta-Strukturen}
+
+Die Spektralanalyse zeigt dominante Frequenzen in \(\beta(n)\) und \(\psi(x)\) bei:
+
+\begin{itemize}
+  \item \(f = 0.001, 0.002, 0.007, \ldots\) in \(\beta(n)\)
+  \item \(f = \log p / \pi\) in \(\psi(x)\)
+\end{itemize}
+
+Diese Überlappung begründet die strukturelle Kopplung von Primzahlschwingungen und Beta-Modulation.
+
+\section*{6. Fazit und Ausblick}
+
+Die Zeta Nova Freesiana interpretiert die Nullstellenstruktur der Zeta-Funktion über:
+
+\begin{itemize}
+  \item Spektrale Operatoren mit Beta-Frequenzen
+  \item Harmonische Interferenz aus Primzahlen
+  \item Fehleranalytische Optimierung der Zeta-Näherung
+\end{itemize}
+
+Ziel ist es, diese Formulierung zu einem vollständigen analytischen Beweis der Riemannschen Hypothese zu führen.
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\textbf{Kontakt:} Tim Hendrik Freese \\
+\texttt{[E-Mail einsetzen]} \quad \texttt{[Optional: arXiv / GitHub]}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{theorem}{Theorem}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{Freese-Spektralsatz zur Beta-Skala und zum Operator \texorpdfstring{$D_\mu$}{Dmu}}
+\author{Tim Hendrik Freese}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{theorem}[Freese-Spektralsatz über die Beta-Skala und den Operator $D_\mu$]
+Es sei $\{\gamma_k\}_{k=1}^N \subset \mathbb{R}$ eine geordnete Liste der nichttrivialen Nullstellen der Riemannschen Zetafunktion mit Realteil $\tfrac{1}{2}$, also $\zeta\left(\tfrac{1}{2} + i\gamma_k\right) = 0$. Es sei $f: \mathbb{N} \to \mathbb{R}$ eine gewichtete Testfunktion mit geeignetem Abfallverhalten.
+
+Dann existiert ein symmetrischer, selbstadjungierter Operator $D_\mu$ auf $\ell^2(\mathbb{N})$, sodass:
+
+\begin{enumerate}
+  \item \textbf{Wirkung des Operators auf $f$ erzeugt die Beta-Skala:}
+  \[
+    \beta(n) := (D_\mu f)(n),
+  \]
+  wobei $\beta(n)$ eine harmonisch modulierte Skala spektraler Koeffizienten darstellt.
+
+  \item \textbf{Rekonstruktion der Tschebyschow-Funktion $\psi(x)$ durch spektrale Summation:}
+  \[
+    \psi_{\mathrm{recon}}(x) := \sum_{n=1}^N \beta(n) \cdot \cos(\gamma_n \log x)
+  \]
+  approximiert die klassische Tschebyschow-Funktion $\psi(x) = \sum_{p^k \leq x} \log p$ mit hoher numerischer Genauigkeit.
+
+  \item \textbf{Kohärenzbedingung (Selbstadjungiertheit):}
+  \[
+    \langle D_\mu f, g \rangle = \langle f, D_\mu g \rangle \quad \text{für alle geeigneten } f, g \in \ell^2(\mathbb{N})
+  \]
+  ist äquivalent zur Richtigkeit der Riemannschen Hypothese, d.\,h. der Reellheit aller Nullstellen $\gamma_k$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{flushleft}
+\textbf{Bemerkung:} Die Beta-Skala agiert als diskretes Spektrum des Operators. Die Frequenzstruktur ist eindeutig durch die Zeta-Nullstellen bestimmt. Der Fehlerterm $\varepsilon(x) := \psi(x) - \psi_{\mathrm{recon}}(x)$ konvergiert für $x \to \infty$ gegen Null, falls $D_\mu$ selbstadjungiert ist.
+\end{flushleft}
+
+\end{document}

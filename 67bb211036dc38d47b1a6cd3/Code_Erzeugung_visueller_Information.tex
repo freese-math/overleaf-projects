@@ -1,0 +1,56 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Daten für die Nullstellen simulieren
+n_values = np.arange(1, 5000)
+real_parts = 0.5 * np.ones_like(n_values)
+imaginary_parts = np.linspace(0, 5000, len(n_values))
+
+# 3D-Plot der Nullstellen in der komplexen Ebene
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(real_parts, imaginary_parts, zs=0, zdir='z', label='Nullstellen')
+
+ax.set_xlabel('Re(s)')
+ax.set_ylabel('Im(s)')
+ax.set_zlabel('Index')
+ax.set_title("3D-Darstellung der Riemann-Nullstellen")
+plt.show()
+
+# Mandelbrotmenge mit Nullstellen als Overlay
+def mandelbrot(c, max_iter):
+    z = 0
+    for n in range(max_iter):
+        if abs(z) > 2:
+            return n
+        z = z**2 + c
+    return max_iter
+
+# Bildgröße
+width, height = 600, 600
+xmin, xmax = -2, 1
+ymin, ymax = -1.5, 1.5
+max_iter = 500
+
+# Mandelbrotmenge berechnen
+image = np.zeros((height, width))
+for x in range(width):
+    for y in range(height):
+        cx = xmin + (x / width) * (xmax - xmin)
+        cy = ymin + (y / height) * (ymax - ymin)
+        color = mandelbrot(complex(cx, cy), max_iter)
+        image[y, x] = color
+
+# Nullstellen auf die Mandelbrotmenge plotten
+plt.figure(figsize=(8, 8))
+plt.imshow(image, cmap='hot', extent=[xmin, xmax, ymin, ymax])
+plt.colorbar(label="Iterationen bis Divergenz")
+
+# Nullstellen hinzufügen
+plt.scatter(real_parts - 1, imaginary_parts / 5000, color='cyan', s=5, label="Riemann-Nullstellen")
+plt.legend()
+plt.title("Mandelbrotmenge & Riemannsche Nullstellen")
+plt.xlabel("Re(c)")
+plt.ylabel("Im(c)")
+plt.show()

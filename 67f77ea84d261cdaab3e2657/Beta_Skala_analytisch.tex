@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{Analytische Darstellung der Beta-Skala}
+\author{Freese, 2025}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Analytische Form der Beta-Skala}
+
+Die analytische Darstellung der spektralen Beta-Skala basiert auf einem harmonisch driftenden Modell mit logarithmischer Modulation. Die folgende Gleichung beschreibt $\beta(n)$ als Funktion der natürlichen Zahl $n$:
+
+\subsection*{Fall $\delta \neq -1$}
+
+\begin{equation}
+\beta(n) = \beta_0 + \frac{C \cdot \omega}{\omega^2 + 1}
++ C \cdot \left( \frac{n \cdot \omega \cdot \cos(\omega \log n)}{\omega^2 + 1}
+- \frac{n \cdot \sin(\omega \log n)}{\omega^2 + 1} \right)
++ \frac{\alpha}{\delta + 1} \left( n^{\delta + 1} - 1 \right)
+\end{equation}
+
+\subsection*{Fall $\delta = -1$}
+
+\begin{equation}
+\beta(n) = \beta_0 + \frac{C \cdot \omega}{\omega^2 + 1}
++ C \cdot \left( \frac{n \cdot \omega \cdot \cos(\omega \log n)}{\omega^2 + 1}
+- \frac{n \cdot \sin(\omega \log n)}{\omega^2 + 1} \right)
++ \alpha \cdot \log(n)
+\end{equation}
+
+\bigskip
+
+\noindent
+\textbf{Legende:}
+\begin{itemize}
+  \item $\beta_0$: Initialwert
+  \item $C$: Amplitude der Modulation
+  \item $\omega$: Frequenz auf der logarithmischen Skala
+  \item $\alpha$: Driftkoeffizient
+  \item $\delta$: Exponent der Drift
+\end{itemize}
+
+\end{document}

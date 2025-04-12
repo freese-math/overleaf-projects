@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Fraktal-Operator \( D \) in der Fibonacci-Freese-Formel}
+\author{}
+\date{}
+\maketitle
+
+\section{Einführung}
+Der Operator \( D \) ist eine fraktale Korrektur zur Fibonacci-Freese-Formel (FFF):
+
+\[
+L(N) = A N^\beta + C \log N + D N^{-1}
+\]
+
+mit der empirisch bestimmten Näherung:
+
+\[
+D \approx \frac{1}{\delta} \left( \frac{1}{N} \right)
+\]
+
+wobei \( \delta = 4.669201609 \) die Feigenbaum-Konstante ist.
+
+\section{Operator-Darstellung}
+Der Operator \( D \) wird als fraktaler Schrödinger-Operator dargestellt:
+
+\[
+\hat{D} = \sum_{n=1}^{\infty} \frac{e^{-\lambda n}}{n^\gamma} \cdot \hat{H}
+\]
+
+mit:
+
+\[
+\hat{H} = \frac{1}{\pi^2} + e^{-\frac{1}{\pi^2}} \sum_{n=1}^{\infty} \frac{1}{n^3}
+\]
+
+\section{Bedeutung für die Riemannsche Hypothese}
+Falls die Zeta-Nullstellen einer fraktalen Ordnung folgen, könnte die RH durch eine Skaleninvarianz erklärt werden.
+
+\end{document}

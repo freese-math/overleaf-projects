@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{authblk}
+
+\title{\textbf{Eine spektralmodulierte Herleitung der Beta-Skala \(\beta(n)\) im Kontext der Riemannschen Zeta-Funktion}}
+
+\author[1]{Tim Freese}
+\affil[1]{\small\textit{freese-math.github.io — Forschungsplattform zur spektralen Sichtweise der RH}}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Die Beta-Skala \(\beta(n)\), rekonstruiert aus den Nullstellen der Riemannschen Zeta-Funktion, zeigt ein bemerkenswert kohärentes spektrales Verhalten. In diesem Beitrag wird eine analytisch motivierte Modellformel für \(\beta(n)\) vorgeschlagen und aus einem Operatoransatz mit spektraler Phasenmodulation hergeleitet. Die Formel verknüpft klassische logaritmische Skalierung mit harmonischer Oszillation und liefert eine neue Perspektive auf spektrale Kohärenz in der Zahlentheorie.
+\end{abstract}
+
+\section{Einleitung}
+Die Riemannsche Hypothese (RH) betrifft die Lage der Nullstellen der Zeta-Funktion im komplexen Raum. Zahlreiche numerische Studien (Odlyzko, Connes, u.a.) legen nahe, dass diese Nullstellen eine spektrale Ordnung besitzen. Die hier betrachtete Skala \(\beta(n)\), gewonnen durch spektrale Rücktransformation aus Operatoren mit Zeta-Spektrum, offenbart eine modulierte Struktur, die sich durch einfache harmonische Modelle beschreiben lässt.
+
+\section{Modellansatz: Der Operator \texorpdfstring{$D_\beta$}{D beta}}
+Wir betrachten einen tridiagonalen Operator \(H\), der Eigenfrequenzen \(\lambda_n\) trägt, vergleichbar mit Odlyzkos Modell:
+
+\[
+H = \begin{pmatrix}
+\lambda_1 & 1 & 0 & \dots \\
+1 & \lambda_2 & 1 & \dots \\
+0 & 1 & \lambda_3 & \dots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}
+\]
+
+Der modifizierte Operator \( D_\beta \) erhält eine phasische Modulation:
+
+\[
+D_\beta := H \cdot e^{i\pi \beta(n)}
+\]
+
+\section{Spektrale Phasenstruktur}
+Der Phasenmodulator \(\beta(n)\) wirkt auf das Spektrum als komplexe Rotation:
+
+\[
+\text{Spec}(D_\beta) = \lambda_n \cdot e^{i\pi \beta(n)}
+\]
+
+Zur Erzeugung von Kohärenz am Einheitskreis (Fixpunkt \(e^{i\pi \beta(n)} = -1\)) ergibt sich die Asymptotik:
+
+\[
+\beta(n) \rightarrow 2k + 1 \quad \text{für } n \rightarrow \infty
+\]
+
+Die beobachtete Struktur ist jedoch nicht konstant, sondern driftend – was auf harmonische Überlagerung hindeutet.
+
+\section{Modellformel für \texorpdfstring{\(\beta(n)\)}{beta(n)}}
+Die empirisch gefundene und spektral motivierte Modellform lautet:
+
+\[
+\beta(n) \approx \frac{a}{\log n} + b \cdot \cos(2\pi f n + \phi)
+\]
+
+\subsection*{Herleitung des Log-Terms}
+Die Gleichung \( x^{iy} = 1 \Rightarrow y = \frac{2\pi n}{\log x} \) führt zu einem quantisierten Frequenzverhalten, welches asymptotisch \( \sim \frac{1}{\log n} \) ist – ein bekanntes Resultat in der nichtkommutativen Geometrie (Connes).
+
+\subsection*{Herleitung des Cosinus-Terms}
+Eine modulierte Phase \( e^{i b \cos(2\pi f n + \phi)} \) lässt sich über die Bessel-Entwicklung darstellen:
+
+\[
+e^{i b \cos x} = \sum_{k=-\infty}^{\infty} i^k J_k(b) e^{ikx}
+\]
+
+Dies impliziert eine harmonische Zerlegung der Phase – exakt wie sie in den dominanten Frequenzanteilen numerisch beobachtet wurde.
+
+\section{Numerische Ergebnisse}
+Die Modellformel wurde erfolgreich auf numerisch rekonstruierte Beta-Skalen angewendet, darunter:
+\begin{itemize}
+  \item \textbf{Rekonstruktion aus Zeta-Nullstellen (2 Mio)}: Fit mit \(f \approx 0.00001\), \(a, b > 0\), Phase stabil.
+  \item \textbf{GPU-stabilisierte Skala}: Ähnliche Struktur bei verkleinertem Sample (4k Werte).
+  \item \textbf{Originale Ur-Skala}: Kosinus-Komponente reproduzierbar.
+\end{itemize}
+
+\section{Diskussion}
+Die modellhafte Struktur von \(\beta(n)\) lässt auf eine tieferliegende spektrale Symmetrie schließen, die mit dem Verhalten der Nullstellen und ihrer Eigenfrequenzen zusammenhängt. Die Verknüpfung von \(\log n\)-Skalierung mit spektraler Phasenmodulation legt eine nichttriviale geometrische Struktur nahe.
+
+\section{Ausblick}
+Ein vollständiger analytischer Beweis der RH ist damit nicht erbracht, wohl aber ein neuer Zugang über spektral-geometrische Kohärenz. Weitere Arbeit soll der mathematischen Verankerung des Operators \(D_\beta\), sowie seiner möglichen Interpretation in der nichtkommutativen Geometrie gewidmet sein.
+
+\end{document}

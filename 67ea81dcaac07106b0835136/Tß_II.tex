@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Spektralprojektion durch den Operator \(\mathcal{T}_\beta\)}
+\author{Tim Hendrik Freese}
+\date{April 2025}
+
+\begin{document}
+\maketitle
+
+\section*{1. Definition des Operators \(\mathcal{T}_\beta\)}
+
+Sei \(\hat{\beta}(\omega)\) das Frequenzspektrum einer rekonstruierten spektralen Wellenfunktion \(\beta(n)\), so definieren wir den Projektionsoperator \(\mathcal{T}_\beta\) durch:
+
+\begin{equation}
+(\mathcal{T}_\beta \hat{\beta})(\omega) := \sum_{p \leq P} w_p \cdot \exp\left( -\frac{(\omega - \log(p)/2\pi)^2}{2\sigma^2} \right) \cdot \hat{\beta}(\omega)
+\end{equation}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item \(p\): Primzahl
+    \item \(w_p\): Gewichtung (z.\,B. \(w_p = 1/\sqrt{p}\) oder konstant)
+    \item \(\sigma\): Standardabweichung der gaußschen Glocke
+    \item \(\omega\): Frequenzvariable im reellen Spektrum
+\end{itemize}
+
+\section*{2. Invarianzsatz (Spektrale Fixierung durch Primstruktur)}
+
+\textbf{Satz:}  
+Ist die Funktion \(\hat{\beta}(\omega)\) spektral auf \(\omega_p = \log(p)/2\pi\) konzentriert, so ist \(\hat{\beta}\) eine Eigenfunktion von \(\mathcal{T}_\beta\) mit approximativem Eigenwert \(\lambda \approx \sum w_p\).
+
+\textit{Beweisidee:}  
+Da jede Gaußfunktion lokal zentriert bei \(\omega_p\) wirkt, bleibt \(\hat{\beta}(\omega)\) bei Anwendung von \(\mathcal{T}_\beta\) invariant bis auf eine Skalierung durch \(\lambda\). Damit gilt:
+
+\[
+\mathcal{T}_\beta \hat{\beta} \approx \lambda \cdot \hat{\beta}
+\]
+
+Dies zeigt, dass die primzahlmodulierten Frequenzen spektral stabil unter \(\mathcal{T}_\beta\) sind.
+
+\section*{3. Numerische Illustration (Python/Colab)}
+
+Ein Python-Skript berechnet \(\hat{\beta}(\omega)\) via FFT und wendet \(\mathcal{T}_\beta\) auf diskrete Frequenzwerte an. Die dominanten Peaks bei \(\log(p)/2\pi\) können numerisch mit den Primzahlen \(p \leq 100\) korreliert werden.
+
+\textbf{Plot:} \texttt{FFT} von \(\beta(n)\) vor und nach Anwendung von \(\mathcal{T}_\beta\), Vergleich mit \(\log(p)/2\pi\).
+
+\end{document}

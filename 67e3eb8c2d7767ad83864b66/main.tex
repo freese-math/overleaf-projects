@@ -1,0 +1,63 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, graphicx}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Test der Euler-Freese-Identität}
+\author{Beta-Skalenanalyse und empirische Evaluation}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Einleitung}
+Die \textbf{Euler-Freese-Identität} beschreibt eine additive Zerlegung einer Beta-Funktion $\beta(n)$ und eines Korrekturterms $\varepsilon(n)$, sodass ihre Summe eine konstante Skalensignatur erzeugt. Diese Idee basiert auf der Konstruktion harmonischer Skalen in der Zahlentheorie, insbesondere mit Bezug zu Primzahlen, Zeta-Nullstellen und asymptotischen Näherungen zur Eins.
+
+\section*{2. Definition der Komponenten}
+Sei $n \in \mathbb{N}$ und
+\begin{align*}
+    \beta(n) &= n^{-\beta}, \quad \text{mit } \beta \approx 0{,}273 \\
+    \varepsilon(n) &= 1 - \beta(n)
+\end{align*}
+Dann ergibt sich die Summe:
+\begin{align*}
+    S(N) &= \sum_{n=1}^{N} \left( \beta(n) + \varepsilon(n) \right) = \sum_{n=1}^{N} 1 = N
+\end{align*}
+
+\noindent Die Gesamtstruktur erfüllt also
+\[
+\sum_{n=1}^{N} \left( \beta(n) + \varepsilon(n) \right) \sim N
+\quad \Rightarrow \quad
+\frac{1}{N} \sum_{n=1}^{N} \left( \beta(n) + \varepsilon(n) \right) \to 1
+\]
+
+\section*{3. Empirischer Test}
+Die folgende Grafik zeigt die normierte partielle Summe im Vergleich zur idealen Konvergenz gegen $1$:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{212DC004-97A2-449E-B335-B482A31D3F28.png}
+    \caption{Normierter Test der Euler-Freese-Identität: $\frac{1}{S(N)} \sum_{n=1}^N (\beta(n) + \varepsilon(n)) \to 1$}
+\end{figure}
+
+\section*{4. Interpretation}
+\begin{itemize}
+    \item Die empirische Kurve folgt exakt einer linearen Normierung.
+    \item Das bestätigt, dass $\beta(n) + \varepsilon(n)$ pro $n$ konstant $= 1$ ergibt.
+    \item Die Summenstruktur erzeugt damit eine perfekt skalierte Reihe, obwohl $\beta(n)$ eine Potenzfunktion und $\varepsilon(n)$ eine Nichtlinearität enthält.
+\end{itemize}
+
+\section*{5. Ausblick}
+Die Euler-Freese-Struktur könnte ein Kandidat für:
+\begin{itemize}
+    \item harmonische Strukturen über Primzahldichten
+    \item asymptotische Summendarstellungen über Zeta-Zerlegungen
+    \item Operatorformulierung im Sinne eines Eigenwertproblems mit $\hat{H} \psi = \beta(n) \psi$
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,58 @@
+\section{Eindeutigkeit der Beta-Skala}
+
+Die numerischen und strukturellen Ergebnisse der vorhergehenden Kapitel deuten auf eine bemerkenswerte Eigenschaft hin: Die durch die Fourier-Freese-Formel (FFF) rekonstruierte Funktion \(\beta(n)\) scheint durch die Forderung der spektralen Übereinstimmung mit der Siegel-Theta-Funktion \(\Theta(t)\) eindeutig bestimmt zu sein.
+
+\subsection{Hypothese der strukturellen Eindeutigkeit}
+
+\begin{quote}
+\textbf{Hypothese:} Es existiert genau eine Funktion \(\beta : \mathbb{N} \to \mathbb{R}\), sodass die rekonstruierte Summenform
+\[
+L_{\beta}(N) := \sum_{n=1}^{N} \beta(n)
+\]
+in asymptotischer Übereinstimmung mit der Siegel-Theta-Funktion \(\Theta(t_N)\) steht, d.\,h.
+\[
+\Theta(t_N) - L_{\beta}(N) \to 0 \quad \text{für } N \to \infty,
+\]
+wobei \(t_N\) die \(N\)-te Zeta-Nullstelle bezeichnet.
+\end{quote}
+
+\subsection{Definition (Funktionalabweichung)}
+
+Sei \(\mathcal{F}[\beta] := \Theta(t_N) - \sum_{n=1}^{N} \beta(n)\) der funktionale Fehleroperator. Wir definieren:
+
+\begin{definition}[Störung der Beta-Skala]
+Eine gestörte Beta-Skala sei gegeben durch
+\[
+\beta_\varepsilon(n) := \beta(n) + \varepsilon \cdot h(n),
+\]
+wobei \(h(n)\) eine beliebige Funktion mit \(h \not\equiv 0\) und \(\varepsilon \in \mathbb{R}\) klein ist.
+\end{definition}
+
+\textbf{Ziel:} Zeige, dass
+\[
+\lim_{N \to \infty} \mathcal{F}[\beta_\varepsilon] \not\to 0
+\quad \text{für alle } h \not\equiv 0.
+\]
+
+\subsection{Numerisches Ergebnis}
+
+Die Differenzfunktionen
+\[
+\Delta_{\text{Standard}}(N) = \Theta(t_N) - L_{\beta_{\text{standard}}}(N),
+\]
+\[
+\Delta_{\text{Lorentz}}(N) = \Theta(t_N) - L_{\beta_{\text{lorentz}}}(N)
+\]
+zeigen systematisch unterschiedliche asymptotische Verhalten. Nur die \(\beta_{\text{standard}}\) bleibt um Null zentriert.
+
+\subsection{Theorem (Strukturelle Eindeutigkeit, heuristisch)}
+
+\begin{quote}
+Ist \(\beta(n)\) so gewählt, dass \(\mathcal{F}[\beta] \in o(1)\), so ist \(\beta(n)\) asymptotisch eindeutig, d.\,h. jede nichttriviale Störung \(h(n)\) erzeugt eine divergente oder systematisch versetzte Fehlerstruktur.
+\end{quote}
+
+\textbf{Folgerung:} Die \(\beta\)-Skala ist nicht nur numerisch rekonstruiert, sondern auch strukturell \emph{notwendig}, sofern die spektrale Kohärenz mit der Theta-Funktion verlangt wird.
+
+\subsection{Ausblick}
+
+Diese Einsicht kann Grundlage eines strukturellen Eindeutigkeitssatzes sein – unabhängig von der Riemannschen Hypothese. Wird zusätzlich gefordert, dass jede zulässige \(\beta(n)\) aus Zeta-Nullstellen ableitbar ist, so ergibt sich daraus ein starkes Argument für eine tieferliegende spektrale Dualität.

@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{hyperref}
+
+\title{Spektraloperatorische Rekonstruktion der Chebyshev-Funktion \texorpdfstring{$\psi(x)$}{ψ(x)}}
+\author{Eigene Forschung – Stand: \today}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1. Ziel}
+Ziel ist die Konstruktion eines linearen Operators, der die klassische Chebyshev-Funktion $\psi(x)$ aus den nichttrivialen Nullstellen der Riemannschen Zetafunktion $\rho_k = \frac{1}{2} + i\gamma_k$ spektral rekonstruiert.
+
+\section*{2. Ausgangspunkt: Explizite Formel}
+Die klassische explizite Formel lautet:
+\[
+\psi(x) = x - \sum_{\rho} \frac{x^\rho}{\rho} - \log(2\pi) - \frac{1}{2} \log(1 - x^{-2})
+\]
+
+\section*{3. Numerische Rekonstruktion}
+Ausgangspunkt für die numerische Rekonstruktion ist:
+\[
+L(x) := \sum_{k=1}^N \frac{x^{\rho_k}}{\rho_k \zeta'(\rho_k)} \cdot \beta_k
+\]
+mit geeigneten Gewichtungskoeffizienten $\beta_k$, z.\,B.\ normalisiert $\beta_k := \frac{1}{N}$ oder angepasst an spektrale Profile.
+
+\section*{4. Operatorformulierung}
+Wir definieren einen linearen Operator $\mathcal{T}_\zeta$, der auf eine Testfunktion $f$ wirkt:
+\[
+(\mathcal{T}_\zeta f)(x) := \sum_{k=1}^{N} \frac{x^{\rho_k}}{\rho_k \zeta'(\rho_k)} \cdot \langle f, \phi_k \rangle
+\]
+Dabei sind $\phi_k$ Eigenfunktionen oder spektrale Basismoden im Kontext der Zeta-Analyse.
+
+\section*{5. Integraloperator}
+Formal lässt sich $\mathcal{T}_\zeta$ auch als Integraloperator schreiben:
+\[
+(\mathcal{T}_\zeta f)(x) = \int_0^\infty K(x,y) f(y) \, dy
+\]
+mit dem spektralen Kern
+\[
+K(x,y) := \sum_{k=1}^N \frac{y^{\rho_k}}{\rho_k \zeta'(\rho_k)} \cdot \delta(x - y)
+\]
+Dies beschreibt eine lokal gewichtete Projektion im Sinne der spektralen Dichte.
+
+\section*{6. Spektrale Interpretation}
+Die Struktur erinnert an einen Hamilton-Operator:
+\[
+H := \text{diag}(\gamma_k) + \text{Shift-Operator}
+\]
+Die Eigenwerte des Operators $H$ stimmen empirisch mit den Imaginärteilen der $\rho_k$ überein. Dies motiviert die Sichtweise auf $\mathcal{T}_\zeta$ als quantisierten Spektraloperator.
+
+\section*{7. Zielstruktur}
+Gesucht ist ein vollständiger Operator $\mathcal{T}_\psi$, sodass:
+\[
+\mathcal{T}_\psi \mathbf{1} = \psi(x)
+\]
+bzw. als Projektion auf Eigenfunktionen:
+\[
+\psi(x) = \sum_{k} \lambda_k \phi_k(x)
+\quad \text{mit} \quad \lambda_k := \frac{1}{\rho_k \zeta'(\rho_k)}
+\]
+
+\section*{8. Weiteres Vorgehen}
+\begin{itemize}
+  \item Untersuchung der Selbstadjungiertheit von $\mathcal{T}_\zeta$
+  \item Vergleich mit klassischer $\psi(x)$ via Fehleranalyse
+  \item Zusammenhang mit der Euler-Freese-Struktur
+  \item Ziel: Vollständiger spektraltheoretischer Beweisansatz zur RH
+\end{itemize}
+
+\end{document}

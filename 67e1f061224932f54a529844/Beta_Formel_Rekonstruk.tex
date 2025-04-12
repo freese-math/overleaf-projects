@@ -1,0 +1,43 @@
+\usepackage{amsmath, amssymb, tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\begin{tcolorbox}[
+  title=Beta-Skala: Frequenzbasierte Struktur,
+  colback=white!95!blue!2,
+  colframe=blue!40,
+  coltitle=black,
+  fonttitle=\bfseries,
+  enhanced,
+  breakable
+]
+
+Die rekonstruierte Struktur basiert auf einem spektral harmonisierten Ausdruck:
+
+\[
+\boxed{
+\beta(n) = \frac{A}{n^p} + \sum_{k=1}^{K} A_k \cdot \sin(2\pi f_k n)
+}
+\]
+
+\vspace{0.5em}
+
+Mit dominanten Frequenzen \(f_k\) und gewichteten Amplituden \(A_k\) stellt \(\beta(n)\) ein deterministisches, reproduzierbares Oszillationsmodell dar.
+
+\vspace{1em}
+
+\textbf{Kumulative Struktur:}
+
+Die aufsummierte Skala nähert asymptotisch die Primzahllogarithmen an:
+
+\[
+\boxed{
+\sum_{k=1}^{n} \beta(k) \approx \log(p_n) + \varepsilon
+\quad \text{mit} \quad \varepsilon \approx 15{,}88
+}
+\]
+
+\vspace{1em}
+
+Dies zeigt: \(\beta(n)\) trägt die spektrale Signatur des Primzahlraums.
+
+\end{tcolorbox}

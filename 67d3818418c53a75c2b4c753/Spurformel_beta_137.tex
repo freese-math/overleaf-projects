@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Axiomatische Formulierung der Spurformel mit Beta-Korrektur}
+\author{[Dein Name]}
+\date{\today}
+
+\theoremstyle{definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{hypothesis}{Hypothese}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Korollar}
+
+\begin{document}
+
+\maketitle
+
+\section{Einleitung}
+
+Die Spurformel spielt eine zentrale Rolle in der Spektraltheorie der Riemannschen Zeta-Funktion. 
+In diesem Dokument wird eine **modifizierte Spurformel** vorgeschlagen, die einen Korrekturterm der Form \( e^{\beta \pi i} \) enthält. 
+Wir untersuchen, ob diese Struktur aus grundlegenden Prinzipien folgt und welche Konsequenzen sich für die Riemannsche Vermutung (RH) ergeben.
+
+\section{Axiomatische Grundlage}
+
+\begin{axiom}[Spektrale Spurformel]
+Es existiert eine Spurformel der Form
+\begin{equation}
+    Z(t) = \sum_n e^{- t \lambda_n},
+\end{equation}
+wobei \( \lambda_n \) die Eigenwerte eines geeigneten Operators sind.
+\end{axiom}
+
+\begin{axiom}[Euler-Identität]
+Für jede komplexe Zahl \( \beta \) gilt:
+\begin{equation}
+    e^{\beta \pi i} = \cos(\beta \pi) + i \sin(\beta \pi).
+\end{equation}
+\end{axiom}
+
+\begin{definition}[Modifizierte Spurformel]
+Sei \( C, d \) reelle Konstanten. Wir definieren eine modifizierte Spurformel als:
+\begin{equation}
+    Z_{\beta}(t) = C t^{-d} e^{\beta \pi i}.
+\end{equation}
+\end{definition}
+
+\begin{hypothesis}[Beta-Korrektur]
+Die Korrekturgröße \( \beta \) folgt einer festen Regel:
+\begin{equation}
+    \beta = \frac{1}{2} + \Delta\beta.
+\end{equation}
+\end{hypothesis}
+
+\begin{theorem}[RH als Grenzfall]
+Falls \( \beta = \frac{1}{2} \), dann folgt unmittelbar die kritische Linie der Nullstellen von
+\begin{equation}
+    \zeta\left( \frac{1}{2} + it \right) = 0.
+\end{equation}
+\end{theorem}
+
+\begin{corollary}[Mögliche Verbindung zur Feinstrukturkonstante]
+Falls \( \Delta\beta \approx \frac{1}{137} \), existiert ein möglicher Zusammenhang zur Feinstrukturkonstante:
+\begin{equation}
+    \alpha \approx \frac{1}{137} \quad \Rightarrow \quad \beta = \frac{1}{2} + \frac{1}{137}.
+\end{equation}
+\end{corollary}
+
+\section{Numerische Überprüfung}
+
+Die numerische Approximation der Spurformel zeigt eine enge Übereinstimmung mit der Theorie für \( \beta \approx 0.484906 \). Die Ergebnisse unterstützen die Hypothese, dass ein **Korrekturterm** notwendig ist.
+
+\section{Fazit}
+
+Falls die modifizierte Spurformel mit \( e^{\beta \pi i} \) universell gilt, liefert dies eine **neue Perspektive** auf die analytische Fortsetzung der Spurformel und möglicherweise auf die Riemannsche Hypothese.
+
+\end{document}

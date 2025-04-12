@@ -1,0 +1,106 @@
+# �� Installiere benötigte Bibliotheken (falls nicht vorhanden)
+!pip install mpmath sympy numpy scipy matplotlib
+
+# �� Importiere Bibliotheken
+import numpy as np
+import scipy.special as sp
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+from sympy import primerange
+from google.colab import drive
+
+# �� Mount Google Drive
+drive.mount('/content/drive')
+
+# �� Fibonacci-Zahlen (stabilisierte Berechnung)
+def fibonacci_zahlen(n):
+    fib = [1, 1]
+    for i in range(2, n):
+        fib.append(fib[-1] + fib[-2])
+        if fib[-1] > 1e18:  # Verhindert Überlauf
+            break
+    return np.array(fib, dtype=np.float64)
+
+# �� Primzahlen bis n
+def primzahlen_bis(n):
+    return np.array(list(primerange(1, n+1)), dtype=np.float64)
+
+# �� Zeta-Nullstellen aus Datei laden (statt numerisch berechnen)
+def zeta_nullstellen_n(n, filepath="/content/drive/MyDrive/zeros6.txt"):
+    try:
+        # Lade Nullstellen aus Datei
+        zeta_zeros = np.loadtxt(filepath)
+        return zeta_zeros[:n]  # Begrenze auf n Werte
+    except Exception as e:
+        print(f"⚠️ Fehler beim Laden der Datei: {e}")
+        return np.array([])  # Falls Fehler, leere Liste zurückgeben
+
+# �� Kohärenzlängen-Berechnung
+def kohärenzlängen(werte):
+    abstände = np.diff(werte)
+    if len(abstände) == 0:
+        return np.array([])
+    return np.cumsum(abstände) / np.arange(1, len(abstände) + 1)
+
+# �� Theta-Siegel-Funktion zur Gegenprüfung
+def theta_siegel(x):
+    return np.cos(np.pi * x) * sp.j0(x)  # Beispielhafte Form
+
+# �� Potenzgesetz für Fit: L(N) = α * N^β
+def potenzgesetz(x, alpha, beta):
+    return alpha * x**beta
+
+# �� Fitting-Funktion für Kohärenzlänge
+def fit_kohärenzlänge(L_data):
+    x_data = np.arange(1, len(L_data) + 1)
+    valid_mask = (L_data > 0) & (np.isfinite(L_data))
+    return curve_fit(potenzgesetz, x_data[valid_mask], L_data[valid_mask])
+
+# �� Generiere Daten
+N_max = 500  # Sicherheitsgrenze
+fib_numbers = fibonacci_zahlen(N_max)
+prime_numbers = primzahlen_bis(N_max)
+zeta_numbers = np.abs(zeta_nullstellen_n(N_max))  # Lade Zeta-Nullstellen aus Datei
+
+L_fib = kohärenzlängen(fib_numbers)
+L_prime = kohärenzlängen(prime_numbers)
+L_zeta = kohärenzlängen(zeta_numbers)
+
+# �� Fit durchführen
+popt_fib, _ = fit_kohärenzlänge(L_fib)
+popt_prime, _ = fit_kohärenzlänge(L_prime)
+popt_zeta, _ = fit_kohärenzlänge(L_zeta)
+
+# �� Extrahiere Parameter
+alpha_fib, beta_fib = popt_fib
+alpha_prime, beta_prime = popt_prime
+alpha_zeta, beta_zeta = popt_zeta
+
+# �� Visualisierung: Kohärenzlängen + Theta-Siegel-Funktion
+N_vals = np.linspace(1, N_max, 500)
+
+plt.figure(figsize=(8,6))
+plt.loglog(N_vals, potenzgesetz(N_vals, *popt_fib), 'b--', label=f'Fibonacci (β = {beta_fib:.3f})')
+plt.loglog(N_vals, potenzgesetz(N_vals, *popt_prime), 'r-.', label=f'Primzahlen (β = {beta_prime:.3f})')
+plt.loglog(N_vals, potenzgesetz(N_vals, *popt_zeta), 'g:', label=f'Zeta-Nullstellen (β = {beta_zeta:.3f})')
+
+# �� Theta-Siegel-Funktion hinzufügen
+theta_values = theta_siegel(N_vals)
+plt.plot(N_vals, np.abs(theta_values), 'k-', label='Theta-Siegel-Funktion')
+
+plt.scatter(np.arange(1, len(L_fib)+1), L_fib, color='blue', s=10, label='Daten Fibonacci')
+plt.scatter(np.arange(1, len(L_prime)+1), L_prime, color='red', s=10, label='Daten Primzahlen')
+plt.scatter(np.arange(1, len(L_zeta)+1), L_zeta, color='green', s=10, label='Daten Zeta-Nullstellen')
+
+plt.xlabel("N")
+plt.ylabel("Kohärenzlänge L(N)")
+plt.title("Theta-Siegel-Funktion & Freese-Formel mit Zeta-Nullstellen aus Datei")
+plt.legend()
+plt.grid(True, which="both", linestyle="--")
+plt.show()
+
+# �� Ergebnisse ausgeben
+print("\n�� Fit-Ergebnisse:")
+print(f"�� Fibonacci: α = {alpha_fib:.5f}, β = {beta_fib:.5f}")
+print(f"�� Primzahlen: α = {alpha_prime:.5f}, β = {beta_prime:.5f}")
+print(f"�� Zeta-Nullstellen: α = {alpha_zeta:.5f}, β = {beta_zeta:.5f}")

@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{enumitem}
+
+\title{Beweisrahmen der Riemannschen Hypothese im Kontext der Beta-Skala}
+\author{Projekt Freesiana}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Einleitung: Ein neuer Zugang zur Riemannschen Hypothese}
+
+Die Riemannsche Zetafunktion
+\[
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+\]
+ist eine zentrale Funktion der analytischen Zahlentheorie. Ihre nichttrivialen Nullstellen liegen — gemäß der berühmten Riemannschen Hypothese — alle auf der kritischen Geraden $\Re(s) = \frac{1}{2}$. Trotz enormer Fortschritte in der numerischen Verifikation und theoretischen Entwicklung ist die Hypothese bis heute unbewiesen.
+
+\subsection*{Motivation: Die Freesiana-Zetafunktion und die Beta-Skala}
+
+Wir schlagen eine neue spektrale Struktur auf Basis der sogenannten \emph{Beta-Skala} vor, die aus der Optimierung von Kohärenzlängen im Zusammenhang mit Nullstellen der Zetafunktion hervorgegangen ist. Dabei entsteht die modifizierte Funktion
+\[
+\zeta_F(s) = \sum_{n=1}^{N_{\max}} \frac{1}{L(n)^s}
+\]
+mit $L(n)$ als \textbf{Freesiana-Kohärenzlängenfunktion}, welche asymptotisch einem Ausdruck der Form
+\[
+L(n) \sim A n^\beta + a \left( \frac{1}{\log(n)} \right) + b e^{-\pi}
+\]
+folgt, mit empirisch bestimmten Parametern $A, \beta, a, b$.
+
+Die Funktion $\zeta_F(s)$ konvergiert langsamer als die klassische Riemann-Zetafunktion, zeigt jedoch bemerkenswerte strukturelle Parallelen, insbesondere in Bezug auf spektrale Resonanzerwartungen und Nullstellenverhalten. Ein besonders stabiler Wert ergibt sich etwa für $\zeta_F(2)$:
+\[
+\zeta_F(2) \approx 0.28213232454651299276563112896950833091809552541373
+\]
+
+\subsection*{Strukturelle Perspektive und Operatorzugang}
+
+Basierend auf der diskreten Skalenstruktur definieren wir einen Dirac-ähnlichen Operator auf dem Beta-Raum:
+\[
+H_\beta = i \varepsilon \frac{\Delta}{\Delta \beta}
+\]
+und formulieren eine eigene Dirac-Gleichung auf diskreter Skala:
+\[
+(i H_\beta - m)\psi(\beta) = 0
+\]
+in Matrixform:
+\[
+\mathcal{H}_{\text{Dirac}} =
+\begin{pmatrix}
+0 & H_\beta \\
+H_\beta & 0
+\end{pmatrix}
+\psi(\beta)
+= m \psi(\beta)
+\]
+Die Eigenwerte dieser Struktur zeigen eine chirale Symmetrie, analog zur kontinuierlichen Theorie, was auf ein spektral topologisches Ordnungsprinzip im Raum der Nullstellen hindeutet.
+
+\subsection*{Zielsetzung des Rahmens}
+
+Dieser Beweisrahmen verfolgt das Ziel, den Zusammenhang zwischen:
+\begin{itemize}[itemsep=2pt]
+  \item der diskreten Beta-Struktur,
+  \item der spektralen Interpretation der Zetafunktion
+  \item und topologischen Modellen (wie Dirac-Strings, Monopolen, Spin-Eis-Systemen)
+\end{itemize}
+in ein kohärentes Modell zu überführen, das die Grundidee der Riemannschen Hypothese auf eine neue mathematisch-physikalische Ebene hebt.
+
+\vspace{1em}
+\textbf{Nächste Kapitel:}
+\begin{enumerate}
+    \item Mathematische Definition der Beta-Skala
+    \item Konstruktion der Freesiana-Zetafunktion
+    \item Operatorstruktur und numerische Diagonalisierung
+    \item Vergleich mit klassischen Nullstellen (Odlyzko, LMFDB)
+    \item Topologische Interpretation (Eichtheorien, Strings)
+    \item Diskussion der Clay-Konformität und Aussagekraft
+\end{enumerate}
+
+\end{document}

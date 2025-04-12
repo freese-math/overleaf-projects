@@ -1,0 +1,62 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\title{Beta-modulierte Zeta-Funktion \\ \large Eine Erweiterung der klassischen L-Reihe}
+\author{Forschungsteam Zeta Nova Freesiana}
+\date{\today}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Definition der Funktion}
+
+Wir definieren die \textbf{Beta-modulierte Zeta-Funktion} \( \zeta_{F,\chi}(s) \) als:
+
+\[
+\zeta_{F,\chi}(s) = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s} \cdot \sin(\omega \log n + \phi)
+\]
+
+\noindent mit den Parametern:
+\begin{itemize}
+  \item \( \chi(n) \): ein Dirichlet-Charakter modulo \( q \)
+  \item \( s = \sigma + it \in \mathbb{C} \): komplexes Argument
+  \item \( \omega \in \mathbb{R}_{+} \): fundamentale Modulationsfrequenz, häufig gesetzt als \( \omega = \frac{1}{\varepsilon} \)
+  \item \( \phi \in [0, 2\pi) \): feste Phasenverschiebung
+\end{itemize}
+
+\section*{2. Interpretation}
+
+Diese Erweiterung erzeugt eine \textit{frequent modulierte Zeta-Reihe}, die harmonische Oszillationen auf logarithmischer Skala integriert. Die Modulation lässt sich als periodische \textbf{Skalenresonanz} interpretieren.
+
+\subsection*{2.1 Spezielle Fälle}
+Für \( \chi(n) = 1 \) (trivialer Charakter), reduziert sich \( \zeta_{F,\chi}(s) \) zu:
+
+\[
+\zeta_{F}(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \cdot \sin(\omega \log n + \phi)
+\]
+
+Diese Variante enthält bereits eine nichttriviale periodische Struktur, welche analysiert werden kann via Fourier-Transformationen oder Spektralanalyse.
+
+\section*{3. Weiteres}
+
+Die Struktur erlaubt Erweiterungen wie:
+\[
+\zeta_{F}(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \cdot \left(1 + \varepsilon \cdot \sin(\omega \log n + \phi)\right)
+\]
+
+\noindent wobei die harmonische Modulation als \textbf{Korrekturterm} zur klassischen Zeta-Reihe dient.
+
+\vfill
+\hrulefill
+
+\noindent\footnotesize
+Diese Definition ist Teil des Forschungsprojekts \emph{Zeta Nova Freesiana}, das die Verbindung von harmonischer Spektralanalyse und klassischen Zetafunktionen untersucht.
+
+\end{document}

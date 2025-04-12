@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\begin{document}
+
+\section*{Analytische Form der Beta-Skala}
+
+Die analytische Form der spektralen Beta-Skala lautet:
+
+\paragraph{Für $\delta \neq -1$:}
+
+\begin{equation}
+\beta(n) = \beta_0 + \frac{C \cdot \omega}{\omega^2 + 1}
++ C \cdot \left( \frac{n \cdot \omega \cdot \cos(\omega \log n)}{\omega^2 + 1}
+- \frac{n \cdot \sin(\omega \log n)}{\omega^2 + 1} \right)
++ \frac{\alpha}{\delta + 1} \left( n^{\delta + 1} - 1 \right)
+\end{equation}
+
+\paragraph{Für $\delta = -1$:}
+
+\begin{equation}
+\beta(n) = \beta_0 + \frac{C \cdot \omega}{\omega^2 + 1}
++ C \cdot \left( \frac{n \cdot \omega \cdot \cos(\omega \log n)}{\omega^2 + 1}
+- \frac{n \cdot \sin(\omega \log n)}{\omega^2 + 1} \right)
++ \alpha \cdot \log(n)
+\end{equation}
+
+\bigskip
+
+\noindent
+Dabei sind:
+\begin{itemize}
+    \item $\beta_0$ ein konstanter Startwert (Initialwert),
+    \item $C$ die Amplitude der harmonischen Modulation,
+    \item $\omega$ die logarithmische Frequenzkomponente,
+    \item $\alpha$ der Driftkoeffizient,
+    \item $\delta$ der exponentielle Skalierungsparameter.
+\end{itemize}
+
+\end{document}

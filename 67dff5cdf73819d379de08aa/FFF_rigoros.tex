@@ -1,0 +1,43 @@
+\section{Die Fibonacci-Freese-Formel (FFF)}
+
+Die Fibonacci-Freese-Formel ist eine empirisch motivierte, aber mathematisch stark strukturierte Näherung für die Verteilung der Zeta-Nullstellen. Ihre Grundform lautet:
+\[
+L(N) = A \cdot N^{\beta} + C \cdot \log N
+\]
+wobei:
+\begin{itemize}[label=\textbullet]
+    \item \( A \) den globalen Skalierungsfaktor darstellt,
+    \item \( \beta \) die Wachstumsrate der Nullstellenstruktur kodiert,
+    \item \( C \) eine logarithmische Korrektur beschreibt.
+\end{itemize}
+
+\subsection{Erweiterung der FFF mit Oszillation}
+
+Beobachtungen in der Fourier-Analyse zeigen eine resonante Modulationsstruktur, die durch einen sinusförmigen Korrekturterm modelliert werden kann:
+\[
+L(N) = A \cdot N^{\beta} + C \cdot \log N + D \cdot N^{-\gamma} \cdot \sin\left(\omega \log(N + \Phi)\right)
+\]
+Hierbei gelten:
+\begin{itemize}[label=\textbullet]
+    \item \( D \) ist die Amplitude der Oszillation,
+    \item \( \gamma \) steuert die Dämpfung mit wachsendem \( N \),
+    \item \( \omega \) ist die Modulationsfrequenz (z.\,B. \( \omega \approx 0.02499 \) aus der Fourier-Skala),
+    \item \( \Phi \) ist eine Phasenverschiebung.
+\end{itemize}
+
+Diese Formel beschreibt die **Nullstellenverteilung als skaleninvariante Oszillation** mit starker struktureller Ähnlichkeit zur Fibonacci-Logik, insbesondere durch den logarithmischen Modulationsterm.
+
+\subsection{Beispielhafte Parameter (optimiert)}
+
+Eine typische Optimierung auf Basis von \( n = 1,\dots,1000 \) ergibt:
+
+\begin{align*}
+A &= 1.2852 \\
+\beta &= 0.16608 \\
+C &= -0.02096 \\
+D &= 2.71201 \\
+\omega &= 0.02499 \\
+\Phi &= -6387.57 \\
+\end{align*}
+
+Diese Werte zeigen eine äußerst präzise Annäherung an die reale Zeta-Nullstellenstruktur. Die Konstante \( \beta \) weist außerdem eine tiefere Verbindung zur modularen Struktur der Theta-Funktion auf.

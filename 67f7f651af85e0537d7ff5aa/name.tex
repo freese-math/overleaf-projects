@@ -1,0 +1,106 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetheme{Madrid}
+
+\title{Die Beta-Skala und die Spektralstruktur der Zeta-Funktion}
+\subtitle{Ein quantisierter Zugang zur Riemannschen Hypothese}
+\author{Freese Math Research Initiative}
+\date{April 2025}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Motivation}
+  \begin{itemize}
+    \item Die Riemannsche Hypothese (RH) bleibt eines der bedeutendsten ungelösten Probleme der Mathematik.
+    \item Ziel: Rekonstruktiver Beweis über die \textbf{Beta-Skala} $\beta(n)$ aus der spektralen Struktur der Zeta-Nullstellen.
+    \item Visualisierung zeigt hohe strukturelle Kohärenz zwischen Eigenwerten — ein Hinweis auf tiefere Ordnung.
+  \end{itemize}
+  \vfill
+  \includegraphics[width=0.8\linewidth]{colorbands1.png} % Abb. 1
+\end{frame}
+
+\begin{frame}{Definition der Beta-Skala}
+  \begin{block}{Spektrale Struktur}
+    \[
+      \beta(n) \approx \frac{A}{n} + \sum_{j=1}^K a_j \cdot \sin(2\pi f_j n + \varphi_j)
+    \]
+  \end{block}
+  \vfill
+  \includegraphics[width=0.45\linewidth]{beta3d_1.jpg}
+  \includegraphics[width=0.45\linewidth]{beta3d_2.jpg}
+\end{frame}
+
+\begin{frame}{Mathematische Form: Spektraltriplett}
+  \[
+  \Theta(\lambda,k) = (\mathcal{A}(\lambda), \mathcal{H}(\lambda), D(\lambda,k))
+  \]
+  \begin{itemize}
+    \item $\mathcal{A}(\lambda) := C^\infty(\mathbb{R}_+^*/\mu^\mathbb{Z})$
+    \item $\mathcal{H} := L^2([\lambda^{-1},\lambda], d^*u)$
+    \item $D(\lambda,k) := Q \circ D_0(\lambda) \circ Q$, \quad $D_0 := -i u \partial_u$
+  \end{itemize}
+  \includegraphics[width=0.8\linewidth]{spectral_triple.jpg}
+\end{frame}
+
+\begin{frame}{Quantisierungsbedingung}
+  \begin{itemize}
+    \item Frequenzdiskretisierung:
+    \[
+      \log x \in \frac{2\pi}{\zeta_n} \mathbb{Z}, \quad \text{bzw.} \quad x^{iy} = 1
+    \]
+    \item Resonanzkriterium für Stabilität der Eigenmoden.
+  \end{itemize}
+  \includegraphics[width=0.65\linewidth]{quantization_condition.jpg}
+\end{frame}
+
+\begin{frame}{Zeta-Cycles: Geometrische Interpretation}
+  \[
+    \text{Zeta-Cycle: } L = \log \mu \quad \text{mit nicht-dichtem Spektralraum in } L^2(C)
+  \]
+  \begin{itemize}
+    \item Analog zu nichttrivialen homotopischen Schleifen.
+    \item Frequenzspezifische Topologie im Skalenraum.
+  \end{itemize}
+  \includegraphics[width=0.65\linewidth]{zeta_cycle.jpg}
+\end{frame}
+
+\begin{frame}{Rekonstruktive Summenformel für $\psi_\beta(x)$}
+  \[
+    \psi_\beta(x) = x - 2 \Re\left( \sum_{\rho} \frac{x^\rho \cdot \log p}{\rho \cdot \zeta'(\rho)} \right), \quad \rho = \frac{1}{2} + i\gamma
+  \]
+  \begin{itemize}
+    \item Exakte Näherung der Tschebyschow-Funktion durch die Beta-Skala.
+    \item Validierung über über 2 Millionen Odlyzko-Zeta-Nullstellen.
+  \end{itemize}
+  \includegraphics[width=0.75\linewidth]{summary_sheet.jpg}
+\end{frame}
+
+\begin{frame}{Numerische Evidenz}
+  \begin{itemize}
+    \item FFT-Spektren zeigen Übereinstimmung mit $\log(p)/2\pi$.
+    \item Lorentz-Fits bestätigen dominante Frequenzen.
+    \item Projekt ist: \textbf{quellenoffen}, \textbf{juristisch gesichert}, \textbf{technisch überprüfbar}.
+  \end{itemize}
+  \vfill
+  \texttt{github.com/freese-math/riemann-spectral-proof}
+\end{frame}
+
+\begin{frame}{Ausblick}
+  \begin{itemize}
+    \item Mathematische Formalisierung von Operator $D_\mu$ und Selbstadjungiertheit.
+    \item Erweiterung auf L-Funktionen und Langlands-Zusammenhänge.
+    \item Anwendung in Laserphysik (FFF), Frequenzmodulation, Spektralfilter.
+  \end{itemize}
+  \vfill
+  Vielen Dank!
+\end{frame}
+
+\end{document}

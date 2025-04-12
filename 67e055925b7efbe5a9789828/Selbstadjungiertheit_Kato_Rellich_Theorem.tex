@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{physics}
+
+\title{Selbstadjungiertheit des Operators \(\hat{H}\)}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Definition des Operators}
+Gegeben sei der Operator
+\[
+\hat{H} = -\frac{d^2}{dx^2} + V(x)
+\quad \text{auf} \quad \mathcal{H} = L^2(\mathbb{R}),
+\]
+mit einem reellwertigen Potential der Form:
+\[
+V(x) = \frac{A}{1 + e^{-B(x - c)}} + D\sin(\omega x),
+\]
+wobei \(A, B, c, D, \omega \in \mathbb{R}\).
+
+\section*{Ziel}
+Zeige: \(\hat{H}\) ist selbstadjungiert auf einem geeigneten Definitionsbereich \(D(\hat{H})\subset L^2(\mathbb{R})\).
+
+\section*{Argumentation}
+\begin{itemize}
+    \item Der freie Operator \(\hat{H}_0 = -\frac{d^2}{dx^2}\) ist auf \(C_0^\infty(\mathbb{R})\) dicht definiert und selbstadjungierbar.
+    \item Das Potential \(V(x)\) ist eine glatte (\(C^\infty\)) und beschränkte Funktion.
+    \item Nach dem \textbf{Kato-Rellich-Theorem} gilt: Ist \(V(x)\) relativform-beschränkt bezüglich \(\hat{H}_0\) mit Schranke kleiner als 1, so ist \(\hat{H} = \hat{H}_0 + V(x)\) selbstadjungiert.
+\end{itemize}
+
+\textbf{Fazit:} Da \(V(x)\) beschränkt ist, folgt die Selbstadjungiertheit von \(\hat{H}\).
+
+\end{document}

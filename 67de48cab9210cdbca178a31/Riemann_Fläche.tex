@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, tikz}
+\usepackage{graphicx}
+
+\title{Riemann-Fläche der Beta-Skala und die Euler-Freese-Identität}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Einleitung}
+
+Die Beta-Skala, entwickelt zur Approximation der Nullstellen der Riemannschen Zeta-Funktion, weist eine charakteristische Struktur im Einheitskreis auf, wenn man sie über die Transformation
+\[
+H(\beta) = e^{i\pi\beta}
+\]
+abbildet. Diese Abbildung ist periodisch, was die Definition einer verzweigten Riemann-Fläche erfordert.
+
+\section*{Definition der Riemann-Fläche}
+
+Sei \( \mathcal{R}_\beta \) die Riemann-Fläche, die allen \( \beta \in \mathbb{C} \) eine eindeutige Phase zuordnet:
+\[
+\mathcal{R}_\beta := \left\{ (\beta, z) \in \mathbb{C} \times \mathbb{C} \;\middle|\; z = e^{i\pi\beta + 2\pi i n}, n \in \mathbb{Z} \right\}
+\]
+
+Diese Struktur ermöglicht eine eindeutige Fortsetzung über alle \(\beta\), auch bei mehrfachen Durchläufen des Einheitskreises.
+
+\section*{Visualisierung}
+
+Ein Punkt \( H(\beta_n) \) wird im Einheitskreis visualisiert, wobei die Tiefe der Spirale (Radius) der Größe des Fehlers in der Zeta-Rekonstruktion entspricht.
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{spirale.png}
+\end{center}
+
+\section*{Schlussfolgerung}
+
+Die Betrachtung der Beta-Skala auf einer geeigneten Riemann-Fläche offenbart ein tieferes geometrisches Verständnis für die Entstehung von Fehlern und Resonanzen in der numerischen Rekonstruktion. Eine vollständige Beschreibung könnte in ein kohärentes Modell der RH münden.
+
+\end{document}

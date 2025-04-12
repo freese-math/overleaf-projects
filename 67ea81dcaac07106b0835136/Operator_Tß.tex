@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{Spektralprojektion durch den Operator \(\mathcal{T}_\beta\)}
+\author{Tim Hendrik Freese}
+\date{April 2025}
+
+\begin{document}
+\maketitle
+
+\section*{Definition des Operators \(\mathcal{T}_\beta\)}
+
+Sei \(\hat{\beta}(\omega)\) das Frequenzspektrum einer rekonstruierten spektralen Wellenfunktion \(\beta(n)\), so definieren wir den Projektionsoperator \(\mathcal{T}_\beta\) durch:
+
+\begin{equation}
+(\mathcal{T}_\beta \hat{\beta})(\omega) := \sum_{p \leq P} w_p \cdot \exp\left( -\frac{(\omega - \log(p)/2\pi)^2}{2\sigma^2} \right) \cdot \hat{\beta}(\omega)
+\end{equation}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item \(p\): Primzahl
+    \item \(w_p\): Gewichtung, z.\,B. \(w_p = \frac{1}{\sqrt{p}}\) oder konstant
+    \item \(\sigma\): Standardabweichung der gaußschen Glocke
+    \item \(\omega\): Frequenzvariable im reellen Spektrum
+\end{itemize}
+
+\section*{Ziel der Transformation}
+
+Die Wirkung von \(\mathcal{T}_\beta\) besteht darin, das Spektrum gezielt auf durch Primzahlen modulierte Frequenzbereiche zu projizieren. Das entstehende transformierte Spektrum kann als spektrale Signatur der Primstruktur interpretiert werden und dient der Untersuchung von Invarianten und Selbstadjungiertheit im Zusammenhang mit der Riemannschen Hypothese.
+
+\section*{Verbindung zur Zeta-Funktion}
+
+Die Auswahl der Frequenzzentren \(\omega_p := \log(p)/2\pi\) entspricht den charakteristischen Phasenfrequenzen der Euler-Produktform der Zeta-Funktion. Damit wird eine natürliche Brücke geschlagen zwischen \(\mathcal{T}_\beta\), der Fourier-Darstellung von \(\log \zeta(s)\), und der spektralen Dynamik im Raum \(\ell^2(\mathbb{N})\).
+
+\end{document}

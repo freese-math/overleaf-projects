@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\title{Mathematische Herleitung der Fibonacci-Freese-Formel}
+\author{Tim Hendrik Freese}
+\date{2025}
+\maketitle
+
+\section{Definition der Fibonacci-Freese-Formel}
+Die allgemeine Form der FFF lautet:
+\[
+L(N) = A \cdot N^\beta + C \cdot \log N + D \cdot N^{-1} + B \sin(w \log N + \varphi)
+\]
+mit den Parametern:
+\[
+A = 1.8828, \quad \beta = 0.91698, \quad C = 2488.1446, \quad D = 0.00555, \quad w = 0.08, \quad \varphi = -9005.7583
+\]
+
+\section{Mathematische Herleitung}
+\subsection{Nullstellen der Zetafunktion}
+Nach Hardy-Littlewood ergibt sich:
+\[
+N(T) \approx \frac{T}{2\pi} \log \frac{T}{2\pi} - \frac{T}{2\pi}
+\]
+
+Daraus folgt für die Nullstellenabstände:
+\[
+L(N) \approx \frac{2\pi}{\log N} \left(1 - \frac{1}{N \log N}\right)
+\]
+
+\subsection{Operator-Formulierung}
+Es existiert ein Operator \( \hat{L} \) mit:
+\[
+\hat{L} \psi_n = \lambda_n \psi_n
+\]
+
+Der Schrödinger-Ansatz mit potentiellem Zusammenhang:
+\[
+\hat{H} \psi_n = \left( -\frac{d^2}{dx^2} + V(x) \right) \psi_n = E_n \psi_n
+\]
+
+Das effektive Potential:
+\[
+V(x) \approx x^{0.8}
+\]
+
+\subsection{Verbindung zu Primzahlen}
+Primzahldichte:
+\[
+\pi(N) \sim \frac{N}{\log N}
+\]
+
+Abstände:
+\[
+L_p(N) \approx \log N + \frac{1}{\log N}
+\]
+
+\subsection{Betti-Zahl und Fraktale Strukturen}
+\[
+\beta = \frac{1}{2} + 0.48 - \frac{1}{10} = 0.91698
+\]
+
+\section{Schlussfolgerung zur Riemannschen Hypothese}
+\textbf{Falls diese Struktur universell ist, kann keine Nullstelle außerhalb der kritischen Linie existieren.}
+
+\end{document}

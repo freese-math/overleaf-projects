@@ -1,0 +1,90 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+# �� Konstanten
+phi = (1 + np.sqrt(5)) / 2  # Goldener Schnitt
+psi = (1 - np.sqrt(5)) / 2
+sqrt_5 = np.sqrt(5)
+
+# �� Fibonacci-Zahlen stabil berechnen
+def fibonacci(n):
+    return np.round((phi**np.arange(n) - psi**np.arange(n)) / sqrt_5).astype(int)
+
+# �� Primzahlen generieren (Sieb des Eratosthenes)
+def primzahlen(n):
+    sieve = np.ones(n, dtype=bool)
+    sieve[:2] = False
+    for i in range(2, int(np.sqrt(n)) + 1):
+        if sieve[i]:
+            sieve[i*i:n:i] = False
+    return np.where(sieve)[0]
+
+# �� Riemann-Nullstellen (nur zur Illustration)
+def zeta_nullstellen_n(n):
+    return np.linspace(1, n, n)  # Placeholder für echte Nullstellen
+
+# �� Kohärenzlängen-Funktion
+def kohärenzlängen(werte):
+    abstände = np.diff(werte)
+    if len(abstände) == 0:
+        return np.array([])
+    return np.cumsum(abstände) / np.arange(1, len(abstände) + 1)
+
+# ✅ Potenzgesetz für Fitting
+def potenzgesetz(x, alpha, beta):
+    return alpha * x**beta
+
+# �� Log-Transformation für Stabilität
+def potenzgesetz_log(log_x, log_alpha, beta):
+    return np.exp(log_alpha) * np.exp(beta * log_x)
+
+# �� Daten generieren
+N_max = 10000  # Größe der Zahlenmengen
+fib_numbers = fibonacci(N_max)
+prime_numbers = primzahlen(N_max)
+zeta_numbers = zeta_nullstellen_n(N_max)
+
+# �� Berechne Kohärenzlängen
+L_fib = kohärenzlängen(fib_numbers)
+L_prime = kohärenzlängen(prime_numbers)
+L_zeta = kohärenzlängen(zeta_numbers)
+
+# ✅ Logarithmische Fits für Stabilität
+def fit_kohärenzlänge(L_data):
+    x_data = np.arange(1, len(L_data) + 1)
+    valid_mask = (L_data > 0)
+    log_x = np.log(x_data[valid_mask])
+    log_y = np.log(L_data[valid_mask])
+    popt, _ = curve_fit(potenzgesetz_log, log_x, log_y, p0=[np.log(1), 0.5])
+    return popt
+
+# �� Berechne Fits
+log_alpha_fib, beta_fib = fit_kohärenzlänge(L_fib)
+log_alpha_prime, beta_prime = fit_kohärenzlänge(L_prime)
+log_alpha_zeta, beta_zeta = fit_kohärenzlänge(L_zeta)
+
+# ✅ Visualisierung
+plt.figure(figsize=(8,6))
+N_vals = np.arange(1, len(L_fib) + 1)
+
+plt.loglog(N_vals, L_fib, 'bo', markersize=2, label="Daten Fibonacci")
+plt.loglog(N_vals, L_prime, 'ro', markersize=2, label="Daten Primzahlen")
+plt.loglog(N_vals, L_zeta, 'go', markersize=2, label="Daten Zeta-Nullstellen")
+
+plt.loglog(N_vals, np.exp(potenzgesetz_log(np.log(N_vals), log_alpha_fib, beta_fib)), 'b--', label=f'Fibonacci (β = {beta_fib:.3f})')
+plt.loglog(N_vals, np.exp(potenzgesetz_log(np.log(N_vals), log_alpha_prime, beta_prime)), 'r-.', label=f'Primzahlen (β = {beta_prime:.3f})')
+plt.loglog(N_vals, np.exp(potenzgesetz_log(np.log(N_vals), log_alpha_zeta, beta_zeta)), 'g:', label=f'Zeta-Nullstellen (β = {beta_zeta:.3f})')
+
+plt.xlabel("N")
+plt.ylabel("Kohärenzlänge L(N)")
+plt.title("�� Stabilisierte Kohärenzlängen & Fits nach der Freese-Formel")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# �� Ergebnisse ausgeben
+print("\n�� Fit-Ergebnisse (stabilisiert):")
+print(f"�� Fibonacci: α = {np.exp(log_alpha_fib):.5f}, β = {beta_fib:.5f}")
+print(f"�� Primzahlen: α = {np.exp(log_alpha_prime):.5f}, β = {beta_prime:.5f}")
+print(f"�� Zeta-Nullstellen: α = {np.exp(log_alpha_zeta):.5f}, β = {beta_zeta:.5f}")

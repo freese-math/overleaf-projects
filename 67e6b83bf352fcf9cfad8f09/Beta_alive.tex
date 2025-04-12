@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Spektrale Liouville-Formel mit \(\beta_k\)-Gewichtung}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1. Allgemeine Struktur}
+
+Die klassische spektrale Approximation der Tschebyschew-Funktion \(L(x)\) lautet:
+
+\begin{equation}
+L(x) = \sum_{k=1}^{n} \frac{\beta_k \cdot x^{\rho_k}}{\rho_k \cdot \zeta'(\rho_k)}
+\end{equation}
+
+Dabei ist:
+\begin{itemize}
+  \item \(\rho_k\) die \(k\)-te nichttriviale Nullstelle der Riemannschen Zeta-Funktion.
+  \item \(\zeta'(\rho_k)\) die Ableitung an dieser Stelle.
+  \item \(\beta_k\) ein gewichtender Skalenfaktor (z.\,B. aus Operatorstruktur).
+\end{itemize}
+
+\section*{2. Konkretisierung für \(\rho_k = \tfrac{1}{2} + i \gamma_k\)}
+
+\begin{equation}
+L(x) = \sum_{k=1}^{n} \frac{\beta_k \cdot x^{\frac{1}{2} + i\gamma_k}}{\left( \frac{1}{2} + i\gamma_k \right) \cdot \zeta'\left( \frac{1}{2} + i\gamma_k \right)}
+\end{equation}
+
+Diese Formel ermöglicht die spektrale Approximation der Tschebyschew-Funktion mit modulierender \(\beta\)-Struktur.
+
+\end{document}

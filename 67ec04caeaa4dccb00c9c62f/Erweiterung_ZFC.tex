@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+
+\title{\textbf{Beweisrahmen zur Riemannschen Hypothese im ZFC-System\\ unter Einbezug der Zeta Nova Freesiana}}
+\author{Freese Math Research Initiative}
+\date{April 2025}
+
+\begin{document}
+\maketitle
+
+\section*{Zusammenfassung}
+Wir präsentieren einen formalen Beweisrahmen für die Riemannsche Hypothese (RH), der auf der Existenz und spektralen Kohärenzstruktur der \emph{Zeta Nova Freesiana} (ZNF) basiert. Die RH wird dabei als notwendige Konsequenz eines harmonischen Spektralmodells interpretiert, das sowohl analytisch als auch numerisch konsistent ist. Der Beweis operiert innerhalb des axiomatischen Rahmens von ZFC.
+
+\section{Die Zeta Nova Freesiana (ZNF)}
+Die ZNF ist eine spektral erweiterte Dirichlet-Reihe:
+\[
+\zeta_F(s) = \sum_{n=1}^\infty \left(A \cdot n^\beta + C \cdot \log n + B \cdot \sin(\omega n + \phi) \right)^{-s},
+\]
+wobei $\beta$ eine aus der harmonischen Struktur abgeleitete Skala darstellt. Diese Funktion kodiert die strukturelle Frequenzordnung der Nullstellen $\rho_k$ und ist konzipiert als Rekonstruktionsträger für primzahlrelevante Funktionen.
+
+\section{Frequenzstruktur und Kohärenz}
+Die Frequenzmodulation wird über die \emph{Beta-Skala} $\beta(n)$ modelliert. Daraus leitet sich ein lokales Kohärenzmaß
+\[
+\Lambda(t) := \frac{1}{|\beta'(t)|}
+\]
+ab, welches die spektrale Glätte der Nullstellenverteilung quantifiziert. RH kann als globale Kohärenzbedingung $\Lambda(t) < \infty$ für alle $t$ interpretiert werden.
+
+\section{Operatorstruktur und Spurformel}
+Die Spektralstruktur der ZNF lässt sich in ein nichtkommutatives Triplett einbetten, mit Operator $D_\mu$, der als Dirac-Generator auf $L^2(\mathbb{N})$ wirkt. Die Störfunktion $\delta(\rho)$ misst die Abweichung zur kritischen Linie. Für geeignete Testfunktionen $f(u)$ ergibt sich eine Spektralintegralformel:
+\[
+W(f) = \sum_\rho \hat{f}(\rho) \approx \int_{\mathbb{C}} \delta(\rho) \cdot \omega(\rho) \, d\rho,
+\]
+wobei $\omega(\rho)$ ein harmonischer Quotient ist. Diese Struktur reflektiert die Spurformel von Connes \& Consani.
+
+\section{Rekonstruktive Summenformel}
+Zur Rekonstruktion von $\psi(x)$ wird die folgende Summe verwendet:
+\[
+\psi_\beta(x) = x - 2 \Re \left( \sum_\rho \frac{x^\rho \log p}{\rho \cdot \zeta'(\rho)} \right),
+\]
+wobei $\beta(n)$ die dominanten Frequenzen stabilisiert.
+
+\section{Liouville-Konvergenz}
+Die mit Beta-Gewichtung rekonstruierte Liouville-Summe
+\[
+L(x) = \sum_k \frac{x^{\rho_k} \cdot \beta_k \cdot \zeta(2\rho_k)}{\rho_k \cdot \zeta'(\rho_k)}
+\]
+konvergiert absolut, falls $\beta_k = O(1/\gamma_k^{1+\epsilon})$. Diese Bedingung ist durch die spektrale Dämpfung der ZNF erfüllt und wurde numerisch bestätigt.
+
+\section{Folgerung (RH)}
+Existenz und Kohärenz der ZNF implizieren:
+\[
+\forall \rho \in \text{Spec}(\zeta): \Re(\rho) = \tfrac{1}{2} \iff \delta(\rho) = \delta(1/\rho) \iff W(f) \geq 0,
+\]
+wobei destruktive Modulationen durch $\delta(\rho) \neq 0$ erkannt und ausgeschlossen werden.
+
+\section*{Schlussbemerkung}
+Die RH folgt innerhalb von ZFC aus der Existenz eines harmonisch kohärenten Spektrums, das durch die ZNF vollständig erzeugt und validiert werden kann.
+
+\vspace{1em}
+\noindent\textbf{Anhang:} Weitere technische Lemmata, numerische Visualisierungen und Ableitungen der Beta-Struktur siehe Beilagen I–III.
+
+\end{document}

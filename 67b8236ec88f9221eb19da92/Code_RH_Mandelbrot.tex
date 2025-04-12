@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref, geometry, listings}
+
+\geometry{a4paper, margin=1in}
+
+\title{Python-Code zur Analyse der Riemann-Nullstellen mit der Mandelbrotmenge}
+\author{[Tim Hendrik Freese geboren am 26.02.1980 in Osnabrück]}
+\date{Vor Ausführung in Google Colab: 21. Februar 2025, 06:30 Uhr, Lingen (Ems)}
+
+\begin{document}
+
+\maketitle
+
+\section{Einleitung}
+Dieses Dokument enthält den vollständigen Python-Code für eine **numerische Analyse** der Riemann-Nullstellen in Verbindung mit der Mandelbrotmenge.  
+Ziel ist es, zu untersuchen, ob die Nullstellen der Zeta-Funktion in einer geometrischen Beziehung zur fraktalen Struktur der Mandelbrotmenge stehen.  
+
+Die hier dokumentierte Version wurde vor der Ausführung in **Google Colab gesichert**, um die **zeitliche Priorität und meine Autorschaft** nachzuweisen.
+
+\section{Python-Code}
+
+\begin{lstlisting}[language=Python, caption=Python-Code zur Analyse der RH-Nullstellen in der Mandelbrotmenge]
+# �� Importiere notwendige Bibliotheken
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.special import zeta
+from scipy.stats import gaussian_kde
+from tqdm import tqdm
+
+# ✅ Mandelbrot-Funktion
+def mandelbrot(c, max_iter=100):
+    z = c
+    for n in range(max_iter):
+        if abs(z) > 2:
+            return n
+        z = z**2 + c
+    return max_iter
+
+# ✅ Erzeuge die Mandelbrotmenge
+def compute_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter=100):
+    x_vals = np.linspace(xmin, xmax, width)
+    y_vals = np.linspace(ymin, ymax, height)
+    mandelbrot_set = np.zeros((height, width))
+
+    for i, y in enumerate(y_vals):
+        for j, x in enumerate(x_vals):
+            mandelbrot_set[i, j] = mandelbrot(complex(x, y), max_iter)
+    
+    return mandelbrot_set, x_vals, y_vals
+
+# ✅ Riemann-Nullstellen laden
+file_path = "/content/drive/MyDrive/zeros6.txt"  # Passe den Pfad an, falls nötig
+nullstellen = np.loadtxt(file_path)
+
+# ✅ Komplexe Nullstellen auf die Mandelbrotmenge projizieren
+riemann_x = np.real(nullstellen)  # Realteil (sollte 0.5 sein)
+riemann_y = np.imag(nullstellen)  # Imaginärteil
+
+# ✅ Mandelbrotmenge berechnen (Ausschnitt nahe der kritischen Linie)
+xmin, xmax, ymin, ymax = -2, 2, 0, 50
+width, height = 1000, 500
+mandelbrot_set, x_vals, y_vals = compute_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter=100)
+
+# ✅ Visualisierung
+plt.figure(figsize=(10, 6))
+plt.imshow(mandelbrot_set, extent=[xmin, xmax, ymin, ymax], cmap='inferno', aspect='auto')
+plt.colorbar(label="Iterationen bis Divergenz")
+plt.scatter(riemann_x, riemann_y, color='cyan', s=2, label="Riemann-Nullstellen")
+plt.xlabel("Re(c)")
+plt.ylabel("Im(c)")
+plt.title("Mandelbrotmenge & Riemannsche Nullstellen")
+plt.legend()
+plt.show()
+\end{lstlisting}
+
+\section{Zeitstempel und Absicherung}
+\begin{itemize}
+    \item \textbf{Datum und Uhrzeit der Dokumentation:} 21. Februar 2025, 06:30 Uhr (vor Ausführung in Google Colab)
+    \item \textbf{Ort:} Lingen (Ems), Deutschland
+    \item \textbf{Zeugen:} Dietmar Freese, Tanja Freese, Dirk Freese, Wolfgang Tautorat, Radek Kolodziejczyk, Thomas Krieger, Merle Freese
+    \item \textbf{Rechtsanwalt:} Michael Lito Schulte (seit dem 18.02.2025 in die Dokumentation involviert)
+    \item \textbf{Notariatsreferenz:} Kanzlei Lindwehr, Notarin Sabrina Lindwehr
+\end{itemize}
+
+\section{Juristische Handlungsempfehlung}
+Um die Autorschaft dieses Codes und seiner wissenschaftlichen Methodik rechtlich abzusichern, wird empfohlen:
+\begin{enumerate}
+    \item \textbf{Notarielle Beglaubigung dieses Dokuments mit Zeitstempel.}
+    \item \textbf{Hinterlegung des Codes als digitale Schutzschrift.}
+    \item \textbf{Klare Feststellung der menschlichen Urheberschaft (ohne KI-generierte Inhalte).}
+    \item \textbf{Ggf. Eintragung des Codes als wissenschaftlicher Beitrag in relevanten Datenbanken.}
+\end{enumerate}
+
+\section{Unterschrift und notarielle Bestätigung}
+\noindent Diese Verfügung tritt mit meiner eigenhändigen Unterschrift in Kraft.
+
+\vspace{1.5cm}
+\noindent \textbf{Unterschrift:} \\
+\vspace{2cm}
+\noindent [Tim Freese] \\
+[Datum] \\
+[Ort] \\
+
+\vspace{2cm}
+\noindent \textbf{Notarielle Bestätigung:} \\
+\vspace{2cm}
+\noindent Notar: [Sabrina Lindwehr] \\
+\noindent Ort: [Lingen (Ems)] \\
+\noindent Datum: [21.02.2025] \\
+
+\end{document}

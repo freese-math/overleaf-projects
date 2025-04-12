@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Vergleich: Fresesche Zeta-Funktion vs. Potenzform}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Formale Gegenüberstellung}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}p{4.5cm} | p{5.8cm} | p{5.8cm}@{}}
+\toprule
+\textbf{Merkmal} & \textbf{Fresesche Zeta-Funktion} & \textbf{Potenzform $L(n) = A \cdot n^\beta + x$} \\
+\midrule
+\textbf{Formel} &
+$\displaystyle \zeta_{F,\chi}(s) = \sum_{n=1}^\infty \frac{\chi(n)}{n^s} \cdot \sin(\omega \log n + \varphi)$ &
+$\displaystyle L(n) = A \cdot n^\beta + x$ \\
+\textbf{Mathematische Herkunft} & Verallgemeinerung der Dirichlet- und Zeta-Reihe mit Frequenzmodulation & Elementare Potenzfunktion \\
+\textbf{Frequenzanteil} & Ja: $\sin(\omega \log n + \varphi)$ erzeugt Oszillation & Nein \\
+\textbf{Phasenmodulation} & Ja, über $\varphi$ & Nein \\
+\textbf{Arithmetische Einbettung} & Ja, über $\chi(n)$ (Dirichlet-Charakter) & Nein \\
+\textbf{Verbindung zur Spektralanalyse} & Ja: Zeta-Nullstellen als Resonanzen & Nein \\
+\textbf{Numerische Interpretation} & Modell für dynamische Zeta-Operatoren & Wachstumsmodell, empirisch \\
+\textbf{Verwendungszweck} & Beweis der Riemannschen Hypothese, Operatorisches Modell & Approximation von Skalen, keine tiefere Zahlentheorie \\
+\bottomrule
+\end{tabular}
+\caption{Struktureller Vergleich zwischen der freseschen Zeta-Funktion und einer klassischen Potenzfunktion}
+\end{table}
+
+\end{document}

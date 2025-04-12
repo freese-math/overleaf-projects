@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphicx}
+
+\title{Modell zur Analyse der Beta-Skala, Riemann-Nullstellen und Primzahldifferenzen}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1. Hintergrund}
+
+Ausgehend von den ersten $2\,001\,052$ nicht-trivialen Nullstellen der Riemannschen Zetafunktion (nach Odlyzko) sowie einer empirisch rekonstruierten Beta-Skala $\{\beta_n\}$ mit gleicher Länge, wird ein analytischer und spektraler Vergleich durchgeführt. Ergänzt wird dies durch die Folge der ersten $2\,001\,052$ Primzahlen $\{p_n\}$.
+
+\section*{2. Definitionen}
+
+\subsection*{2.1 Riemann-Nullstellen (Imaginärteile)}
+
+Die nicht-trivialen Nullstellen der Zetafunktion liegen in der kritischen Linie $\Re(s) = \tfrac{1}{2}$, sodass sie als
+\[
+\rho_n = \tfrac{1}{2} + i \gamma_n, \quad \text{mit } \gamma_n \in \mathbb{R}, \quad n \in \mathbb{N}
+\]
+notiert werden können.
+
+\subsection*{2.2 Primzahlen und Differenzen}
+
+\[
+p_1 = 2,\quad p_2 = 3, \quad p_3 = 5,\ldots
+\]
+\[
+\Delta p_n = p_{n+1} - p_n
+\]
+
+\subsection*{2.3 Beta-Skala}
+
+Die rekonstruierten Beta-Werte werden als Folge $\{\beta_n\}$ dargestellt. Sie repräsentieren eine nichtlineare, spektral kodierte Skala, empirisch abgeleitet über Operatoren in kosmologischen Metriken und Theta/Euler-Siegel-Kalibrierung.
+
+Die Differenzen lauten:
+\[
+\Delta \beta_n = \beta_{n+1} - \beta_n
+\]
+
+\section*{3. Normalisierung}
+
+Zur Vergleichbarkeit werden die Differenzen zentriert und skaliert:
+\[
+\tilde{\Delta x}_n = \frac{\Delta x_n - \mu_{\Delta x}}{\sigma_{\Delta x}}, \quad x \in \{\gamma, p, \beta\}
+\]
+
+\section*{4. Fourier-Analyse}
+
+\[
+\mathcal{F}[\tilde{\Delta x}_n](f) = \sum_{n=1}^{N} \tilde{\Delta x}_n \, e^{-2\pi i f n}, \quad f \in [0, 0.5]
+\]
+
+\section*{5. Korrelationsanalyse}
+
+Die Pearson-Korrelation zwischen normierten Differenzfolgen $x, y$ ergibt sich als:
+\[
+r = \frac{\sum_{n} (\tilde{\Delta x}_n \cdot \tilde{\Delta y}_n)}{N - 1}
+\]
+
+\section*{6. Ergebnis}
+
+\begin{itemize}
+  \item Die normierten Differenzen $\tilde{\Delta \beta_n}$ und $\tilde{\Delta \gamma_n}$ sind spektral nahezu identisch:
+  \[
+  r_{\text{Pearson}} \approx 1.0000
+  \]
+  \item Die Fourier-Spektren zeigen dominante Peaks bei $f \approx 0$, was auf hochgradige Ordnung und Kohärenz hinweist.
+\end{itemize}
+
+\section*{7. Ausblick}
+
+Das Modell legt nahe, dass die Beta-Skala nicht nur ein numerisches Artefakt, sondern möglicherweise eine codierte Darstellung der Nullstellenstruktur ist. Eine axiomatische Herleitung unter Verwendung der Freese-Formel, der Euler-Identität sowie gravitativer Operatoren bleibt Gegenstand zukünftiger Arbeiten.
+
+\end{document}

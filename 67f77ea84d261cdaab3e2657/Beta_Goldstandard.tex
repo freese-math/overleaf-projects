@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{physics}
+
+\begin{document}
+
+\section*{Theorem: Die harmonische Beta-Skala als universeller Spektralträger}
+
+\subsection*{Definition}
+\[
+\boxed{\beta(n) := A \cdot n^\delta} \quad \text{mit} \quad A = 0.003652, \quad \delta = -1.336085
+\]
+
+\begin{enumerate}
+    \item \textbf{Operatorstruktur:}
+    \[
+    H_\beta \psi(n) := \beta(n) \cdot \psi(n)
+    \quad \text{mit } \psi(n) \text{ als Chebyscheff–Psi-Funktion}
+    \]
+
+    \item \textbf{Liouville–Rekonstruktion (Zeta Nova Freesiana):}
+    \[
+    L(x) = \sum_{k=1}^\infty \beta(k) \cdot \frac{x^{2\rho_k}}{\rho_k \cdot \zeta'(\rho_k)} \Rightarrow \psi(x)
+    \]
+
+    \item \textbf{Euler–Freese-Wellenstruktur:}
+    \[
+    \lim_{n \to \infty} e^{i\pi \beta(n)} + 1 = 0 \Rightarrow \beta(n) \to \tfrac{2k+1}{2}
+    \]
+
+    \item \textbf{Fibonacci–Freese-Formel (FFF):}
+    \[
+    F(n) \sim \sum_{k=1}^{n} \beta(k) \cdot \Lambda(p_k)
+    \]
+
+    \item \textbf{Spurformel (Freese–Selberg analog):}
+    \[
+    \sum_{n} f(\beta(n)) = \int f(\lambda) \, \mathrm{d}\mu(\lambda) + \text{Spurreste}
+    \]
+
+    \item \textbf{Spektraloperator auf \( \mathbb{H} \):}
+    \[
+    \mathcal{H}_\beta := \text{diag}(\beta(1), \beta(2), \ldots)
+    \]
+\end{enumerate}
+
+\end{document}

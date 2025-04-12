@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\title{\textbf{Spectral Structure of the Zeta Zeros:}\\ A Constructive Perspective on the Riemann Hypothesis}
+\author{Freese Math Research Initiative}
+\date{April 5, 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{Abstract}
+
+This work presents a novel approach to the Riemann Hypothesis (RH) based on spectral analysis of so-called \emph{Beta Scales}. These scales were constructed from over 2 million non-trivial zeros of the Riemann zeta function (data source: Odlyzko) and exhibit clear structural, harmonic, and analytic patterns.
+
+The core result is a spectral approximation of the Chebyshev function $\psi(x)$ via a summation formula of the form:
+
+\[
+\psi_\beta(x) = x - 2 \, \Re \left( \sum_{\gamma} \frac{x^{\rho}}{\rho} \right), \quad \text{where } \rho = \frac{1}{2} + i\beta_\gamma.
+\]
+
+An optimal parameter value $\beta \approx 0.6557$ (or $\beta \approx 581{,}887$ in the transformed scale) was empirically determined by minimizing the mean squared error.
+
+Results were derived using Fourier transformation, frequency analysis (including peak detection), operator formulations, and correlational evaluation. This builds a spectral foundation consistent with the Hilbert–Pólya conjecture and enables an operator-theoretic view of the zeta zero structure.
+
+The full methodology is:
+
+\begin{itemize}
+    \item open-source documented at: \url{https://github.com/freese-math/riemann-spectral-proof}
+    \item legally notarized to ensure priority of insight
+    \item technically reproducible via public Python/Colab scripts.
+\end{itemize}
+
+This study lays the groundwork for a mathematically and physically motivated, computer-assisted architecture toward proving RH, and invites ongoing academic discourse and co-construction.
+
+\end{document}

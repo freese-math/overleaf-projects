@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, graphicx, hyperref}
+
+\title{Notarielle Dokumentation: Fibonacci-Freese-Formel und Nullstellen der Riemannschen Zeta-Funktion}
+\author{[Ihr Name]}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Einleitung}
+Diese Dokumentation hält den experimentellen Stand der Untersuchungen zur Fibonacci-Freese-Formel (FFF) im Kontext der Nullstellen der Riemannschen Zeta-Funktion fest. Insbesondere wird das Verhalten der exponentiellen Skalenordnung für unterschiedliche Nullstellenbereiche untersucht.
+
+\section{Theoretische Grundlage}
+Die Fibonacci-Freese-Formel postuliert eine universelle Skalenordnung für die Nullstellenabstände der Riemannschen Zeta-Funktion:
+\begin{equation}
+L(N) \sim A \cdot N^f + C \cdot \log(N) + D \cdot N^{-1} + B \cdot J_0(\omega N + \phi),
+\end{equation}
+wobei $N$ die Sequenz der Nullstellen beschreibt, und die Parameter $A, f, C, D, B, \omega, \phi$ empirisch bestimmt werden.
+
+\section{Experimentelle Ergebnisse}
+
+\subsection{Datenquelle}
+Die Nullstellen stammen aus einer externen Quelle (\url{https://beta.lmfdb.org/riemann-zeta-zeros/data/}) und wurden in der Datei gespeichert:
+
+\begin{verbatim}
+/content/drive/MyDrive/zeros6.txt
+\end{verbatim}
+
+Insgesamt wurden $2.000.000$ Nullstellen geladen.
+
+\subsection{Messwerte der FFF-Sequenz}
+
+Die folgende Tabelle zeigt die für verschiedene $N$-Werte ermittelten Exponenten:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$N$ & $f_{\text{gemessen}}$ \\
+\hline
+100 & 0.981223 \\
+1000 & 0.998148 \\
+10000 & -4.246332 \\
+50000 & \textbf{Fehlgeschlagen (nan)} \\
+100000 & 0.365041 \\
+250000 & 0.140458 \\
+500000 & 0.164259 \\
+1000000 & 0.166981 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Fehlermeldungen und Instabilitäten}
+
+Ab $N \geq 50.000$ traten numerische Probleme auf:
+
+\begin{itemize}
+    \item \textbf{Fehlgeschlagene Fits} ab $N = 50.000$.
+    \item \textbf{Instabile Werte} für größere $N$.
+    \item \textbf{Numerische Artefakte} durch exponentielles Wachstum.
+\end{itemize}
+
+\section{Relevanter Python-Code zur Berechnung}
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+# Daten laden
+file_path = "/content/drive/MyDrive/zeros6.txt"
+nullstellen = np.loadtxt(file_path)
+abstaende = np.diff(nullstellen)
+N_values = np.arange(1, len(abstaende) + 1)
+
+# FFF-Rekursionsformel mit Log-Korrektur
+def fibonacci_freese_extended(N):
+    log_fff_seq = np.zeros(N)
+    log_fff_seq[:2] = np.log([1, 1])  # Startwerte
+
+    for i in range(2, N):
+        log_fff_seq[i] = np.log1p(np.expm1(log_fff_seq[i-1]) + np.expm1(log_fff_seq[i-2]))
+
+    return log_fff_seq
+
+# Exponentenschätzung
+def estimate_exponent(x, y):
+    def power_law(x, A, f):
+        return A * x**f
+
+    params, _ = curve_fit(power_law, x, y, p0=[1, 0.5])
+    return params[1]
+
+# Tests mit verschiedenen N-Werten
+test_values = [100, 1000, 10000, 50000, 100000, 250000, 500000, 1000000]
+results = []
+
+for N in test_values:
+    log_fff_seq = fibonacci_freese_extended(N)
+    f_exp = estimate_exponent(np.arange(1, len(log_fff_seq) + 1), log_fff_seq)
+    results.append((N, f_exp))
+
+for N, f_exp in results:
+    print(f"�� Berechnung für N = {N}...")
+    print(f"�� Geschätzter Exponent f aus der FFF-Reihe (mit Log-Korrektur): {f_exp:.6f}")
+\end{verbatim}
+
+\section{Fragestellung und Interpretation}
+
+\subsection{Offene Fragen}
+\begin{enumerate}
+    \item Warum divergiert die Exponenten-Berechnung für große $N$?
+    \item Warum sind die Werte für kleine $N$ stabil, aber bei großen $N$ unstabil?
+    \item Gibt es eine unerkannte oszillierende Struktur, die die Skalenordnung beeinflusst?
+    \item Sind numerische Artefakte oder logarithmische Korrekturterme eine Erklärung?
+\end{enumerate}
+
+\subsection{Verbindung zur Riemannschen Hypothese}
+Eine Hypothese ist, dass sich die beobachteten Instabilitäten aus der überlagerten Doppelhelix-Struktur der Nullstellen ergeben, die sich auf der kritischen Linie $s = \frac{1}{2} + it$ befinden.
+
+Die Frage bleibt offen:
+\begin{center}
+\textbf{Ist dies ein numerisches Artefakt oder ein tieferer Hinweis auf die Struktur der Nullstellen?}
+\end{center}
+
+\end{document}

@@ -1,0 +1,99 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+# ⚙️ Numerische Konstanten
+phi = (1 + np.sqrt(5)) / 2  # Goldener Schnitt
+psi = (1 - np.sqrt(5)) / 2
+sqrt_5 = np.sqrt(5)
+
+# �� Funktion zur Berechnung stabilisierter Fibonacci-Zahlen
+def fibonacci_zahlen(n):
+    """Berechnet Fibonacci-Zahlen stabil ohne Overflow."""
+    n = min(n, 1000)  # Sicherheitsgrenze gegen Overflow
+    fib = [1, 1]
+    for i in range(2, n):
+        fib.append(fib[-1] + fib[-2])  # Rekursive Berechnung
+    return np.array(fib, dtype=np.int64)
+
+# �� Funktion zur Berechnung stabilisierter Primzahlen
+def primzahlen_bis(n):
+    """Berechnet Primzahlen bis n mit dem Sieb des Eratosthenes."""
+    sieve = np.ones(n+1, dtype=bool)
+    sieve[:2] = False
+    for i in range(2, int(np.sqrt(n)) + 1):
+        if sieve[i]:
+            sieve[i*i:n+1:i] = False
+    return np.where(sieve)[0]
+
+# �� Funktion zur Berechnung der Riemann-Nullstellen (Simuliert)
+def zeta_nullstellen_n(n):
+    """Erzeugt eine synthetische Sequenz von Riemann-Zeta-Nullstellen (kritische Linie)."""
+    return np.array([0.5 + 1j * t for t in range(1, n+1)])
+
+# �� Berechnung der Kohärenzlängen mit stabiler Methode
+def kohärenzlängen(werte):
+    """Berechnet die Kohärenzlängen stabilisiert ohne NaN oder Overflow."""
+    if len(werte) < 2:
+        return np.array([])
+    abstände = np.diff(werte)
+    return np.cumsum(np.abs(abstände)) / np.arange(1, len(abstände) + 1)
+
+# ✅ Potenzgesetz für Fitting
+def potenzgesetz(x, alpha, beta):
+    """Potenzgesetz-Funktion für Fit."""
+    return alpha * x ** beta
+
+# �� Logarithmierte Version zur besseren numerischen Stabilität
+def potenzgesetz_log(log_x, log_alpha, beta):
+    """Logarithmierte Version der Potenzgesetz-Funktion."""
+    return log_alpha + beta * log_x
+
+# �� Daten generieren (stabilisiert)
+N_max = 1000  # Sicherheitsgrenze gegen Überlauf
+fib_numbers = fibonacci_zahlen(N_max)
+prime_numbers = primzahlen_bis(N_max)
+zeta_numbers = np.abs(zeta_nullstellen_n(N_max))  # Absolutwert zur Stabilisierung
+
+L_fib = kohärenzlängen(fib_numbers)
+L_prime = kohärenzlängen(prime_numbers)
+L_zeta = kohärenzlängen(zeta_numbers)
+
+# �� Fit-Funktion mit Constraints gegen Nicht-Konvergenz
+def fit_kohärenzlänge(L_data):
+    """Führt robusten Fit mit Constraints durch."""
+    x_data = np.arange(1, len(L_data) + 1)
+    valid_mask = np.isfinite(L_data) & (L_data > 0)
+    if np.sum(valid_mask) < 5:
+        return (1, 0)  # Sicheres Default-Fallback
+    return curve_fit(potenzgesetz, x_data[valid_mask], L_data[valid_mask], maxfev=5000)[0]
+
+# �� Berechnung der FFF-Parameter
+alpha_fib, beta_fib = fit_kohärenzlänge(L_fib)
+alpha_prime, beta_prime = fit_kohärenzlänge(L_prime)
+alpha_zeta, beta_zeta = fit_kohärenzlänge(L_zeta)
+
+# �� Visualisierung der Ergebnisse
+plt.figure(figsize=(8, 6))
+N_vals = np.logspace(0.1, np.log10(N_max), 100)
+
+plt.loglog(N_vals, potenzgesetz(N_vals, alpha_fib, beta_fib), 'b--', label=f'Fibonacci (β = {beta_fib:.3f})')
+plt.loglog(N_vals, potenzgesetz(N_vals, alpha_prime, beta_prime), 'r-.', label=f'Primzahlen (β = {beta_prime:.3f})')
+plt.loglog(N_vals, potenzgesetz(N_vals, alpha_zeta, beta_zeta), 'g:', label=f'Zeta-Nullstellen (β = {beta_zeta:.3f})')
+
+plt.scatter(np.arange(1, len(L_fib) + 1), L_fib, color='blue', s=10, label='Daten Fibonacci')
+plt.scatter(np.arange(1, len(L_prime) + 1), L_prime, color='red', s=10, label='Daten Primzahlen')
+plt.scatter(np.arange(1, len(L_zeta) + 1), L_zeta, color='green', s=10, label='Daten Zeta-Nullstellen')
+
+plt.xlabel(r'$N$')
+plt.ylabel(r'Kohärenzlänge $L(N)$')
+plt.title(r'�� Stabilisierte Kohärenzlängen \& Fits nach der Freese-Formel')
+plt.legend()
+plt.grid(True, which='both', linestyle='--')
+plt.show()
+
+# �� Ergebnis-Ausgabe
+print("\n�� Fit-Ergebnisse (stabilisiert):")
+print(f"�� Fibonacci: α = {alpha_fib:.5f}, β = {beta_fib:.5f}")
+print(f"�� Primzahlen: α = {alpha_prime:.5f}, β = {beta_prime:.5f}")
+print(f"�� Zeta-Nullstellen: α = {alpha_zeta:.5f}, β = {beta_zeta:.5f}")

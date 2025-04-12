@@ -1,0 +1,32 @@
+\section{Gemeinsames spektrales Modell}
+
+Beide Funktionen, $\beta(n)$ und $\psi(x)$, lassen sich als Realisierungen eines zugrundeliegenden spektralen Stimulus $S(f)$ interpretieren, der durch die Verteilung der nichttrivialen Nullstellen der Riemannschen Zeta-Funktion bestimmt wird.
+
+Wir postulieren die Struktur:
+
+\begin{equation}
+S(f) = w_\beta(f) \cdot \widehat{\beta}(f) + w_\psi(f) \cdot \widehat{\psi}(f)
+\end{equation}
+
+Hierbei bezeichnet:
+\begin{itemize}
+  \item $\widehat{\beta}(f)$: normiertes Spektrum der Sliding-Fit-Exponenten,
+  \item $\widehat{\psi}(f)$: normiertes Spektrum der Tschebyschow-Funktion,
+  \item $w_\beta(f), w_\psi(f)$: spektrale Gewichtsfunktionen.
+\end{itemize}
+
+\subsection*{Spezialfall: Harmonische Kopplung}
+
+Im Falle einer dominanten Kohärenz bei Frequenz $f_0 = 0{,}001$, setzen wir:
+
+\begin{equation}
+w_\beta(f) = \delta(f - f_0), \qquad w_\psi(f) = \delta(f - f_0)
+\end{equation}
+
+Dann ergibt sich:
+
+\begin{equation}
+S(f_0) = \widehat{\beta}(f_0) + \widehat{\psi}(f_0)
+\end{equation}
+
+Diese Gleichung beschreibt die additive Überlagerung beider Spektren an der gemeinsamen Grundfrequenz und bildet den Kern der spektralen Kohärenzstruktur.

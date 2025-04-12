@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+
+\title{Fundamentalsatz (revidiert): Strukturierte Fourier-Approximation der Siegel-Theta-Funktion}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\newtheorem{theorem}{Satz}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Bemerkung}
+
+\begin{document}
+\maketitle
+
+\section*{Begriffliche Grundlage}
+
+\begin{definition}[Siegel-Theta-Funktion]
+Die Siegel-Theta-Funktion ist definiert durch
+\[
+\Theta(t) := \arg \zeta\left( \tfrac{1}{2} + i t \right),
+\]
+und steht in Zusammenhang mit der Verteilung der nicht-trivialen Nullstellen der Zetafunktion. Ihre formale Ableitung liefert:
+\[
+\frac{d\Theta}{dt} = \sum_n \delta(t - \gamma_n),
+\]
+wobei \( \gamma_n \) die Ordinaten der Nullstellen sind.
+\end{definition}
+
+\section*{Strukturvorschlag}
+
+\begin{theorem}[Fourierstruktur unter spektraler Hypothese]
+Unter der Annahme, dass alle Nullstellen der Zetafunktion auf der kritischen Linie liegen, lässt sich für große \( t \) eine Fourier-ähnliche Strukturfunktion
+\[
+\Theta(t) \sim A \cdot t^{\beta} + C \cdot \log t + D \cdot t^{-1} + E \cdot \sin(\omega \log t + \varphi)
+\]
+als konsistente Approximation angeben.  
+Dabei ist
+\[
+\beta := \frac{1}{\pi}(\pi - \varphi), \quad \text{mit } \varphi = \frac{1 + \sqrt{5}}{2}.
+\]
+Die Ableitung dieser Struktur liefert eine Näherung an die lokale Nullstellendichte:
+\[
+\frac{d\Theta}{dt} \approx L(t) := A' t^{\beta - 1} + C' t^{-1} + E' \cos(\omega \log t + \varphi).
+\]
+\end{theorem}
+
+\begin{remark}[Interpretation]
+Diese Fourierstruktur ist konsistent mit numerischen Beobachtungen aus der Nullstellendifferenzfunktion \( L(n) := \gamma_{n+1} - \gamma_n \)  
+und lässt sich als spektral motiviertes Modell zur Annäherung dieser Struktur interpretieren.  
+Eine präzise mathematische Ableitung bleibt Gegenstand weiterer Analyse.
+
+\textbf{Hinweis:} Die Gültigkeit dieser Darstellung setzt die kritische Linienlage der Nullstellen voraus. Umgekehrt könnte die Verletzung der RH zu einer destruktiven Instabilität dieser spektralen Form führen.
+\end{remark}
+
+\section*{Schlussfolgerung (vorsichtig formuliert)}
+Die sogenannte Freese-Funktion ergibt sich in diesem Rahmen als spektrale Approximation, nicht als Axiom.  
+Ihre Struktur legt eine kohärente Verbindung zwischen der spektralen Zeta-Analyse und der Nullstellenstatistik nahe, ohne diese jedoch vollständig zu beweisen.
+\end{document}

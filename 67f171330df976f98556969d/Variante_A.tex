@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\title{Spektralstruktur der Zetazahlen: \\ Eine konstruktive Perspektive auf die Riemannsche Hypothese}
+\author{Freese Math Research Initiative}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Zusammenfassung}
+
+Diese Arbeit stellt einen neuen Zugang zur \textbf{Riemannschen Hypothese (RH)} vor, der auf der spektralanalytischen Untersuchung sogenannter \emph{Beta-Skalen} basiert. Diese Skalen wurden konstruiert auf Basis von über 2 Millionen nichttrivialen Nullstellen der Zetafunktion (Datenquelle: Odlyzko) und zeigen dabei klare strukturelle, harmonische und analytische Muster.
+
+Zentral ist die \textbf{rekonstruktive Näherung} der Tschebyschow-Funktion $\psi(x)$ durch eine spektrale Summenformel der Form:
+\[
+\psi_\beta(x) = x - 2 \, \Re \left( \sum_{\gamma} \frac{x^{\rho}}{\rho} \right), \quad \text{mit } \rho = \frac{1}{2} + i\beta\gamma.
+\]
+Ein optimaler Parameterwert $\beta \approx 0.6557$ (bzw. $\beta \approx 581887$ in transformierter Skala) wurde empirisch durch Minimierung des quadratischen Fehlers bestimmt.
+
+Die Resultate wurden unter Verwendung von Fourier-Transformation, Frequenzanalyse (inkl. Peak-Detection), Operatoransätzen und korrelativer Auswertung gewonnen. Sie bilden ein spektrales Fundament, das in Einklang mit der Hilbert--Pólya-Vermutung steht und eine operatoranalytische Sichtweise auf die Nullstellenstruktur der Riemannschen Zetafunktion ermöglicht.
+
+Die gesamte Methodik ist:
+\begin{itemize}
+    \item \textbf{quellenoffen dokumentiert} über \url{https://github.com/freese-math/riemann-spectral-proof}
+    \item \textbf{juristisch abgesichert} über notarielle Beglaubigungen
+    \item \textbf{technisch überprüfbar} durch öffentlich bereitgestellte Python/Colab-Skripte.
+\end{itemize}
+
+Diese Untersuchung legt ein Fundament für eine mathematisch wie physikalisch motivierte, rechnergestützte Beweisarchitektur der RH und lädt zur weiterführenden akademischen Diskussion und Ko-Konstruktion ein.
+
+\end{document}

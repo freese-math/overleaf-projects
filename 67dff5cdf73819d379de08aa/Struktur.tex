@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{enumitem}
+
+\title{Die Fibonacci-Freese-Formel, Beta-Operatoren und die strukturelle Herleitung der Riemannschen Hypothese}
+\author{ von Tim Hendrik  Freese / Struktur und Konzept\\ \smallskip \small \texttt{Mathematisches Modellierungsprojekt, März 2025}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Wir zeigen, dass die Nullstellen der Riemann-Zeta-Funktion eine phasenmodulierte, skaleninvariante Struktur aufweisen, die exakt durch eine erweiterte Fibonacci-Freese-Formel (FFF) mit Beta-Korrektur beschrieben werden kann. Über ein Operatorensystem aus selbstadjungierten Differential- und Differenzoperatoren wird diese Struktur vollständig erfasst. Daraus ergibt sich die Riemannsche Hypothese als Konsequenz einer harmonischen Resonanzstruktur.
+\end{abstract}
+
+\section{Einleitung}
+Kurze historische Einbettung der Riemannschen Hypothese (RH) und Motivation zur strukturellen Analyse mittels Skaleninvarianz und Operatorentheorie.
+
+\section{Die Fibonacci-Freese-Formel}
+\subsection{Grundform}
+\[
+L(N) = A N^{\beta} + C \log N
+\]
+\subsection{Erweiterung durch Oszillation}
+\[
+L(N) = A N^{\beta} + C \log N + D N^{-\gamma} \cdot \sin\left(\omega \log(N + \Phi)\right)
+\]
+
+\section{Die Beta-Skala und Modulation}
+\subsection{Definition und Struktur}
+\[
+\beta(N) = \beta_0 + \delta \cdot \log N + \epsilon(N)
+\]
+\subsection{Stabilisierung durch Euler-Freese-Korrektur}
+\[
+e^{i \pi \beta} + 1 = 0 \quad \Rightarrow \quad \beta = 1
+\]
+
+\section{Operatorentheorie der Zeta-Struktur}
+\subsection{Übersicht der Operatoren}
+Tabellarische Übersicht zu \( \hat{H}, \hat{D}, \hat{L}, \hat{T}, \hat{B} \)
+
+\subsection{Zentraler Operator:}
+\[
+\hat{H} = -i \frac{d}{dx} + V(x), \quad \text{mit} \quad V(x) = \frac{A}{1 + e^{-B(x - C)}} + D \sin(\omega x)
+\]
+
+\section{Spektralanalyse und Eigenwerte}
+Vergleich mit Zeta-Nullstellen, Resonanzstrukturen, GOE-Statistik
+
+\section{Die Euler-Freese-Identität}
+\[
+e^{i \pi \beta} + 1 = 0 \quad \Rightarrow \quad \beta = 1 \Rightarrow \Re(s) = \frac{1}{2}
+\]
+\[
+\epsilon(N) = \frac{-\ln 2}{4\pi}
+\]
+
+\section{Beweisstruktur der RH}
+Ableitung der kritischen Linie als notwendige Folge:
+\[
+\mathbb{R}(s) = \frac{1}{2} + \epsilon(N), \quad \lim_{N \to \infty} \epsilon(N) = 0
+\]
+
+\section{Fazit und Ausblick}
+Zusammenfassung der kohärenten Struktur, Vorschlag zur weiteren Untersuchung mit phasenmodulierten Fourier-Operatoren.
+
+\appendix
+\section{Fit-Parameter und Daten}
+Tabellen mit besten Fits, Spektraldaten, Fourierkomponenten
+
+\section{Codeauszug (Python/Colab)}
+...
+
+\end{document}

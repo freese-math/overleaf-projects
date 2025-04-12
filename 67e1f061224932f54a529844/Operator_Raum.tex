@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, geometry, hyperref, graphicx, listings}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{xcolor}
+
+\title{Spektral-arithmetischer Operatoransatz zur Riemannschen Hypothese}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\begin{document}
+\maketitle
+
+\section*{1. Operatoransatz \boldmath$\mathcal{D}_\mu$}
+
+Sei \(\mathcal{D}_\mu\) ein Operator mit Wirkung auf \(f : \mathbb{N} \to \mathbb{R}\), definiert durch:
+
+\begin{equation}
+(\mathcal{D}_\mu f)(n) = \sum_{k=1}^{K} w_k \cdot \delta_\sigma(n - \gamma_k) \cdot f(n) + \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\end{equation}
+
+\textbf{Notation:}
+\begin{itemize}
+  \item \(\rho_k = \sigma_k + i \gamma_k\): nicht-triviale Nullstellen der Riemannschen Zeta-Funktion
+  \item \(w_k = \frac{1}{|\zeta'(\rho_k)|}\): spektrales Gewicht
+  \item \(\delta_\sigma(n - \gamma_k) = \exp\left( -\frac{(n - \gamma_k)^2}{2 \sigma^2} \right)\): gaußförmige Approximation von \(\delta\)
+  \item \(\mu(d)\): Möbius-Funktion
+  \item \(\lambda\): Rückkopplungsfaktor
+\end{itemize}
+
+\vspace{1em}
+
+\section*{2. Hypothese (informell)}
+
+Die Riemannsche Hypothese (RH) ist äquivalent zur Selbstadjungiertheit von \(\mathcal{D}_\mu\) auf \(\ell^2(\mathbb{N})\), d.\,h.:
+
+\begin{quote}
+\textbf{Satz (RH-Selbstadjungiertheit):} \\
+RH gilt genau dann, wenn \(\mathcal{D}_\mu = \mathcal{D}_\mu^\dagger\) auf einem geeigneten Hilbertraum.
+\end{quote}
+
+\vspace{1em}
+
+\section*{3. Numerischer Test (Python)}
+
+\noindent Test der Adjungiertheit von \(\mathcal{D}_\mu\) durch Vergleich der Skalarprodukte:
+
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\footnotesize, breaklines=true, backgroundcolor=\color{gray!10}]
+import numpy as np
+import matplotlib.pyplot as plt
+from mpmath import zetazero, diff, zeta, mp
+from sympy.ntheory import mobius
+
+mp.dps = 50
+N = 1000
+K = 50
+epsilon = 0.0
+sigma = 0.5
+lambda_mu = 0.05
+
+gammas = [float(zetazero(k).imag) for k in range(1, K + 1)]
+sigmas = [0.5 + epsilon for _ in range(K)]
+weights = [1.0 / abs(diff(zeta, complex(s, g))) for s, g in zip(sigmas, gammas)]
+weights = [w / sum(weights) for w in weights]
+
+n_vals = np.arange(N)
+f = np.sin(0.01 * np.pi * n_vals)
+g = np.cos(0.01 * np.pi * n_vals)
+
+Dmu_f = np.zeros_like(f)
+for w, gamma in zip(weights, gammas):
+    for n in range(N):
+        delta = np.exp(-((n - gamma)**2) / (2 * sigma**2))
+        Dmu_f[n] += w * delta * f[n]
+
+for n in range(2, N):
+    mobius_sum = sum([mobius(d) * (n // d) for d in range(1, n)])
+    Dmu_f[n] += lambda_mu * mobius_sum * f[n]
+
+inner1 = np.dot(Dmu_f, g)
+inner2 = np.dot(f, Dmu_f)
+print(f"⟨Dµ f, g⟩ = {inner1}")
+print(f"⟨f, Dµ g⟩ = {inner2}")
+print(f"Differenz = {abs(inner1 - inner2)}")
+\end{lstlisting}
+
+\vspace{1em}
+
+\section*{4. Ziel der Zusammenarbeit}
+
+\begin{itemize}
+  \item Exakte Definition von \(\mathcal{D}_\mu\) als Operator auf \(\ell^2\) oder geeignetem Raum
+  \item Formale Untersuchung der Selbstadjungiertheit
+  \item Herleitung eines RH-äquivalenten Satzes mit vollständigem Beweis
+\end{itemize}
+
+\section*{5. Kontakt}
+Tim Hendrik Freese\\
+\texttt{[E-Mail-Adresse einsetzen]}\\
+\texttt{[ggf. GitHub / arXiv-Link]}
+
+\end{document}

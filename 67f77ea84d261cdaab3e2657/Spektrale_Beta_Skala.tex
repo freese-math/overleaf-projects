@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{Definition: Spektrale Beta-Skala}
+
+\textbf{Definition 1 (Spektrale Beta-Skala).}  
+Sei $\rho_n$ die $n$-te nichttriviale Nullstelle der Riemannschen Zetafunktion auf der kritischen Geraden, d.\,h.:
+\[
+\rho_n = \tfrac{1}{2} + i\gamma_n \quad \text{mit} \quad \zeta(\rho_n) = 0, \quad \Re(\rho_n) = \tfrac{1}{2}.
+\]
+
+Dann ist die zugehörige \emph{Beta-Skala} $\beta(n)$ definiert als:
+
+\[
+\boxed{
+\beta(n) = \beta_0 + \alpha \cdot \frac{n^{\delta + 1} - 1}{\delta + 1} + C \cdot \left( \frac{\omega \cos(\omega \log n) - \sin(\omega \log n)}{\omega^2 + 1} \cdot n \right) + \frac{C \cdot \omega}{\omega^2 + 1}
+}
+\]
+
+\textbf{Bedingungen:}
+\begin{itemize}
+  \item $\alpha, \delta, C, \omega, \beta_0 \in \mathbb{R}$ sind spektrale Parameter mit $\delta \ne -1$.
+  \item Die Skala $\beta(n)$ rekonstruiert das spektrale Drift- und Oszillationsverhalten der Nullstellen $\rho_n$ im Operatorrahmen.
+  \item Die Frequenzstruktur ist über eine modulierte $\Theta$-Kohärenz (siehe Siegel-Theta-Funktion) motiviert.
+\end{itemize}
+
+\textbf{Ziel:} Die Beta-Skala $\beta(n)$ dient als spektrale Steuergröße für Operatoren $H_\beta$ im Sinne der Hilbert–Pólya-Vermutung:
+\[
+H_\beta := H \cdot e^{i\pi\beta(n)} \quad \text{mit Eigenwerten } \gamma_n.
+\]
+
+\end{document}

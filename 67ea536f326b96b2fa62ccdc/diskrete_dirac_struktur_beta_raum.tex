@@ -1,0 +1,39 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Diskrete Dirac-Struktur auf dem Beta-Raum}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Diskrete Dirac-Struktur auf dem Beta-Raum}
+
+Wir definieren einen Operator $H_\beta$ als eine diskrete Version eines Impulsoperators entlang eines Skalenraums von Beta-Werten:
+\[
+H_\beta = i\varepsilon \frac{\Delta}{\Delta \beta}
+\]
+wobei $\varepsilon$ ein diskretes Skalenquantum ist und $\frac{\Delta}{\Delta \beta}$ der zentrale Differenzenoperator ist. Daraus ergibt sich eine antisymmetrische Matrixstruktur.
+
+Die Dirac-Gleichung auf diesem Raum lautet:
+\[
+\left( i H_\beta - m \right)\psi(\beta) = 0
+\]
+In zweikomponentiger Matrixform schreiben wir:
+\[
+\mathcal{H}_{\text{Dirac}} =
+\begin{pmatrix}
+0 & H_\beta \\
+H_\beta & 0
+\end{pmatrix}
+\]
+
+Die Eigenwerte dieser Matrix zeigen eine spektrale Symmetrie um Null, ein Hinweis auf eine chirale Struktur analog zur kontinuierlichen Dirac-Theorie. Die zugehörigen Eigenvektoren kodieren mögliche Zustände auf dem Beta-Raum.
+
+\end{document}

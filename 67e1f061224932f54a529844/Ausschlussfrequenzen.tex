@@ -1,0 +1,26 @@
+\subsection*{Spektrale Ausschlusszonen des MOS-Operators}
+
+Die Struktur der Nullstellen der Riemannschen Zetafunktion $\zeta(s)$ weist keine periodischen Komponenten auf und entspricht, nach gängiger Vermutung (Montgomery–Odlyzko–Dyson), statistisch dem Eigenwertspektrum hermitescher Zufallsmatrizen aus der Gaussian Unitary Ensemble (GUE). Dieses Spektrum ist durch aperiodische, fraktale und zufällige Korrelationen charakterisiert.
+
+In der Konstruktion des \emph{MOS-Operators} (Modulierter Operator mit Skalenstruktur) ist daher darauf zu achten, dass keine expliziten harmonischen Resonanzen in den Korrekturgliedern auftreten, die das aperiodische Zeta-Spektrum stören würden.
+
+\paragraph{Definition (Spektrale Ausschlussmenge).}
+Eine rationale Frequenz $\nu \in \mathbb{Q}_+$ liegt in der \emph{spektralen Ausschlussmenge} $\mathcal{E}$ des MOS-Operators, wenn die Modulation durch $\nu$ im Frequenzspektrum des Potenzials $V(x)$ zu konstruktiver Resonanz führt, d.h. zu einer überproportionalen Verstärkung harmonischer Komponenten:
+\[
+\mathcal{E} := \left\{ \nu \in \mathbb{Q}_+ \;\middle|\; \exists \, A(\nu) \gg A_\text{avg} \text{ im Fourier-Spektrum von } V(x;\nu) \right\}
+\]
+Dabei bezeichnet $A(\nu)$ die Amplitude bei Frequenz $\nu$, und $A_\text{avg}$ den Mittelwertspektralpegel.
+
+\paragraph{Beobachtung.}
+In numerischen Spektralstudien zeigt sich, dass rationale Modulationen mit niedrigen Nennern, wie z.B.
+\[
+\nu \in \left\{ \frac{1}{2}, \frac{1}{5}, \frac{1}{10}, \frac{1}{33}, \frac{1}{137} \right\}
+\]
+zu Resonanzeffekten führen, die mit dem aperiodischen Eigenwertspektrum der $\zeta$-Funktion unvereinbar sind. Diese Frequenzen sind daher aus der Definition der Beta-Korrektur zu exkludieren.
+
+\paragraph{Folgerung.}
+Die Korrekturterme der Beta-Skala im MOS-Operator
+\[
+\beta(n) = A n^B + C + \sum_{k=2}^{\infty} \frac{a_k}{n^k}
+\]
+sind so zu wählen, dass keine Fourier-Komponenten mit $\nu \in \mathcal{E}$ dominant werden. Dies führt zu einem fraktal-aperiodischen Spektrum in Einklang mit der spektralen Struktur der Zeta-Nullstellen.

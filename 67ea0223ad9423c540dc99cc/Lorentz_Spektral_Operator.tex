@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, geometry, hyperref, graphicx, mathrsfs}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\title{\textbf{Spektral-arithmetischer Operatoransatz zur Riemannschen Hypothese}}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\begin{document}
+\maketitle
+
+\section*{1. Definition des Operators \boldmath$\mathcal{L}_\mu$}
+
+Sei \( f: \mathbb{N} \to \mathbb{R} \) eine quadratsummierbare Funktion, d.\,h.\ \( f \in \ell^2(\mathbb{N}) \). Wir definieren den spektral-arithmetischen Operator \(\mathcal{L}_\mu\) durch:
+
+\begin{equation}
+(\mathcal{L}_\mu f)(n) = \sum_{p \leq P} \frac{A_p}{(n - \omega_p)^2 + \gamma_p^2} \cdot f(n) + \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\end{equation}
+
+  \section*{1.1 Spektrale Erweiterung des Operators \boldmath$\mathcal{D}_\mu$}
+
+Die Euler-Wellenfunktion
+\[
+\psi(x) = \sum_{p \leq p_N} \sin(x \log p)
+\]
+besitzt ein charakteristisches Fourier-Spektrum mit dominanten Frequenzen
+\[
+\omega_p = \frac{\log p}{2\pi}
+\]
+welche mit hoher Genauigkeit durch Lorentz-Peaks rekonstruiert werden können:
+\[
+L_p(\omega) = \frac{A_p}{(\omega - \omega_p)^2 + \gamma_p^2}
+\]
+
+Die modifizierte Operatorwirkung von \(\mathcal{D}_\mu\) kann dadurch spektral formuliert werden als:
+
+\[
+(\mathcal{D}_\mu f)(n) =
+\int_0^\infty \left( \sum_{p \leq p_N} w_p \cdot L_p(\omega) \right) \cdot e^{2\pi i n \omega} \cdot f(n) \, d\omega
++ \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\]
+
+Hierbei ist \(w_p = \frac{1}{|\zeta'(\rho_p)|}\) das spektrale Gewicht, bestimmt über die Zeta-Nullstellen \(\rho_p\), welche den jeweiligen Primzahlresonanzen \(\omega_p\) entsprechen.
+
+Die Selbstadjungiertheit dieses Operators auf einem geeigneten spektralen Hilbertraum \(\mathcal{H}_\psi\) bildet den Kern der folgenden Analyse.
+
+
+\bigskip
+
+\subsection*{Notation:}
+\begin{itemize}
+  \item \(p\): Primzahlindex, begrenzt durch festen Cutoff \(P\)
+  \item \(\omega_p = \frac{\log p}{2\pi}\): charakteristische Frequenz der Primzahl \(p\)
+  \item \(A_p\): FFT-Amplitude (empirisch gewonnen aus Euler-Wellenanalyse)
+  \item \(\gamma_p\): Halbwertsbreite (z.\,B.\ \(\gamma_p \sim 10^{-4}\))
+  \item \(\mu(d)\): Möbius-Funktion
+  \item \(\lambda\): Rückkopplungsparameter
+\end{itemize}
+
+\bigskip
+
+\section*{2. Spektrale Motivation}
+
+Die Terme 
+\[
+\frac{1}{(n - \omega_p)^2 + \gamma_p^2}
+\]
+sind Realteile einer Lorentz-Funktion, die als Fourier-Transformierte exponentiell gedämpfter Schwingungen bekannt ist. Dies spiegelt exakt das Spektrum der Euler-Wellenfunktion wider, welche durch die modulierte Summe \(\sum_{p} \sin(x \log p)\) beschrieben wird. Der Operator \(\mathcal{L}_\mu\) implementiert somit eine Frequenzfilterung entlang der Primzahlstruktur.
+
+\bigskip
+
+\section*{3. Riemann-Hypothese und Selbstadjungiertheit}
+
+\textbf{Hypothese:} Die Riemannsche Hypothese ist äquivalent zur Selbstadjungiertheit des Operators \(\mathcal{L}_\mu\) auf einem geeigneten Definitionsbereich \(D(\mathcal{L}_\mu) \subset \ell^2(\mathbb{N})\), d.\,h.
+
+\begin{quote}
+\textbf{RH-Satz:} \\
+Die Gleichheit
+\[
+\mathcal{L}_\mu = \mathcal{L}_\mu^\dagger
+\]
+gilt genau dann, wenn alle nicht-trivialen Nullstellen der Riemannschen Zeta-Funktion auf der kritischen Geraden \(\Re(s) = \frac{1}{2}\) liegen.
+\end{quote}
+
+\bigskip
+
+\section*{4. Ausblick und weitere Arbeit}
+
+\begin{itemize}
+  \item Definition eines dichten Kerns \( \mathcal{D} \subset \ell^2(\mathbb{N}) \)
+  \item Untersuchung symmetrischer und selbstadjungierter Wirkung mittels Testfunktionen
+  \item Operatorielle Spektralanalyse und numerische Approximation
+  \item Vergleich mit bekannten Hamiltonoperatoren in der Quantenchaostheorie
+\end{itemize}
+
+
+\section*{Kontakt}
+Tim Hendrik Freese\\
+\texttt{[E-Mail-Adresse einsetzen]}\\
+\texttt{[ggf. GitHub / arXiv-Link]}
+\bigskip
+
+\end{document}

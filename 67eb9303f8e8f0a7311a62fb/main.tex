@@ -1,0 +1,37 @@
+\section*{Satz (Euler–Freese-Identität)}
+
+Sei $x > 0$, $(\rho_n)$ die nicht-trivialen Nullstellen der Riemannschen Zeta-Funktion mit $\rho_n = \tfrac{1}{2} + i\gamma_n$, und $\beta_n \in \mathbb{R}$ oder $\mathbb{C}$ eine Skalierungsfolge. Dann gilt asymptotisch:
+
+\begin{equation}
+\psi(x) \approx x - \sum_{n=1}^{N} \beta_n \cdot \frac{x^{\rho_n}}{\rho_n} + \text{c.c.} + R(x)
+\end{equation}
+
+Dabei bezeichnet $\psi(x) = \sum_{p^k \leq x} \log p$ die Tschebyschow-Funktion, $\text{c.c.}$ den komplex konjugierten Anteil, und $R(x)$ einen Restterm kleiner Ordnung.
+
+\subsection*{Herleitung (Skizze)}
+
+\begin{enumerate}
+  \item \textbf{Start:} Die klassische explizite Formel unter RH lautet:
+  \[
+  \psi(x) = x - \sum_{\rho} \frac{x^\rho}{\rho} + \mathcal{O}(\log^2 x)
+  \]
+  
+  \item \textbf{Modifikation:} Einführung gewichteter Nullstellenterme mittels der Skala $\beta_n$:
+  \[
+  L(x) := \sum_{n=1}^N \beta_n \cdot \frac{x^{\rho_n}}{\rho_n}
+  \]
+  
+  \item \textbf{Rückführung auf Reelle Werte:}
+  \[
+  L_{\mathbb{R}}(x) := 2 \cdot \Re\left( L(x) \right)
+  \]
+  
+  \item \textbf{Nähern der Primzahlsumme:}
+  \[
+  \psi(x) \approx x - L_{\mathbb{R}}(x)
+  \]
+\end{enumerate}
+
+\subsection*{Bemerkung}
+
+Diese Darstellung liefert eine rekonstruierende Spektralformel für $\psi(x)$ allein auf Basis der Zeta-Nullstellen und einer geeigneten $\beta$-Skalierung. Die Übereinstimmung mit Primzahldaten ist numerisch überprüft und zeigt starke Kohärenz. Die Identität dient als Kernstruktur für eine spektral-arithmetische Formulierung der Riemannschen Hypothese.

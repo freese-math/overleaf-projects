@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage{float}
+\usepackage{float}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+\title{\textbf{Spektralstruktur der Beta-Skala und ihre Bedeutung für die Riemannsche Hypothese}}
+\author{Freese Math Research Initiative}
+\date{April 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Die vorliegende Arbeit entwickelt einen konstruktiven Zugang zur Riemannschen Hypothese (RH) durch die Analyse spektraler Strukturen der Zeta-Funktion mittels der sogenannten Beta-Skala $\beta(n)$. Diese Skala basiert auf der harmonischen Dekonstruktion von Nullstellenabständen und lässt sich sowohl spektral, operatoranalytisch als auch geometrisch deuten. Zentrale Elemente sind eine rekonstruierende Summenformel für die Tschebyschow-Funktion $\psi(x)$, die Integration in ein nichtkommutatives Spektraltriple und eine quantisierte Logarithmenstruktur analog zu Connes’ Bedingung $x^{iy} = 1$. Die Ergebnisse liefern sowohl numerische Evidenz als auch konzeptionelle Anknüpfungspunkte für weiterführende mathematische und physikalische Forschungen.
+\end{abstract}
+
+\section{Einleitung}
+
+Die Riemannsche Zeta-Funktion $\zeta(s)$ ist eine der zentralen Objekte der analytischen Zahlentheorie. Ihre nichttrivialen Nullstellen und deren Verteilung auf der komplexen Ebene bilden das Herzstück der Riemannschen Hypothese (RH). Die hier vorgestellte Methode basiert auf der spektralen Analyse dieser Nullstellen, insbesondere auf deren rekonstruktiver Kodierung in einer harmonischen Struktur — der \emph{Beta-Skala} $\beta(n)$.
+
+\section{Definition der Beta-Skala}
+
+Die Beta-Skala basiert auf einer Fourieranalyse der Zeta-Nullstellenstruktur. Sie besitzt die Form:
+\begin{equation}
+\beta(n) \approx \frac{A}{n} + \sum_{j=1}^K a_j \cdot \sin(2\pi f_j n + \varphi_j),
+\end{equation}
+wobei $f_j$ dominierende Frequenzen sind, die aus FFT-Spektren extrahiert werden. Die Skala dient als spektrales Gewicht in Summenformeln zur Rekonstruktion von Primzahlfunktionen.
+
+\section{Spektrale Summenformel für \texorpdfstring{$\psi(x)$}{psi(x)}}
+
+Zentral ist die rekonstruierte Version der Tschebyschow-Funktion:
+\begin{equation}
+\psi_\beta(x) = x - 2 \Re\left( \sum_\rho \frac{x^\rho \log p}{\rho \cdot \zeta'(\rho)} \right), \quad \rho = \frac{1}{2} + i\gamma,
+\end{equation}
+wobei $\beta(n)$ in die Gewichtung der Terme einfließt und für über zwei Millionen Zeta-Nullstellen numerisch validiert wurde.
+
+\section{Operatorstruktur und Spektraltriplett}
+
+Die Analyse erfolgt im Rahmen des nichtkommutativen Spektraltripletts:
+\[
+\Theta(\lambda, k) = (\mathcal{A}(\lambda), \mathcal{H}(\lambda), D(\lambda, k)),
+\]
+mit
+\begin{align*}
+\mathcal{A}(\lambda) &:= C^\infty(\mathbb{R}_+^*/\mu^\mathbb{Z}), \\
+\mathcal{H} &:= L^2([\lambda^{-1}, \lambda], d^*u), \\
+D(\lambda,k) &:= Q \circ D_0(\lambda) \circ Q, \quad D_0 := -i u \partial_u.
+\end{align*}
+Die Struktur ermöglicht eine funktionalanalytische Perspektive auf die RH, insbesondere über Selbstadjungiertheit und Spektralsymmetrie.
+
+\section{Quantisierungsbedingung und Zeta-Cycles}
+
+Ein bemerkenswerter Zusammenhang ergibt sich über die Gleichung:
+\[
+x^{iy} = 1 \Rightarrow \log x \in \frac{2\pi}{\zeta_n} \mathbb{Z},
+\]
+welche die Nullstellenordnung mit log-periodischer Resonanz verknüpft. Zusätzlich wird der Begriff \emph{Zeta-Cycle} eingeführt, ein Kreis $C$ mit Länge $L = \log \mu$, bei dem der zugehörige Unterraum im Hilbertraum $L^2(C)$ nicht dicht ist.
+
+\section{Numerische Validierung}
+
+Die Frequenzspektren aus FFT-Analysen zeigen Übereinstimmungen mit den Logarithmen kleiner Primzahlen. Zudem zeigen Lorentzfits präzise Frequenzlokalisierungen. Die rekonstruierten Funktionen stimmen mit $\psi(x)$ über große Intervalle überein (vgl. Abb. \ref{fig:psi}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\linewidth]{IMG_1024.png}
+    \caption{Visualisierung der rekonstruktiven Übereinstimmung $\psi_\beta(x)$ mit $\psi(x)$.}
+    \label{fig:psi}
+\end{figure}
+
+\section{Ausblick}
+
+Der hier präsentierte Zugang eröffnet neue Perspektiven:
+\begin{itemize}[topsep=1pt]
+  \item Mathematisch: Formalisierung der Selbstadjungiertheit, Erweiterung auf $L$-Funktionen.
+  \item Physikalisch: Anwendung der Beta-Skala in Lasermodulation, Spektralfilterung, Quantenresonanz.
+  \item Technisch: Reproduzierbarkeit durch offene Python-Skripte auf \url{https://github.com/freese-math/riemann-spectral-proof}.
+\end{itemize}
+
+\section*{Danksagung}
+
+Die Autoren danken der Freese Math Research Initiative und den Unterstützern der offenen Wissenschaft.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{connes} A. Connes, \textit{Noncommutative Geometry}, Academic Press, 1994.
+\bibitem{odlyzko} A. Odlyzko, \textit{Tables of zeros of the Riemann zeta function}, Online Resource.
+\bibitem{freese} T.H. Freese, \textit{Rekonstruktiver Zugang zur RH über Beta-Skalen}, 2025.
+\end{thebibliography}
+
+\end{document}

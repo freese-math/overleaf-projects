@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, graphicx, float}
+\usepackage{booktabs, siunitx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{physics}
+
+\title{Spektrale Analyse der modulierenden Euler-Wellenfunktion im Kontext der Zeta-Funktion und relativistischer Skalarfelder}
+\author{Zeta Nova Freesiana Projekt}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1. Einführung}
+Die modulierende Euler-Wellenfunktion
+\[
+\psi(x) = \sum_{p \leq p_N} \sin(x \log p)
+\]
+verknüpft die harmonischen Strukturen der Primzahlen direkt mit dem Fourierraum. Diese Wellenfunktion wurde in Verbindung mit rekonstruierten Fehlerstrukturen aus Zeta-Nullstellen untersucht. Über die Fourier-Analyse lassen sich dominante Frequenzen extrahieren, die eng mit \(\log(p)/(2\pi)\) für kleine Primzahlen korrespondieren.
+
+\section*{2. Frequenzanalyse}
+Die dominanten Frequenzen im Spektrum der \(\psi(x)\)-Welle lauten:
+\begin{align*}
+f_1 &= 0.25615 \approx \frac{\log(5)}{2\pi} \\
+f_2 &= 0.17485 \approx \frac{\log(3)}{2\pi} \\
+f_3 &= 0.45092 \approx \frac{\log(17)}{2\pi}
+\end{align*}
+
+Diese Übereinstimmung legt nahe, dass das Spektrum der \(\psi(x)\) tatsächlich Primzahlinformationen kodiert. Die folgende Tabelle vergleicht präzise:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rccc}
+\toprule
+Primzahl \(p\) & \(\log(p)/(2\pi)\) & FFT-Frequenz & Abweichung \\
+\midrule
+5  & 0.25615000 & 0.25615000 & 0.00000000 \\
+17 & 0.45091991 & 0.45092000 & 0.00000009 \\
+3  & 0.17484958 & 0.17485000 & 0.00000042 \\
+23 & 0.49902940 & 0.49903000 & 0.00000060 \\
+\bottomrule
+\end{tabular}
+\caption{Vergleich von Primzahlfrequenzen mit FFT-Daten}
+\end{table}
+
+\section*{3. Zusammenhang mit relativistischen Feldern}
+Gemäß der klassischen Feldtheorie wird ein Skalarfeld \(\phi(x^\mu)\) in der Raumzeit durch Ableitungen dargestellt:
+
+\[
+\partial_\mu \phi = \frac{\partial \phi}{\partial x^\mu}
+\]
+
+Dies entspricht Gleichung (4.14) aus dem Skript. Wenn man nun \(\psi(x)\) als übergeordnetes Skalarfeld interpretiert, das durch Primzahlfrequenzen moduliert ist, kann man folgende Deutung wagen:
+
+\[
+\phi(x) := \sum_{p} \sin\left(\frac{\log p}{2\pi} x\right)
+\]
+
+Mit dieser Deutung wird \(\phi(x)\) Lorentz-skalierbar, da \(\log p\) invariant und die Frequenzen reell sind. Damit ergibt sich ein physikalisch motivierter Zugang zur Untersuchung spektraler Eigenschaften von Primzahlen.
+
+\section*{4. Perspektive: Verbindung zur Zeta-Funktion}
+Die explizite Formel aus der Zahlentheorie (z.~B. Riemann-von-Mangoldt) zeigt, dass Primzahlen im Zusammenhang mit den Nullstellen der Zeta-Funktion stehen. Der Zusammenhang:
+
+\[
+\psi(x) = \sum_{p \leq x} \log p \sim x - \sum_{\rho} \frac{x^\rho}{\rho} - \dots
+\]
+
+wird durch die modulierte Euler-Wellenfunktion möglicherweise geometrisch visualisierbar. Das FFT-Spektrum stellt somit einen experimentell inspirierten Weg zur Analyse der Riemannschen Hypothese dar.
+
+\section*{5. Ausblick}
+Die Verbindung zwischen Primzahlspektren, Fehlerstrukturen der Zeta-Nullstellen und der Physik (Skalarfeld, Lorentztransformation) eröffnet neue Pfade zur rigorosen Formulierung der Riemannschen Hypothese über harmonische und spektrale Eigenschaften.
+
+\end{document}

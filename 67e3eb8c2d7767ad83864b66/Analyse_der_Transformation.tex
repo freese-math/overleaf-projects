@@ -1,0 +1,68 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{float}
+\geometry{margin=2.5cm}
+
+\title{Analyse der Euler-Freese-Transformation}
+\author{Prime Zeta Pro}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Zusammenfassung}
+
+Die vorliegende Analyse untersucht die komplexe Transformation
+\[
+H(n) := \exp(i \pi \beta(n)),
+\]
+basierend auf einer skalenbasierten Modulation \(\beta(n)\), wie sie aus der Euler-Freese-Struktur hervorgeht. Ziel ist die Untersuchung des spektralen und phasischen Verhaltens dieser Transformation im Kontext möglicher Zeta-artiger Identitäten.
+
+\section{Verteilung der Phasen auf dem Einheitskreis}
+
+Zur Visualisierung der Phasenverteilung wurde für \( n = 1, \dots, N \) der Winkel
+\[
+\theta_n := \arg(H(n)) = \pi \beta(n) \mod 2\pi
+\]
+berechnet und histogrammisch ausgewertet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{phase_histogramm.png} % <- Bild ggf. umbenennen
+    \caption{Verteilung der Phasen \( \arg(H(n)) \) auf dem Einheitskreis. Die Gleichverteilung deutet auf spektrale Neutralität hin.}
+\end{figure}
+
+\paragraph{Ergebnis:} Die Phasen \(\theta_n\) sind im Intervall \([-\pi, \pi]\) gleichverteilt. Dies weist auf eine vollständige phasische Rotation auf dem Einheitskreis hin. Das System zeigt keine bevorzugte Richtung, was auf eine pseudorandomisierte, aber strukturell kohärente Eigenschaft der Skala \(\beta(n)\) schließen lässt.
+
+\section{Vergleich zur klassischen Euler-Identität}
+
+Während bei der klassischen Gleichung
+\[
+e^{i\pi} + 1 = 0
+\]
+eine konstante Phase vorliegt, beschreibt die Euler-Freese-Transformation eine variable Rotation:
+\[
+H(n) = e^{i\pi\beta(n)}.
+\]
+Diese erzeugt eine Sequenz komplexer Zahlen auf dem Einheitskreis mit stochastisch anmutender Dynamik.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{euler_freese_circle.png}
+    \caption{Darstellung einzelner \( H(n) \) auf dem Einheitskreis.}
+\end{figure}
+
+\section{Ausblick}
+
+Basierend auf der gleichverteilten Phasenstruktur kann vermutet werden, dass die Euler-Freese-Transformation \emph{unitäre Eigenschaften} besitzt. Dies legt nahe, dass
+\[
+\sum_{n=1}^N H(n) \rightarrow 0 \quad \text{für } N \to \infty
+\]
+unter Annahme von struktureller Kohärenz in \(\beta(n)\). Weitere Analysen (Spektren, Autokorrelation, Matrixmodelle) sind geplant.
+
+\end{document}

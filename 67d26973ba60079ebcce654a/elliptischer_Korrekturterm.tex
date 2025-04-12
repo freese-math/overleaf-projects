@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{tikz}
+\geometry{margin=2.5cm}
+
+\title{Ableitung der Korrekturfunktion mit Jacobi-elliptischer Funktion \texttt{cn}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Definition der Funktion}
+
+Gegeben sei die Korrekturfunktion
+\begin{equation}
+K(N) = \frac{C}{N} \log^D(N) \left( 1 + E \cdot \mathrm{cn}(\omega \log N, k) \right),
+\end{equation}
+wobei
+\begin{itemize}
+  \item \( C, D, E, \omega, k \in \mathbb{R} \) Konstanten sind,
+  \item \( \mathrm{cn}(u, k) \) die Jacobi-elliptische Funktion ist,
+  \item \( N > 0 \).
+\end{itemize}
+
+\section*{Ableitung \( K'(N) \)}
+
+Die Ableitung erfolgt nach der Produktregel:
+\begin{align}
+K'(N) &= \dv{N} \left[ \frac{C}{N} \log^D(N) \left( 1 + E \cdot \mathrm{cn}(\omega \log N, k) \right) \right] \\
+&= C \left[ \dv{N} \left( \frac{1}{N} \log^D(N) \right) \left( 1 + E \cdot \mathrm{cn}(\omega \log N, k) \right) \right. \notag\\
+&\quad\left. + \frac{1}{N} \log^D(N) \cdot \dv{N} \left( E \cdot \mathrm{cn}(\omega \log N, k) \right) \right]
+\end{align}
+
+Die Ableitung des ersten Terms:
+\begin{align}
+\dv{N} \left( \frac{1}{N} \log^D(N) \right)
+&= -\frac{1}{N^2} \log^D(N) + \frac{D}{N^2} \log^{D-1}(N)
+\end{align}
+
+Die Ableitung der elliptischen Funktion mit Kettenregel:
+\begin{align}
+\dv{N} \left( \mathrm{cn}(\omega \log N, k) \right)
+&= \dv{u}{N} \mathrm{cn}(u, k) = \omega \cdot \frac{1}{N} \cdot \dv{u} \mathrm{cn}(u, k) \\
+&= -\omega \cdot \frac{1}{N} \cdot \mathrm{sn}(u, k) \cdot \mathrm{dn}(u, k)
+\end{align}
+
+Daher ergibt sich:
+\begin{align}
+K'(N) &= C \left[ \left( -\frac{1}{N^2} \log^D(N) + \frac{D}{N^2} \log^{D-1}(N) \right) \left( 1 + E \cdot \mathrm{cn}(\omega \log N, k) \right) \right. \notag \\
+&\quad\left. - \frac{E \omega}{N^2} \log^D(N) \cdot \mathrm{sn}(\omega \log N, k) \cdot \mathrm{dn}(\omega \log N, k) \right]
+\end{align}
+
+\section*{Bemerkung}
+
+Die elliptischen Funktionen erzeugen modulierte Oszillationen mit zusätzlicher Struktur (durch den Modulus \( k \)), die z.\,B. in Theta-Funktionen, Modultransformationen oder Spektralanalysen natürlicherweise vorkommen.
+
+\end{document}

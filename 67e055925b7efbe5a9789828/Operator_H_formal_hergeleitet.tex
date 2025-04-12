@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Definition eines selbstadjungierten Operators \\ zur Spektralstruktur der Zeta-Nullstellen}
+\author{Tim Hendrik Freese}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Definition des Operators}
+
+Wir definieren einen Hamilton-Operator \(\hat{H}\) auf dem Hilbertraum \(L^2(\mathbb{R})\) durch
+\[
+\hat{H} = -\frac{d^2}{dx^2} + V(x),
+\]
+wobei das Potential \(V(x)\) gegeben ist durch
+\[
+V(x) = \frac{A}{1 + e^{-B(x - c)}} + D \cdot \sin(\omega x).
+\]
+
+\paragraph{Parameter:}
+Die Konstanten \(A, B, c, D, \omega \in \mathbb{R}\) sind so gewählt, dass:
+\begin{itemize}
+    \item \(V(x)\) ist glatt (\(C^\infty\)) und realwertig,
+    \item \(\displaystyle \lim_{|x| \to \infty} V(x) = +\infty\),
+    \item \(V(x) \geq V_0 > -\infty\) für ein \(V_0\).
+\end{itemize}
+
+\paragraph{Wirkungsraum:}
+\(\hat{H}\) operiert auf einer dichten Untermenge \(\mathcal{D}(\hat{H}) \subset L^2(\mathbb{R})\), etwa dem Raum der glatten Funktionen mit kompaktem Träger:
+\[
+\mathcal{D}(\hat{H}) := \mathcal{C}_0^\infty(\mathbb{R}).
+\]
+
+\section*{Zielstellung}
+Zeige, dass:
+\begin{enumerate}
+    \item \(\hat{H}\) ist selbstadjungiert auf \(L^2(\mathbb{R})\),
+    \item Das Spektrum \(\mathrm{spec}(\hat{H}) = \{ \lambda_n \}\) entspricht den ordinären Nullstellen der Riemannschen Zetafunktion:
+    \[
+    \lambda_n \approx \gamma_n, \quad \text{mit} \quad \zeta\left( \tfrac{1}{2} + i\gamma_n \right) = 0.
+    \]
+\end{enumerate}
+
+\section*{Anmerkung}
+Dieser Operator bildet die Grundlage für einen möglichen konstruktiven Beweis der Riemannschen Vermutung im Sinne des Hilbert--Pólya-Ansatzes.
+
+\end{document}

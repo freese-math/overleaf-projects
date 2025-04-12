@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+
+\title{Die Freese-Funktion als spektrale Strukturform der Siegel-Theta-Funktion\\
+\large Ein funktionalanalytischer Zugang zur Nullstellenverteilung der Zetafunktion}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\newtheorem{theorem}{Satz}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Bemerkung}
+
+\begin{document}
+\maketitle
+
+\section*{1. Einleitung}
+
+Die Riemannsche Zetafunktion steht im Zentrum zahlentheoretischer Strukturfragen.  
+Die in diesem Beitrag vorgestellte \emph{Freese-Funktion} ergibt sich als spektral strukturierte Approximation der Ableitung der Siegel-Theta-Funktion.  
+Ziel ist keine Beweisführung der Riemannschen Hypothese (RH), sondern die Herausarbeitung einer kohärenten Strukturform, welche Nullstellenabstände, Spektralanalyse und rekonstruktive Formeln verbindet.
+
+\section*{2. Spektrale Grundlage}
+
+\begin{definition}[Siegel-Theta-Funktion]
+Sei
+\[
+\Theta(t) := \arg \zeta\left( \tfrac{1}{2} + i t \right)
+\]
+die kontinuierlich fortgesetzte Argumentfunktion. Ihre formale Ableitung ergibt
+\[
+\frac{d\Theta}{dt} = \sum_n \delta(t - \gamma_n),
+\]
+wobei \( \gamma_n \) die Ordinaten der nicht-trivialen Nullstellen von \( \zeta(s) \) sind.
+\end{definition}
+
+\section*{3. Fourierstruktur als Modell}
+
+\begin{theorem}[Spektralstruktur der Theta-Funktion]
+Unter der Voraussetzung, dass alle Nullstellen auf der kritischen Linie liegen, lässt sich für \( t \gg 1 \) eine strukturierte Fourierapproximation formulieren:
+\[
+\Theta(t) \sim A t^{\beta} + C \log t + D t^{-1} + E \sin(\omega \log t + \varphi),
+\]
+mit dem strukturellen Exponenten
+\[
+\beta := \frac{1}{\pi}(\pi - \varphi), \quad \varphi = \frac{1 + \sqrt{5}}{2}.
+\]
+\end{theorem}
+
+\begin{remark}
+Die Ableitung dieser Struktur liefert eine Approximation der lokalen Nullstellendichte:
+\[
+\frac{d\Theta}{dt} \approx A' t^{\beta - 1} + C' t^{-1} + E' \cos(\omega \log t + \varphi),
+\]
+welche mit empirischen Nullstellendifferenzen \( L(n) = \gamma_{n+1} - \gamma_n \) kohärent ist.
+\end{remark}
+
+\section*{4. Interpretation und Geltung}
+
+Die Freese-Funktion ist als strukturierte Approximation zu verstehen, nicht als analytisch bewiesene Identität.  
+Die „Kohärenz“ ergibt sich aus:
+
+\begin{itemize}
+  \item Übereinstimmung mit rekonstruktiven \( \psi(x) \)-Formeln
+  \item Fourierkompatibilität in der spektralen Analyse
+  \item Stabilität unter Variation von Nullstellen – nur bei RH erhalten
+\end{itemize}
+
+\section*{5. Ausblick}
+
+Der nächste Schritt ist die operatorische Einbettung der Freese-Struktur, etwa in Form eines selbstadjungierten Operators mit \( \gamma_n \) als Spektrum.  
+Zusätzlich bieten sich Anwendungen in der rekonstruktiven Zahlentheorie (\(\psi(x)\), \(\Lambda(n)\)) an.
+
+\end{document}

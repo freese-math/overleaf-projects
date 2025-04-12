@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, physics, geometry, graphicx}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\title{Spektral-arithmetischer Operatoransatz zur Riemannschen Hypothese}
+\author{Tim Hendrik Freese}
+\date{März 2025}
+
+\begin{document}
+\maketitle
+
+\section*{1. Operatoransatz \boldmath$\mathcal{D}_\mu$}
+
+Sei $\mathcal{D}_\mu$ ein Operator mit Wirkung auf $f : \mathbb{N} \to \mathbb{R}$, definiert durch:
+\[
+(\mathcal{D}_\mu f)(n) = \sum_{k=1}^{K} w_k \cdot \delta_\sigma(n - \gamma_k) \cdot f(n)
++ \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\]
+
+\textbf{Notation:}
+\begin{itemize}
+  \item $\rho_k = \sigma_k + i \gamma_k$: nicht-triviale Nullstellen der Riemannschen Zeta-Funktion
+  \item $w_k = \frac{1}{|\zeta'(\rho_k)|}$: spektrales Gewicht
+  \item $\delta_\sigma(n - \gamma_k) = \exp\left( -\frac{(n - \gamma_k)^2}{2 \sigma^2} \right)$: gaußförmige Approximation
+  \item $\mu(d)$: Möbius-Funktion
+  \item $\lambda$: Rückkopplungsfaktor
+\end{itemize}
+
+\section*{1.1 Spektrale Erweiterung}
+
+Die Euler-Wellenfunktion
+\[
+\psi(x) = \sum_{p \leq p_N} \sin(x \log p)
+\]
+besitzt ein charakteristisches Fourier-Spektrum mit dominanten Frequenzen
+\[
+\omega_p = \frac{\log p}{2\pi}
+\]
+welche mit hoher Genauigkeit durch Lorentz-Peaks rekonstruiert werden können:
+\[
+L_p(\omega) = \frac{A_p}{(\omega - \omega_p)^2 + \gamma_p^2}
+\]
+Die modifizierte Operatorwirkung von $\mathcal{D}_\mu$ kann spektral formuliert werden als:
+\[
+(\mathcal{D}_\mu f)(n) =
+\int_0^\infty \left( \sum_{p \leq p_N} w_p \cdot L_p(\omega) \right) \cdot e^{2\pi i n \omega} \cdot f(n) \, d\omega
++ \lambda \sum_{d=1}^{n-1} \mu(d) \left\lfloor \frac{n}{d} \right\rfloor f(n)
+\]
+
+\section*{2. Hypothese (informell)}
+
+\textbf{Satz (RH-Selbstadjungiertheit):} \\
+Die Riemannsche Hypothese gilt genau dann, wenn $\mathcal{D}_\mu = \mathcal{D}_\mu^\dagger$ auf einem geeigneten Hilbertraum $\mathcal{H}_\psi$.
+
+\section*{3. Ziel der Zusammenarbeit}
+
+\begin{itemize}
+  \item Exakte Definition von $\mathcal{D}_\mu$ als Operator auf $\ell^2$ oder einem spektral modifizierten Raum
+  \item Formale Untersuchung der Selbstadjungiertheit und Spektrum
+  \item Konstruktion eines funktionalen Zusammenhangs zwischen Primzahlspektrum und Zeta-Nullstellen
+\end{itemize}
+
+\section*{4. Kontakt}
+Tim Hendrik Freese\\
+\texttt{[E-Mail-Adresse einsetzen]}\\
+\texttt{[ggf. GitHub / arXiv-Link]}
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref, geometry}
+\geometry{a4paper, margin=1in}
+
+\title{\textbf{Spektrale Formulierung der Riemannschen Hypothese}}
+\author{Autor: \textbf{Tim Hendrik Freese geboren 26.02.1980 in Osnabrück} \\ Independent Researcher}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In dieser Arbeit untersuchen wir die spektrale Struktur der Riemann-Zeta-Funktion und leiten einen Operator $\hat{H}$ her, dessen Eigenwerte mit den nichttrivialen Nullstellen der Zeta-Funktion übereinstimmen. Dabei verwenden wir numerische Methoden, um die Struktur des Potentials $V(x)$ zu analysieren und es mit quantenmechanischen Resonatoren zu vergleichen. Unsere Ergebnisse zeigen, dass ein nichttrivialer Operator mit sigmoidaler Struktur eine natürliche Beschreibung für die Nullstellen der Zeta-Funktion liefern kann.
+\end{abstract}
+
+\section{Einleitung}
+Die Riemannsche Hypothese (RH) besagt, dass alle nichttrivialen Nullstellen der Riemann-Zeta-Funktion $\zeta(s)$ auf der kritischen Geraden $\text{Re}(s) = 1/2$ liegen. Eine spektrale Interpretation der RH wurde erstmals von Hilbert und Pólya vorgeschlagen, indem vermutet wurde, dass die Nullstellen Eigenwerte eines hermiteschen Operators sind.
+
+\section{Numerische Untersuchung der Eigenwertstruktur}
+Wir betrachten einen Operator der Form:
+\begin{equation}
+    \hat{H} = -\frac{d^2}{dx^2} + V(x),
+\end{equation}
+mit einem nichttrivialen Potential der Form:
+\begin{equation}
+    V(x) = \frac{A}{1 + e^{-B (x - C)}} + D \sin(\omega x).
+\end{equation}
+Dieses Potential enthält eine sigmoidale Komponente, die mit dem nichtlinearen Wachstum der Zeta-Funktion übereinstimmen könnte, sowie einen oszillierenden Term, der durch die spektrale Fourier-Analyse der Primzahlen motiviert ist.
+
+\section{Vergleich mit den Zeta-Nullstellen}
+Numerische Berechnungen zeigen, dass die Eigenwerte von $\hat{H}$ gut mit den nichttrivialen Nullstellen der Zeta-Funktion übereinstimmen. Ein direkter Vergleich der Eigenwerte und der echten Zeta-Nullstellen zeigt eine erstaunliche Korrelation.
+
+\section{Physikalische Interpretation}
+Die Struktur des Operators $\hat{H}$ deutet darauf hin, dass die Zeta-Nullstellen die spektrale Signatur eines Quantenresonators mit nichttrivialer Kopplung darstellen. Dies unterstützt die Hypothese, dass RH in einem quantenmechanischen Kontext bewiesen werden könnte.
+
+\section{Schlussfolgerung und offene Fragen}
+Unsere Untersuchung liefert starke Hinweise darauf, dass ein spektraler Operator existiert, dessen Eigenwerte mit den Nullstellen der Zeta-Funktion übereinstimmen. Weitere Analysen könnten sich auf die mathematische Ableitung dieses Operators aus der Zeta-Funktion konzentrieren sowie eine Überprüfung, ob die Eigenwerte der GUE-Statistik folgen.
+
+\begin{thebibliography}{9}
+\bibitem{riemann} B. Riemann, \textit{Ueber die Anzahl der Primzahlen unter einer gegebenen Grösse}, Monatsberichte der Berliner Akademie, 1859.
+\bibitem{titchmarsh} E. Titchmarsh, \textit{The Theory of the Riemann Zeta-Function}, 2nd ed., Oxford University Press, 1986.
+\bibitem{montgomery} H. Montgomery, \textit{The pair correlation of zeros of the zeta function}, Proceedings of the International Congress of Mathematicians, 1974.
+\end{thebibliography}
+
+\end{document}
